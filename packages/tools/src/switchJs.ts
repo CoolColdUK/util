@@ -3,7 +3,7 @@ import {resolve} from 'path';
 import switchPackageTsJs from './actions/switchPackageTsJs';
 
 async function main() {
-  switchPackageTsJs(resolve(__dirname, '../../packages'), false);
+  switchPackageTsJs(resolve(__dirname, '../../packages'), true);
 }
 
 main();
