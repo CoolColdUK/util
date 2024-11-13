@@ -18,9 +18,9 @@
     "lint": "lerna exec -- npm run lint",
     "prepare": "husky",
     "release:all": "npm i && npm run lint --fix && npm run test && npm run build && npm run release:minor",
-    "release:major": "lerna version major",
-    "release:minor": "lerna version minor",
-    "release:patch": "lerna version patch",
+    "release:major": "lerna version major -y",
+    "release:minor": "lerna version minor -y",
+    "release:patch": "lerna version patch -y",
     "test": "npm run test:unit",
     "test:unit": "lerna exec -- npm run test:unit"
   },

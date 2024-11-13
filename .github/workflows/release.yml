@@ -88,13 +88,13 @@ jobs:
       - name: Build
         run: npm run ci:build
       - name: bump patch
-        if: ${{inputs.version}}=='patch'
+        if: inputs.version=='patch'
         run: npm run release:patch
       - name: bump minor
-        if: ${{inputs.version}}=='minor'
+        if: inputs.version=='minor'
         run: npm run release:minor
       - name: bump major
-        if: ${{inputs.version}}=='major'
+        if: inputs.version=='major'
         run: npm run release:major
       - name: Pack
         run: npm run pack
