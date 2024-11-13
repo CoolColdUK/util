@@ -1,14 +1,19 @@
 {
   "private": false,
-  "name": "@algo/tools",
+  "name": "@coolcolduk/bin",
   "version": "1.0.0",
   "license": "ISC",
-  "main": "src/indexed.ts",
+  "main": "src/index.ts",
+  "bin": {
+    "toJs": "./dist/switchJs.js",
+    "toTs": "./dist/switchTs.js"
+  },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsc",
+    "build:main": "tsc",
+    "build:package": "echo skip",
     "check": "tsc --noEmit",
     "clean:dist": "rm -rf dist && rm -rf tsconfig.tsbuildinfo",
     "info": "ts-node ./src/info.ts",
@@ -16,17 +21,15 @@
     "test": "echo not tested",
     "test:int": "echo not tested",
     "test:unit": "echo not tested",
-    "toJs": "ts-node ./src/switchTs.ts -j",
+    "toJs": "ts-node ./src/switchJs.ts",
     "toTs": "ts-node ./src/switchTs.ts"
   },
   "dependencies": {
-    "prettier-package-json": "^2.8.0",
-    "yargs": "^17.7.2"
+    "prettier-package-json": "^2.8.0"
   },
   "devDependencies": {
     "@coolcolduk/eslint-config": "latest",
-    "@coolcolduk/ts-config": "latest",
-    "@types/yargs": "^17.0.32"
+    "@coolcolduk/ts-config": "latest"
   },
   "eslintConfig": {
     "extends": [
