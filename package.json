@@ -16,6 +16,7 @@
     "clean:dist": "lerna run clean:dist",
     "format": "prettier --ignore-unknown --write ./packages/**/*.{ts,tsx}",
     "lint": "lerna exec -- npm run lint",
+    "pack": "lerna run pack",
     "prepare": "husky",
     "release:all": "npm i && npm run lint --fix && npm run test && npm run build && npm run release:minor",
     "release:major": "lerna version major -y",
