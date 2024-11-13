@@ -1,0 +1,39 @@
+{
+  "private": false,
+  "name": "@algo/tools",
+  "version": "1.0.0",
+  "license": "ISC",
+  "main": "src/indexed.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "check": "tsc --noEmit",
+    "clean:dist": "rm -rf dist && rm -rf tsconfig.tsbuildinfo",
+    "info": "ts-node ./src/info.ts",
+    "lint": "eslint --resolve-plugins-relative-to . --fix ./src/**/*.{ts,tsx}",
+    "test": "echo not tested",
+    "test:int": "echo not tested",
+    "test:unit": "echo not tested",
+    "toJs": "ts-node ./src/switchTs.ts -j",
+    "toTs": "ts-node ./src/switchTs.ts"
+  },
+  "dependencies": {
+    "prettier-package-json": "^2.8.0",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "@coolcolduk/eslint-config": "latest",
+    "@coolcolduk/ts-config": "latest",
+    "@types/yargs": "^17.0.32"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@coolcolduk/eslint-config"
+    ],
+    "rules": {
+      "no-console": "off"
+    }
+  }
+}
