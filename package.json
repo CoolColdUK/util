@@ -16,7 +16,10 @@
     "format": "prettier --ignore-unknown --write ./packages/**/*.{ts,tsx}",
     "lint": "lerna exec -- npm run lint",
     "prepare": "husky",
-    "release": "npm i && npm run lint --fix && npm run test && npm run build && lerna version minor",
+    "release:all": "npm i && npm run lint --fix && npm run test && npm run build && npm run release:minor",
+    "release:major": "lerna version major",
+    "release:minor": "lerna version minor",
+    "release:patch": "lerna version patch",
     "test": "npm run test:unit",
     "test:unit": "lerna exec -- npm run test:unit"
   },
