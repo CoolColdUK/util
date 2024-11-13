@@ -37,3 +37,11 @@ jobs:
           package: './packages/util'
           access: public
       - run: echo ${{ steps.util.outputs.id }}
+
+      - uses: JS-DevTools/npm-publish@v3.0.1
+        id: tools
+        with:
+          token: ${{ secrets.NPM_AUTH_TOKEN }}
+          package: './packages/tools'
+          access: public
+      - run: echo ${{ steps.util.outputs.id }}
