@@ -10,6 +10,7 @@ export default function switchPackageTsJs(absolutePath: string, isJs: boolean) {
     console.info('No package found');
     return false;
   }
+  console.info('package found', packages);
 
   packages.forEach((p) => {
     const data = readJsonFile(p);

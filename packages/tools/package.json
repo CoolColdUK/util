@@ -6,7 +6,9 @@
   "main": "src/index.ts",
   "bin": {
     "toJs": "./dist/switchJs.js",
-    "toTs": "./dist/switchTs.js"
+    "toJsPackages": "./dist/switchJsPackages.js",
+    "toTs": "./dist/switchTs.js",
+    "toTsPackages": "./dist/switchTsPackages.js"
   },
   "files": [
     "dist"
