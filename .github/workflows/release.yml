@@ -134,6 +134,14 @@ jobs:
             ./packages/*.tgz
 
       - uses: JS-DevTools/npm-publish@v3.0.1
+        id: typescript-util
+        with:
+          token: ${{ secrets.NPM_AUTH_TOKEN }}
+          package: './packages/typescript-util'
+          access: public
+      - run: echo ${{ steps.typescript-util.outputs.id }}
+
+      - uses: JS-DevTools/npm-publish@v3.0.1
         id: util
         with:
           token: ${{ secrets.NPM_AUTH_TOKEN }}
