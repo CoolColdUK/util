@@ -7,4 +7,5 @@ export * from './promise';
 export * from './retry';
 export * from './safe';
 export * from './sleep';
+export * from './trythrow';
 export * from './tube';
