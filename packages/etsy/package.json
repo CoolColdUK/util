@@ -24,6 +24,7 @@
   },
   "types": "dist/index.d.ts",
   "dependencies": {
+    "@coolcolduk/util": "^1.14.0",
     "express": "^4.21.2",
     "node-fetch": "^3.3.2"
   },
