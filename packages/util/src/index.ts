@@ -11,3 +11,4 @@ export * from './sleep';
 export * from './string';
 export * from './trythrow';
 export * from './tube';
+export * from './url';
