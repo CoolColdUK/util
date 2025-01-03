@@ -1,5 +1,5 @@
 import {RequestHandler} from 'express';
-import {API_ENDPOINT} from '../constants';
+import {ETSY_API_ENDPOINT} from '../constants';
 
 export const createEndpointPing: (apiKey: string) => RequestHandler = (apiKey) => async (_req, res) => {
   const requestOptions = {
@@ -9,7 +9,7 @@ export const createEndpointPing: (apiKey: string) => RequestHandler = (apiKey) =
     },
   };
 
-  const response = await fetch(API_ENDPOINT + '/application/openapi-ping', requestOptions);
+  const response = await fetch(ETSY_API_ENDPOINT + '/application/openapi-ping', requestOptions);
 
   if (response.ok) {
     const data = await response.json();

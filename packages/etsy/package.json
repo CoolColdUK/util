@@ -14,7 +14,7 @@
     "build:package": "echo skip",
     "check": "tsc --noEmit",
     "clean:dist": "rm -rf dist && rm -rf tsconfig.tsbuildinfo",
-    "dev": "node --env-file=.env -r ts-node/register ./src/index.ts",
+    "dev": "node --env-file=.env -r ts-node/register ./src/server.ts",
     "lint": "eslint ./src/**/*.{ts,tsx}",
     "lint:fix": "eslint --fix ./src/**/*.{ts,tsx}",
     "pack": "npm pack --pack-destination=../",
