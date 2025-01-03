@@ -1,8 +1,8 @@
 import {RequestHandler} from 'express';
-import {etsyPing} from '../helper/request/etsyPing';
+import pingEtsy from '../helper/request/pingEtsy';
 
 export const createEndpointPing: (apiKey: string) => RequestHandler = (apiKey) => async (_req, res) => {
-  const response = await etsyPing(apiKey);
+  const response = await pingEtsy(apiKey);
 
   if (response.ok) {
     const data = await response.json();

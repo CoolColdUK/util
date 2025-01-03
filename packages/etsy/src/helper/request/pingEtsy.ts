@@ -1,6 +1,6 @@
 import {ETSY_API_ENDPOINT} from '../../constants';
 
-export function etsyPing(apiKey: string) {
+export default function pingEtsy(apiKey: string) {
   const requestOptions = {
     method: 'GET',
     headers: {
