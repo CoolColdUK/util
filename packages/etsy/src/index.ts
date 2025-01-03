@@ -1,6 +1,7 @@
 // Import the express library
 import express from 'express';
-import {PORT} from './constants';
+import {API_KEY, PORT} from './constants';
+import {createEndpointPing} from './endpoint/createEndpointPing';
 
 const app = express();
 
@@ -8,6 +9,7 @@ const app = express();
 app.get('/', (_req, res) => {
   res.send('Hello, world!');
 });
+app.get('/ping', createEndpointPing(API_KEY));
 
 // Start the server on port 3003
 app.listen(PORT, () => {
