@@ -1,12 +1,14 @@
+import axios from 'axios';
 import {ETSY_API_ENDPOINT} from '../../constants';
+import getEtsyRequestAxiosConfig from '../getEtsyRequestAxiosConfig';
 
-export default function pingEtsy(apiKey: string) {
-  const requestOptions = {
-    method: 'GET',
-    headers: {
-      'x-api-key': apiKey,
-    },
-  };
+export interface PingEtsyResponse {
+  application_id: number;
+}
 
-  return fetch(ETSY_API_ENDPOINT + '/application/openapi-ping', requestOptions);
+export function pingEtsy(apiKey: string) {
+  return axios.get<PingEtsyResponse>(
+    ETSY_API_ENDPOINT + '/application/openapi-ping',
+    getEtsyRequestAxiosConfig({apiKey}),
+  );
 }
