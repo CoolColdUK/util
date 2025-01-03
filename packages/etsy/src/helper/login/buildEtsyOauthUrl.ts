@@ -1,17 +1,22 @@
-import {castArray, createPKCECodeVerifier} from '@coolcolduk/util';
-import createPkceCodeChallenge from '@coolcolduk/util/dist/pkceCodeChallenge/createPkceCodeChallenge';
+import {buildUrlQuery, castArray, PkceData} from '@coolcolduk/util';
 import {EtsyScopeEnum} from '../../enum/EtsyScopeEnum';
 
-export default function buildEtsyOauthUrl(
+export function buildEtsyOauthUrl(
   apiKey: string,
   callback: string,
   scope: EtsyScopeEnum | EtsyScopeEnum[],
-  state?: string,
-  codeChallenge?: string,
+  pkceData: PkceData,
 ) {
-  const verifier = createPKCECodeVerifier();
-  const newState = state || verifier.state;
-  const newCodeChallenge = codeChallenge || createPkceCodeChallenge(verifier.codeVerifier);
   const scopeStr = castArray(scope).join('%20');
-  return `https://www.etsy.com/oauth/connect?response_type=code&redirect_uri=${callback}&scope=${scopeStr}&client_id=${apiKey}&state=${newState}&code_challenge=${newCodeChallenge}&code_challenge_method=S256`;
+  const query = {
+    response_type: 'code',
+    redirect_uri: callback,
+    scope: scopeStr,
+    client_id: apiKey,
+    state: pkceData.state,
+    code_challenge: pkceData.codeChallenge,
+    code_challenge_method: 'S256',
+  };
+
+  return buildUrlQuery('https://www.etsy.com/oauth/connect', query);
 }
