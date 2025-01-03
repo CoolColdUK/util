@@ -1,0 +1,48 @@
+{
+  "private": false,
+  "name": "@coolcolduk/etsy",
+  "version": "1.14.0",
+  "description": "etsy related function",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build:main": "tsc",
+    "build:package": "echo skip",
+    "check": "tsc --noEmit",
+    "clean:dist": "rm -rf dist && rm -rf tsconfig.tsbuildinfo",
+    "dev": "node --env-file=.env -r ts-node/register ./src/index.ts",
+    "lint": "eslint ./src/**/*.{ts,tsx}",
+    "lint:fix": "eslint --fix ./src/**/*.{ts,tsx}",
+    "pack": "npm pack --pack-destination=../",
+    "test": "jest",
+    "test:int": "jest --testMatch **/*.spec.ts",
+    "test:unit": "jest --testMatch **/*.test.ts"
+  },
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@coolcolduk/eslint-config": "latest",
+    "@coolcolduk/jest-config": "latest",
+    "@coolcolduk/ts-config": "latest",
+    "@types/express": "^4"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@coolcolduk/eslint-config"
+    ],
+    "rules": {
+      "no-console": "off"
+    }
+  },
+  "jest": {
+    "preset": "@coolcolduk/jest-config",
+    "rootDir": "./src"
+  }
+}
