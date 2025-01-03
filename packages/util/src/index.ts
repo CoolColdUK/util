@@ -3,6 +3,7 @@ export * from './delay';
 export * from './enum';
 export * from './number';
 export * from './object';
+export * from './pkceCodeChallenge';
 export * from './promise';
 export * from './retry';
 export * from './safe';
