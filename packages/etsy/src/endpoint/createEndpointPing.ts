@@ -1,15 +1,8 @@
 import {RequestHandler} from 'express';
-import {ETSY_API_ENDPOINT} from '../constants';
+import {etsyPing} from '../helper/request/etsyPing';
 
 export const createEndpointPing: (apiKey: string) => RequestHandler = (apiKey) => async (_req, res) => {
-  const requestOptions = {
-    method: 'GET',
-    headers: {
-      'x-api-key': apiKey,
-    },
-  };
-
-  const response = await fetch(ETSY_API_ENDPOINT + '/application/openapi-ping', requestOptions);
+  const response = await etsyPing(apiKey);
 
   if (response.ok) {
     const data = await response.json();
