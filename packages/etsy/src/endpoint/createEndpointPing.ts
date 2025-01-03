@@ -1,12 +1,14 @@
 import {RequestHandler} from 'express';
-import pingEtsy from '../helper/request/pingEtsy';
+import {pingEtsy} from '../helper/request/pingEtsy';
 
+/**
+ * end point used locally for testing and example
+ * @returns
+ */
 export const createEndpointPing: (apiKey: string) => RequestHandler = (apiKey) => async (_req, res) => {
   const response = await pingEtsy(apiKey);
-
-  if (response.ok) {
-    const data = await response.json();
-    res.send(data);
+  if (response.status === 200) {
+    res.send(response.data);
   } else {
     res.send('oops');
   }
