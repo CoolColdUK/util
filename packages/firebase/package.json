@@ -1,0 +1,47 @@
+{
+  "private": false,
+  "name": "@coolcolduk/firebase",
+  "version": "1.14.0",
+  "description": "firebase utils",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build:main": "tsc",
+    "build:package": "echo skip",
+    "check": "tsc --noEmit",
+    "clean:dist": "rm -rf dist && rm -rf tsconfig.tsbuildinfo",
+    "lint": "eslint ./src/**/*.{ts,tsx}",
+    "lint:fix": "eslint --fix ./src/**/*.{ts,tsx}",
+    "pack": "npm pack --pack-destination=../",
+    "test": "jest",
+    "test:int": "jest --testMatch **/*.spec.ts",
+    "test:unit": "jest --testMatch **/*.test.ts"
+  },
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "express": "^4.21.2",
+    "firebase-admin": "^13.0.2"
+  },
+  "devDependencies": {
+    "@coolcolduk/eslint-config": "latest",
+    "@coolcolduk/jest-config": "latest",
+    "@coolcolduk/ts-config": "latest",
+    "@types/express": "^4.17.21"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@coolcolduk/eslint-config"
+    ],
+    "rules": {
+      "no-console": "off"
+    }
+  },
+  "jest": {
+    "preset": "@coolcolduk/jest-config",
+    "rootDir": "./src"
+  }
+}
