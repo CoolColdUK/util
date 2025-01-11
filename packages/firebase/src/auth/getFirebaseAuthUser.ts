@@ -1,11 +1,11 @@
-import {Auth} from 'firebase-admin/auth';
+import {Auth, DecodedIdToken} from 'firebase-admin/auth';
 
 /**
  * Verify token
  * @returns decoded id token if valid, undefined otherwise
  */
-export async function getFirebaseAuthUser(firebaseAuth: Auth, token?: string) {
-  if (!token) return false;
+export async function getFirebaseAuthUser(firebaseAuth: Auth, token?: string): Promise<DecodedIdToken | undefined> {
+  if (!token) return undefined;
   try {
     return await firebaseAuth.verifyIdToken(token);
   } catch (error) {
