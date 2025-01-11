@@ -9,6 +9,7 @@
 # 2. Open Release Page
 # 3. Generate Release Note
 name: Release
+run-name: '${{inputs.version }} - ${{ inputs.description }}'
 
 on:
   pull_request:
@@ -27,6 +28,11 @@ on:
           - major
           - minor
           - patch
+
+      description:
+        description: 'brief description'
+        required: true
+        type: string
 
 jobs:
   # check:
