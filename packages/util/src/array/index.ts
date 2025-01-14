@@ -1,4 +1,6 @@
 export * from './castArray';
+export * from './combineArraysObject';
+export * from './combineArraysString';
 export * from './extractArrayLast';
 export * from './fillerArray';
 export * from './filterArrayUndefined';
