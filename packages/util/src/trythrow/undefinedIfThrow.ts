@@ -8,7 +8,7 @@ import {MaybePromise} from '@coolcolduk/typescript-util';
  */
 export async function undefinedIfThrow<T>(
   fn: () => MaybePromise<T>,
-  handleError?: (e: any) => Promise<void>,
+  handleError?: (e: any) => MaybePromise<void>,
 ): Promise<T | undefined> {
   try {
     const rtn = await fn();
