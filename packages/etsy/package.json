@@ -24,7 +24,7 @@
   },
   "types": "dist/index.d.ts",
   "dependencies": {
-    "@coolcolduk/util": "^1.14.0",
+    "@coolcolduk/util": "^1.18.0",
     "axios": "^1.7.9",
     "express": "^4.21.2",
     "zod": "^3.24.1"
