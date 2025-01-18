@@ -1,5 +1,5 @@
 // Import the express library
-import {buildPkce} from '@coolcolduk/util';
+import {buildPkce, castArray, mapStringToEnumValue} from '@coolcolduk/util';
 import express from 'express';
 import {ETSY_API_KEY, OAUTH_CALLBACK, OAUTH_REDIRECT, PORT, SERVER_URL, stateStore} from './constants';
 import {createEndpointPing} from './endpoint/createEndpointPing';
@@ -17,10 +17,14 @@ app.get('/', (_req, res) => {
 
 app.get('/ping', createEndpointPing(ETSY_API_KEY));
 
-app.get(OAUTH_REDIRECT, (_req, res) => {
+app.get(OAUTH_REDIRECT, (req, res) => {
   const data = buildPkce();
   stateStore['state'] = data;
-  res.redirect(buildEtsyOauthUrl(ETSY_API_KEY, SERVER_URL + OAUTH_REDIRECT, EtsyScopeEnum.EMAIL_READ, data));
+  const scope = (castArray(req.query['scope']).join(',') || '').split(',');
+  const scopeFiltered = scope.map((v) => mapStringToEnumValue(EtsyScopeEnum, v)).filter((v) => !!v);
+  // console.log(scopeFiltered);
+  // res.send(scopeFiltered);
+  res.redirect(buildEtsyOauthUrl(ETSY_API_KEY, SERVER_URL + OAUTH_REDIRECT, scopeFiltered, data));
 });
 
 app.get(OAUTH_CALLBACK, (req, res) => {
