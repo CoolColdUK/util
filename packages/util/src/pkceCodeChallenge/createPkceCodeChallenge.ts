@@ -1,7 +1,5 @@
-import {createHash} from 'crypto';
 import {encodeBase64URL} from './encodeBase64URL';
-
-const sha256 = (buffer: string) => createHash('sha256').update(buffer).digest();
+import sha256 from './sha256';
 
 /**
  * Create code challenge from code verifier

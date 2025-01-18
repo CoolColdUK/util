@@ -1,5 +1,6 @@
 import createPkceCodeChallenge from './createPkceCodeChallenge';
-import {createPKCECodeVerifier} from './createPkceCodeVerifier';
+import createPKCECodeVerifier from './createPkceCodeVerifier';
+import createPkceState from './createPkceState';
 
 export interface PkceData {
   state: string;
@@ -11,7 +12,10 @@ export interface PkceData {
  * build pkce data
  * @returns
  */
-export function buildPkce(): PkceData {
-  const verifier = createPKCECodeVerifier();
-  return {...verifier, codeChallenge: createPkceCodeChallenge(verifier.codeVerifier)};
+export function buildPkce(key: string): PkceData {
+  const codeVerifier = createPKCECodeVerifier();
+  const codeChallenge = createPkceCodeChallenge(codeVerifier);
+
+  const state = createPkceState(key, JSON.stringify({codeVerifier, codeChallenge}));
+  return {codeVerifier, codeChallenge, state};
 }
