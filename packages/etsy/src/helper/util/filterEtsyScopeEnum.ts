@@ -1,5 +1,6 @@
 import {MaybeArray} from '@coolcolduk/typescript-util';
-import {castArray, mapStringToEnumValue} from '@coolcolduk/util';
+import {castArray, filterArrayUndefined, mapStringToEnumValue} from '@coolcolduk/util';
+import {Request} from 'express';
 import {EtsyScopeEnum} from '../../enum/EtsyScopeEnum';
 
 /**
@@ -7,9 +8,10 @@ import {EtsyScopeEnum} from '../../enum/EtsyScopeEnum';
  * @param queryScope
  * @returns
  */
-export function filterEtsyScopeEnum(queryScope: MaybeArray<string>) {
-  const scope = castArray(queryScope || '')
-    .join(',')
-    .split(',');
-  return scope.map((v) => mapStringToEnumValue(EtsyScopeEnum, v)).filter((v) => !!v);
+export function filterEtsyScopeEnum(queryScope?: MaybeArray<Request['query'] | string>): EtsyScopeEnum[] {
+  const scopeStr = castArray(queryScope || '').join(',');
+  if (typeof scopeStr !== 'string') throw new Error('scope is not string');
+  const scopeArr = scopeStr.split(',');
+  const filteredScopeArr = scopeArr.map((v) => mapStringToEnumValue(EtsyScopeEnum, v));
+  return filterArrayUndefined(filteredScopeArr);
 }
