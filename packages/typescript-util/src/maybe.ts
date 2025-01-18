@@ -12,3 +12,8 @@ export type Maybe<T> = T | null;
  * value may or may not exists
  */
 export type May<T> = T | undefined;
+
+/**
+ * Make it array or not array
+ */
+export type MaybeArray<T> = T | T[];
