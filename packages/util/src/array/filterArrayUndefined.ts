@@ -3,6 +3,6 @@
  * @param data
  * @returns
  */
-export function filterArrayUndefined<T>(data: (T | undefined)[]) {
+export function filterArrayUndefined<T>(data: (T | undefined)[]): T[] {
   return data.filter((d) => d !== undefined) as T[];
 }
