@@ -140,6 +140,30 @@ jobs:
             ./packages/*.tgz
 
       - uses: CoolColdUK/npm-publish@v3.1.1
+        id: etsy
+        with:
+          token: ${{ secrets.NPM_AUTH_TOKEN }}
+          package: './packages/etsy'
+          access: public
+      - run: echo ${{ steps.etsy.outputs.id }}
+
+      - uses: CoolColdUK/npm-publish@v3.1.1
+        id: firebase
+        with:
+          token: ${{ secrets.NPM_AUTH_TOKEN }}
+          package: './packages/firebase'
+          access: public
+      - run: echo ${{ steps.firebase.outputs.id }}
+
+      - uses: CoolColdUK/npm-publish@v3.1.1
+        id: tools
+        with:
+          token: ${{ secrets.NPM_AUTH_TOKEN }}
+          package: './packages/tools'
+          access: public
+      - run: echo ${{ steps.tools.outputs.id }}
+
+      - uses: CoolColdUK/npm-publish@v3.1.1
         id: typescript-util
         with:
           token: ${{ secrets.NPM_AUTH_TOKEN }}
@@ -154,23 +178,6 @@ jobs:
           package: './packages/util'
           access: public
       - run: echo ${{ steps.util.outputs.id }}
-
-      - uses: CoolColdUK/npm-publish@v3.1.1
-        id: tools
-        with:
-          token: ${{ secrets.NPM_AUTH_TOKEN }}
-          package: './packages/tools'
-          access: public
-      - run: echo ${{ steps.tools.outputs.id }}
-
-      - uses: CoolColdUK/npm-publish@v3.1.1
-        id: firebase
-        with:
-          token: ${{ secrets.NPM_AUTH_TOKEN }}
-          package: './packages/firebase'
-          access: public
-      - run: echo ${{ steps.firebase.outputs.id }}
-
       # - uses: CoolColdUK/github-script@v7
       #   if: github.event_name != 'workflow_dispatch'
       #   with:
