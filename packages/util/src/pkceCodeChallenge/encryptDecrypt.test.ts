@@ -24,7 +24,13 @@ describe('Encryption and Decryption', () => {
     const plaintext = 'This is a secret message!';
     const encrypted = encrypt(key1, plaintext);
 
-    const tampered = encrypted.replace(/.$/, 'A');
+    // Tamper with the authentication tag (middle part of the encrypted text)
+    const parts = encrypted.split(':');
+    if (parts.length !== 3) {
+      throw new Error('Invalid encrypted text format');
+    }
+    parts[1] = (parts[1] as string).replace(/./, 'A'); // Modify the auth tag
+    const tampered = parts.join(':');
 
     expect(() => decrypt(key1, tampered)).toThrow('Unsupported state or unable to authenticate data');
   });
