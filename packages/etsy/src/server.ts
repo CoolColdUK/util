@@ -20,7 +20,6 @@ app.get('/ping', createEndpointPing(ETSY_API_KEY));
 
 app.get(OAUTH_REDIRECT, (req, res) => {
   const data = buildPkce(key);
-  console.log('input', data);
   const scope = filterEtsyScopeEnum(req.query['scope']);
 
   res.redirect(buildEtsyOauthUrl(ETSY_API_KEY, SERVER_URL + OAUTH_CALLBACK, scope, data));
@@ -32,7 +31,6 @@ app.get(OAUTH_CALLBACK, (req, res) => {
   if (!state || typeof state !== 'string') throw new Error('state not found');
 
   const output = extractPkce(key, state);
-  console.log('output', output, ETSY_API_KEY, SERVER_URL + OAUTH_CALLBACK, output.codeVerifier, code);
   runEndpointOauthCallback(res, ETSY_API_KEY, SERVER_URL + OAUTH_CALLBACK, output.codeVerifier, code);
 });
 
