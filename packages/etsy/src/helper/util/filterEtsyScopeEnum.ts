@@ -13,5 +13,6 @@ export function filterEtsyScopeEnum(queryScope?: MaybeArray<Request['query'] | s
   if (typeof scopeStr !== 'string') throw new Error('scope is not string');
   const scopeArr = scopeStr.split(',');
   const filteredScopeArr = scopeArr.map((v) => mapStringToEnumValue(EtsyScopeEnum, v));
-  return filterArrayUndefined(filteredScopeArr);
+  // minimum email read
+  return [EtsyScopeEnum.EMAIL_READ, ...filterArrayUndefined(filteredScopeArr)];
 }
