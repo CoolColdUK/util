@@ -7,8 +7,3 @@ export const OAUTH_CALLBACK = '/oauth/callback';
 export const ETSY_API_KEY = process.env['ETSY_API_KEY'] || '';
 export const ETSY_API_SECRET = process.env['ETSY_API_SECRET'] || '';
 export const ETSY_API_ENDPOINT = 'https://api.etsy.com/v3';
-
-/**
- * saving the state
- */
-export const stateStore: Record<string, any> = {};

@@ -1,5 +1,4 @@
 import {Response} from 'express';
-import {stateStore} from '../constants';
 import {getEtsyAccessToken} from '../helper';
 
 /**
@@ -19,7 +18,13 @@ export const runEndpointOauthCallback = async (
 
   if (response.status === 200) {
     const data = response.data;
-    stateStore['token'] = data;
+    /**
+     * 	
+access_token	"123456789.xxxxx....."
+token_type	"Bearer"
+expires_in	3600
+refresh_token	"123456789.xxxxx...."
+     */
     res.send(data);
   } else {
     res.send('oops');

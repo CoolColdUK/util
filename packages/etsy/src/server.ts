@@ -1,12 +1,13 @@
 // Import the express library
-import {buildPkce} from '@coolcolduk/util';
+import {buildPkce, extractPkce} from '@coolcolduk/util';
 import express from 'express';
-import {ETSY_API_KEY, OAUTH_CALLBACK, OAUTH_REDIRECT, PORT, SERVER_URL, stateStore} from './constants';
+import {ETSY_API_KEY, OAUTH_CALLBACK, OAUTH_REDIRECT, PORT, SERVER_URL} from './constants';
 import {createEndpointPing} from './endpoint/createEndpointPing';
 import {runEndpointOauthCallback} from './endpoint/runEndpointOauthCallback';
 import {buildEtsyOauthUrl} from './helper/login/buildEtsyOauthUrl';
 import {filterEtsyScopeEnum} from './helper/util/filterEtsyScopeEnum';
 
+const key = 'ergheioghoe333rijgeirgj43wt3w';
 const app = express();
 
 // Send a "Hello World!" response to a default get request
@@ -18,22 +19,21 @@ app.get('/', (_req, res) => {
 app.get('/ping', createEndpointPing(ETSY_API_KEY));
 
 app.get(OAUTH_REDIRECT, (req, res) => {
-  const data = buildPkce();
-  stateStore['state'] = data;
+  const data = buildPkce(key);
+  console.log('input', data);
   const scope = filterEtsyScopeEnum(req.query['scope']);
-  // console.log(scopeFiltered);
-  // res.send(scopeFiltered);
+
   res.redirect(buildEtsyOauthUrl(ETSY_API_KEY, SERVER_URL + OAUTH_CALLBACK, scope, data));
 });
 
 app.get(OAUTH_CALLBACK, (req, res) => {
-  runEndpointOauthCallback(
-    res,
-    ETSY_API_KEY,
-    SERVER_URL + OAUTH_REDIRECT,
-    stateStore['state']?.codeVerifier || '',
-    (req.query['code'] as string) || '',
-  );
+  const {state, code} = req.query;
+  if (!code || typeof code !== 'string') throw new Error('code not found');
+  if (!state || typeof state !== 'string') throw new Error('state not found');
+
+  const output = extractPkce(key, state);
+  console.log('output', output, ETSY_API_KEY, SERVER_URL + OAUTH_CALLBACK, output.codeVerifier, code);
+  runEndpointOauthCallback(res, ETSY_API_KEY, SERVER_URL + OAUTH_CALLBACK, output.codeVerifier, code);
 });
 
 // Start the server on port 3003
