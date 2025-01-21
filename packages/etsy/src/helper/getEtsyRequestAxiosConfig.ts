@@ -4,6 +4,7 @@ import {ETSY_API_ENDPOINT} from '../constants';
 
 export interface RequestOption {
   apiKey?: string;
+  accessToken?: string;
 }
 export default function getEtsyRequestAxiosConfig(options: RequestOption = {}): AxiosRequestConfig {
   return {
@@ -11,6 +12,7 @@ export default function getEtsyRequestAxiosConfig(options: RequestOption = {}): 
     headers: {
       'Content-Type': 'application/json',
       ...buildObjectWhenExists('x-api-key', options.apiKey),
+      ...buildObjectWhenExists('Authorization', options.accessToken ? `Bearer ${options.accessToken}` : undefined),
     },
   };
 }
