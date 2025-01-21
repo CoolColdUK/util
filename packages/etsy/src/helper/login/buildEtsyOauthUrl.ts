@@ -5,7 +5,7 @@ export function buildEtsyOauthUrl(
   apiKey: string,
   callback: string,
   scope: EtsyScopeEnum | EtsyScopeEnum[],
-  pkceData: PkceData,
+  pkceData: PkceData<any>,
 ) {
   const scopeStr = castArray(scope).join('%20');
   const query = {
