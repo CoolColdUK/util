@@ -1,13 +1,19 @@
+import {Maybe} from '@coolcolduk/typescript-util';
 import axios from 'axios';
 import {ETSY_API_ENDPOINT} from '../../../constants';
 import getEtsyRequestAxiosConfig from '../../getEtsyRequestAxiosConfig';
 
 export interface GetEtsyUserResponse {
+  /** The numeric ID of a user. This number is also a valid shop ID for the user's shop. */
   user_id: number;
-  primary_email: string;
-  first_name: string;
-  last_name: string;
-  image_url_75x75: string;
+  /** An email address string for the user's primary email address. Access to this field is granted on a case by case basis for third-party integrations that require full access */
+  primary_email: Maybe<string>;
+  /** The user's first name. */
+  first_name: Maybe<string>;
+  /** The user's last name. */
+  last_name: Maybe<string>;
+  /** The user's avatar URL. */
+  image_url_75x75: Maybe<string>;
 }
 
 /**
