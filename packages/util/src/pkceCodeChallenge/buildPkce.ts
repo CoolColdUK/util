@@ -17,6 +17,6 @@ export function buildPkce<T extends Record<string, any>>(key: string, meta?: T):
   const codeVerifier = createPKCECodeVerifier();
   const codeChallenge = createPkceCodeChallenge(codeVerifier);
 
-  const state = createPkceState(key, JSON.stringify({codeVerifier, codeChallenge}));
-  return {codeVerifier, codeChallenge, state, meta};
+  const state = createPkceState(key, JSON.stringify({codeVerifier, codeChallenge, meta}));
+  return {codeVerifier, codeChallenge, state};
 }
