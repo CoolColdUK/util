@@ -7,6 +7,6 @@ import {decrypt} from './encryptDecrypt';
  * @param state
  * @returns
  */
-export function extractPkce(key: string, state: string): PkceData {
+export function extractPkce<T extends Record<string, any>>(key: string, state: string): PkceData<T> {
   return {...JSON.parse(decrypt(key, state)), state};
 }
