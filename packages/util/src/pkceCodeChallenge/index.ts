@@ -4,5 +4,5 @@ export * from './buildPkce';
 // export * from './createPkceCodeVerifier';
 // export * from './createPkceState';
 // export * from './encodeBase64URL';
-// export * from './encryptDecrypt';
+export * from './encryptDecrypt';
 export * from './extractPkce';
