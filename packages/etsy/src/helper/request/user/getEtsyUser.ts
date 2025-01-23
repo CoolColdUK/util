@@ -1,5 +1,5 @@
 import {Maybe} from '@coolcolduk/typescript-util';
-import axios from 'axios';
+import axios, {AxiosResponse} from 'axios';
 import {ETSY_API_ENDPOINT} from '../../../constants';
 import getEtsyRequestAxiosConfig from '../../getEtsyRequestAxiosConfig';
 
@@ -18,12 +18,17 @@ export interface GetEtsyUserResponse {
 
 /**
  * Retrieves a user profile based on a unique user ID. Access is limited to profiles of the authenticated user or linked buyers. For the primary_email field, specific app-based permissions are required and granted case-by-case.
- * @requires email_r
+ * @requires scope email_r
  * @param apiKey
  * @param accessToken
+ * @param userId
  * @returns
  */
-export function getEtsyUser(apiKey: string, accessToken: string, userId: string) {
+export function getEtsyUser(
+  apiKey: string,
+  accessToken: string,
+  userId: string,
+): Promise<AxiosResponse<GetEtsyUserResponse>> {
   return axios.get<GetEtsyUserResponse>(
     ETSY_API_ENDPOINT + `/application/users/${userId}`,
     getEtsyRequestAxiosConfig({apiKey, accessToken}),

@@ -1,5 +1,5 @@
 import {Maybe} from '@coolcolduk/typescript-util'; // Adjust the import path as needed
-import axios from 'axios';
+import axios, {AxiosResponse} from 'axios';
 import getEtsyRequestAxiosConfig from '../../getEtsyRequestAxiosConfig'; // Adjust the import path
 
 export interface FindEtsyShopsResults {
@@ -154,7 +154,6 @@ export interface FindEtsyShopsResponse {
  * Fetches a list of Etsy shops based on the provided parameters.
  *
  * @param apiKey - The API key
- * @param accessToken - The OAuth2 access token for authorization.
  * @param shopName - The shop's name string (required).
  * @param limit - The maximum number of results to return (default: 25).
  * @param offset - The number of records to skip before selecting the first result (default: 0).
@@ -162,11 +161,10 @@ export interface FindEtsyShopsResponse {
  */
 export function findEtsyShops(
   apiKey: string,
-  accessToken: string,
   shopName: string,
   limit: number = 25,
   offset: number = 0,
-) {
+): Promise<AxiosResponse<FindEtsyShopsResponse>> {
   const params = new URLSearchParams({
     shop_name: shopName,
     limit: limit.toString(),
@@ -175,6 +173,6 @@ export function findEtsyShops(
 
   return axios.get<FindEtsyShopsResponse>(
     `/application/shops?${params.toString()}`,
-    getEtsyRequestAxiosConfig({accessToken, apiKey}),
+    getEtsyRequestAxiosConfig({apiKey}),
   );
 }

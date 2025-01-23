@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, {AxiosResponse} from 'axios';
 import {ETSY_API_ENDPOINT} from '../../../constants';
 import getEtsyRequestAxiosConfig from '../../getEtsyRequestAxiosConfig';
 
@@ -11,7 +11,7 @@ export interface PingEtsyResponse {
  * @param apiKey
  * @returns
  */
-export function pingEtsy(apiKey: string) {
+export function pingEtsy(apiKey: string): Promise<AxiosResponse<PingEtsyResponse>> {
   return axios.get<PingEtsyResponse>(
     ETSY_API_ENDPOINT + '/application/openapi-ping',
     getEtsyRequestAxiosConfig({apiKey}),

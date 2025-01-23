@@ -1,5 +1,5 @@
 import {Maybe} from '@coolcolduk/typescript-util'; // Adjust import path as needed
-import axios from 'axios';
+import axios, {AxiosResponse} from 'axios';
 import getEtsyRequestAxiosConfig from '../../getEtsyRequestAxiosConfig';
 
 export interface GetEtsyShopResponse {
@@ -154,6 +154,6 @@ export interface GetEtsyShopResponse {
  * @param shopId - The unique positive non-zero numeric ID for an Etsy Shop.
  * @returns Shop details as a promise of GetEtsyShopResponse.
  */
-export function getShop(apiKey: string, shopId: number) {
+export function getShop(apiKey: string, shopId: number): Promise<AxiosResponse<GetEtsyShopResponse>> {
   return axios.get<GetEtsyShopResponse>(`/application/shops/${shopId}`, getEtsyRequestAxiosConfig({apiKey}));
 }

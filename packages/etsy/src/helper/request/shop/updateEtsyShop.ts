@@ -1,5 +1,5 @@
 import {Maybe} from '@coolcolduk/typescript-util'; // Adjust the import path as needed
-import axios from 'axios';
+import axios, {AxiosResponse} from 'axios';
 import getEtsyRequestAxiosConfig from '../../getEtsyRequestAxiosConfig';
 
 export interface UpdateEtsyShopRequest {
@@ -174,7 +174,12 @@ export interface UpdateEtsyShopResponse {
  * @param data - The fields to update in the shop.
  * @returns Updated shop details as a promise of UpdateEtsyShopResponse.
  */
-export function updateShop(apiKey: string, accessToken: string, shopId: number, data: UpdateEtsyShopRequest) {
+export function updateShop(
+  apiKey: string,
+  accessToken: string,
+  shopId: number,
+  data: UpdateEtsyShopRequest,
+): Promise<AxiosResponse<UpdateEtsyShopResponse>> {
   const body = JSON.stringify(data);
   return axios.put<UpdateEtsyShopResponse>(
     `/application/shops/${shopId}`,
