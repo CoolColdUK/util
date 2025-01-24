@@ -292,12 +292,12 @@ export interface EtsyListing {
   /**
    * A list of images associated with the listing.
    */
-  images: EtsyListingImage[];
+  images: Maybe<EtsyListingImage[]>;
 
   /**
    * A list of videos associated with the listing.
    */
-  videos: EtsyListingVideo[];
+  videos: Maybe<EtsyListingVideo[]>;
 
   /**
    * The inventory information associated with the listing.

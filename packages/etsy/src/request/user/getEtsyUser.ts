@@ -1,5 +1,4 @@
 import axios, {AxiosResponse} from 'axios';
-import {ETSY_API_ENDPOINT} from '../../constants';
 import {EtsyUser} from '../../interfaces/EtsyUser';
 import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
 
@@ -12,8 +11,5 @@ import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
  * @returns
  */
 export function getEtsyUser(apiKey: string, accessToken: string, userId: string): Promise<AxiosResponse<EtsyUser>> {
-  return axios.get<EtsyUser>(
-    ETSY_API_ENDPOINT + `/application/users/${userId}`,
-    getEtsyRequestAxiosConfig({apiKey, accessToken}),
-  );
+  return axios.get<EtsyUser>(`/application/users/${userId}`, getEtsyRequestAxiosConfig({apiKey, accessToken}));
 }
