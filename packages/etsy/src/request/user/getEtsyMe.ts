@@ -10,6 +10,7 @@ export interface GetEtsyMeResponse {
 
 /**
  * Returns basic info for the user making the request.
+ * @see https://developers.etsy.com/documentation/reference#operation/getMe
  * @requires scope shops_r
  * @param apiKey
  * @param accessToken

@@ -6,7 +6,7 @@ import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
 
 /**
  * Fetches the details of a specific listing.
- *
+ * @see https://developers.etsy.com/documentation/reference#operation/getListing
  * @param apiKey - The API key.
  * @param accessToken - The OAuth2 access token.
  * @param listingId - The ID of the listing to retrieve.

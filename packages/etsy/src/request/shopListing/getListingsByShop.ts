@@ -20,6 +20,7 @@ export interface GetListingsByShopParams {
 
 /**
  * Fetches Etsy listings for a specific shop.
+ * @see https://developers.etsy.com/documentation/reference#operation/getListingsByShop
  * @requires scope listings_r
  * @param shopId - The unique numeric ID for an Etsy shop.
  * @param params - Optional query parameters for filtering and pagination.

@@ -21,6 +21,7 @@ export interface UpdateEtsyShopRequest {
 
 /**
  * Update details of a specific shop.
+ * @see https://developers.etsy.com/documentation/reference#operation/updateShop
  * @requires scope shops_r, shops_w
  * @param apiKey - The API key
  * @param accessToken - The OAuth2 access token for authorization.

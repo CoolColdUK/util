@@ -12,7 +12,7 @@ export interface FindEtsyShopsResponse {
 
 /**
  * Fetches a list of Etsy shops based on the provided parameters.
- *
+ * @see https://developers.etsy.com/documentation/reference#operation/findShops
  * @param apiKey - The API key
  * @param shopName - The shop's name string (required).
  * @param limit - The maximum number of results to return (default: 25).

@@ -192,6 +192,7 @@ export type EtsyListingDraftResponse = Omit<
 
 /**
  * Creates a physical draft listing product in a shop on the Etsy channel.
+ * @see https://developers.etsy.com/documentation/reference#operation/createDraftListing
  * @requires scope listings_w
  * @param apiKey - The API key.
  * @param accessToken - The OAuth2 access token for authorization.

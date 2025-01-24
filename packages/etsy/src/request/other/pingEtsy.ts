@@ -7,6 +7,7 @@ export interface PingEtsyResponse {
 
 /**
  * Check to confirm connectivity to the Etsy API with an application
+ * @see https://developers.etsy.com/documentation/reference#operation/ping
  * @param apiKey
  * @returns
  */
