@@ -1,6 +1,6 @@
 import axios, {AxiosResponse} from 'axios';
-import {EtsyShop} from '../../../interfaces/EtsyShop';
-import getEtsyRequestAxiosConfig from '../../getEtsyRequestAxiosConfig'; // Adjust the import path as needed
+import {EtsyShop} from '../../interfaces/EtsyShop';
+import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig'; // Adjust the import path as needed
 
 /**
  * Fetches the shop information based on the owner's user ID.

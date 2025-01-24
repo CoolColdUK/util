@@ -1,7 +1,7 @@
 import {MaybeArray} from '@coolcolduk/typescript-util';
 import {castArray, filterArrayUndefined, mapStringToEnumValue} from '@coolcolduk/util';
 import {Request} from 'express';
-import {EtsyScopeEnum} from '../../enum/EtsyScopeEnum';
+import {EtsyScopeEnum} from '../enum/EtsyScopeEnum';
 
 /**
  * process scope and remove invalid ones

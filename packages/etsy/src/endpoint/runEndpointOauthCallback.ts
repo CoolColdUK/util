@@ -1,5 +1,5 @@
 import {Response} from 'express';
-import {getEtsyAccessToken} from '../helper';
+import {getEtsyAccessToken} from '../request/login/getEtsyAccessToken';
 
 /**
  * end point used locally for testing and example

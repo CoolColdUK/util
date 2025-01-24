@@ -1,6 +1,6 @@
 import axios, {AxiosResponse} from 'axios';
-import {EtsyShop} from '../../../interfaces';
-import getEtsyRequestAxiosConfig from '../../getEtsyRequestAxiosConfig';
+import {EtsyShop} from '../../interfaces';
+import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
 
 export interface UpdateEtsyShopRequest {
   /** A brief heading string for the shop's main page. */

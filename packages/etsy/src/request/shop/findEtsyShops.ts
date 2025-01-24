@@ -1,6 +1,6 @@
 import axios, {AxiosResponse} from 'axios';
-import {EtsyShop} from '../../../interfaces/EtsyShop';
-import getEtsyRequestAxiosConfig from '../../getEtsyRequestAxiosConfig'; // Adjust the import path
+import {EtsyShop} from '../../interfaces/EtsyShop';
+import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig'; // Adjust the import path
 
 export interface FindEtsyShopsResponse {
   /** The total number of Shops. */

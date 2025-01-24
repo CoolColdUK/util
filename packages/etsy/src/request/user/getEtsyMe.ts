@@ -1,6 +1,6 @@
 import axios, {AxiosResponse} from 'axios';
-import {ETSY_API_ENDPOINT} from '../../../constants';
-import getEtsyRequestAxiosConfig from '../../getEtsyRequestAxiosConfig';
+import {ETSY_API_ENDPOINT} from '../../constants';
+import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
 
 export interface GetEtsyMeResponse {
   /** The numeric ID of a user. This number is also a valid shop ID for the user's shop. */

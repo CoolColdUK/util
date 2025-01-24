@@ -1,5 +1,5 @@
 import axios from 'axios';
-import getEtsyRequestAxiosConfig from '../getEtsyRequestAxiosConfig';
+import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
 
 export interface GetEtsyAccessTokenResponse {
   access_token: string;

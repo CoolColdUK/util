@@ -4,8 +4,8 @@ import express from 'express';
 import {ETSY_API_KEY, OAUTH_CALLBACK, OAUTH_REDIRECT, PORT, SERVER_URL} from './constants';
 import {createEndpointPing} from './endpoint/createEndpointPing';
 import {runEndpointOauthCallback} from './endpoint/runEndpointOauthCallback';
-import {buildEtsyOauthUrl} from './helper/util/buildEtsyOauthUrl';
-import {filterEtsyScopeEnum} from './helper/util/filterEtsyScopeEnum';
+import {buildEtsyOauthUrl} from './util/buildEtsyOauthUrl';
+import {filterEtsyScopeEnum} from './util/filterEtsyScopeEnum';
 
 const key = 'ergheioghoe333rijgeirgj43wt3w';
 const app = express();

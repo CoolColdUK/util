@@ -1,5 +1,5 @@
 import {RequestHandler} from 'express';
-import {pingEtsy} from '../helper/request/other/pingEtsy';
+import {pingEtsy} from '../request/other/pingEtsy';
 
 /**
  * end point used locally for testing and example

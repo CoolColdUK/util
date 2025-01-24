@@ -1,6 +1,6 @@
 import axios, {AxiosResponse} from 'axios';
-import {ETSY_API_ENDPOINT} from '../../../constants';
-import getEtsyRequestAxiosConfig from '../../getEtsyRequestAxiosConfig';
+import {ETSY_API_ENDPOINT} from '../../constants';
+import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
 
 export interface PingEtsyResponse {
   application_id: number;

@@ -1,8 +1,8 @@
 import {Maybe} from '@coolcolduk/typescript-util';
 import axios, {AxiosResponse} from 'axios';
-import {EtsyListingIncludesEnum, EtsyListingTranslateEnum} from '../../../enum';
-import {EtsyListing} from '../../../interfaces';
-import getEtsyRequestAxiosConfig from '../../getEtsyRequestAxiosConfig';
+import {EtsyListingIncludesEnum, EtsyListingTranslateEnum} from '../../enum';
+import {EtsyListing} from '../../interfaces';
+import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
 
 /**
  * Fetches the details of a specific listing.

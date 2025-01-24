@@ -1,6 +1,6 @@
 import axios, {AxiosResponse} from 'axios';
-import {EtsyShop} from '../../../interfaces/EtsyShop';
-import getEtsyRequestAxiosConfig from '../../getEtsyRequestAxiosConfig';
+import {EtsyShop} from '../../interfaces/EtsyShop';
+import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
 
 /**
  * Retrieves the shop identified by a specific shop ID.
