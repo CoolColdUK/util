@@ -1,4 +1,5 @@
 import {Maybe} from '@coolcolduk/typescript-util'; // Adjust import as needed
+import {EtsyShippingProfileTypeEnum} from '../enum/EtsyShippingProfileTypeEnum';
 import {EtsyShippingProfileDestination} from './EtsyShippingProfileDestination';
 import {EtsyShippingProfileUpgrade} from './EtsyShippingProfileUpgrade ';
 
@@ -65,7 +66,7 @@ export interface EtsyShippingProfile {
   /**
    * The type of shipping profile: "manual" or "calculated".
    */
-  profile_type: 'manual' | 'calculated';
+  profile_type: EtsyShippingProfileTypeEnum;
 
   /**
    * The domestic handling fee added to buyer's shipping total.

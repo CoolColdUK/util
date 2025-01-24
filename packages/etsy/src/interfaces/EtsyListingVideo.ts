@@ -1,3 +1,5 @@
+import {EtsyListingVideoStateEnum} from '../enum/EtsyListingVideoStateEnum';
+
 /**
  * Represents a video associated with an Etsy listing.
  */
@@ -35,5 +37,5 @@ export interface EtsyListingVideo {
    * - `"deleted"`
    * - `"flagged"`
    */
-  video_state: 'active' | 'inactive' | 'deleted' | 'flagged';
+  video_state: EtsyListingVideoStateEnum;
 }

@@ -1,4 +1,5 @@
 import {Maybe} from '@coolcolduk/typescript-util'; // Adjust import as needed
+import {EtsyShippingProfileUpgradeTypeEnum} from '../enum/EtsyShippingProfileUpgradeTypeEnum';
 import {EtsyPrice} from './EtsyPrice'; // Adjust import as needed
 
 /**
@@ -25,7 +26,7 @@ export interface EtsyShippingProfileUpgrade {
    * - `"0"`: Domestic
    * - `"1"`: International
    */
-  type: '0' | '1';
+  type: EtsyShippingProfileUpgradeTypeEnum;
 
   /**
    * The positive non-zero numeric position in the images displayed in a listing,

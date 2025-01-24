@@ -5,6 +5,7 @@ import {EtsyListingStateEnum} from '../enum/EtsyListingStateEnum';
 import {EtsyListingTypeEnum} from '../enum/EtsyListingTypeEnum';
 import {EtsyListingWhoMadeEnum} from '../enum/EtsyListingWhoMadeEnum';
 import {EtsyListingImage} from './EtsyListingImage';
+import {EtsyListingInventory} from './EtsyListingInventory ';
 import {EtsyListingVideo} from './EtsyListingVideo';
 import {EtsyPrice} from './EtsyPrice';
 import {EtsyProductionPartner} from './EtsyProductionPartner';
@@ -302,7 +303,7 @@ export interface EtsyListing {
    * The inventory information associated with the listing.
    * Maybe if not applicable.
    */
-  inventory: Maybe<any>;
+  inventory: Maybe<EtsyListingInventory>;
 
   /**
    * A list of production partners associated with the shop.

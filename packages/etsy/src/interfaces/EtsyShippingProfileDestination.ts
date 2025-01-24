@@ -1,4 +1,5 @@
 import {Maybe} from '@coolcolduk/typescript-util'; // Adjust import as needed
+import {EtsyShippingProfileDestinationRegionEnum} from '../enum/EtsyShippingProfileDestinationRegionEnum';
 import {EtsyPrice} from './EtsyPrice'; // Adjust import as needed
 
 /**
@@ -38,7 +39,7 @@ export interface EtsyShippingProfileDestination {
    * - `"none"`: Destination is specified by `destination_country_iso`.
    * Required if `destination_country_iso` is null or not provided.
    */
-  destination_region: 'eu' | 'non_eu' | 'none';
+  destination_region: EtsyShippingProfileDestinationRegionEnum;
 
   /**
    * The cost of shipping to this country/region alone,
