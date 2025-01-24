@@ -1,7 +1,7 @@
 import {EtsyListing} from './EtsyListing';
 
 /**
- * Response interface for `getListingsByShop`.
+ * Multiple etsy listing results
  */
 export interface EtsyListings {
   count: number;
