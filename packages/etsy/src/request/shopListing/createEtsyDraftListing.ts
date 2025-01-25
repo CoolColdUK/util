@@ -200,7 +200,7 @@ export type EtsyListingDraftResponse = Omit<
  * @param data - The data required to create a draft listing.
  * @returns Created draft listing details as a promise of EtsyListingDraftResponse.
  */
-export function createDraftListing(
+export function createEtsyDraftListing(
   apiKey: string,
   accessToken: string,
   shopId: number,

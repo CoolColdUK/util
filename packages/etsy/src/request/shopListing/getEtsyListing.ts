@@ -1,6 +1,7 @@
 import {Maybe} from '@coolcolduk/typescript-util';
 import axios, {AxiosResponse} from 'axios';
-import {EtsyListingIncludesEnum, EtsyListingTranslateEnum} from '../../enum';
+import {EtsyListingTranslateEnum} from '../../enum/EtsyListingTranslateEnum';
+import {EtsyParamIncludesEnum} from '../../enum/EtsyParamIncludesEnum';
 import {EtsyListing} from '../../interfaces';
 import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
 
@@ -14,11 +15,11 @@ import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
  * @param language - The language for the response (e.g., "en").
  * @returns The details of the listing.
  */
-export async function getListing(
+export async function getEtsyListing(
   apiKey: string,
   accessToken: string,
   listingId: number,
-  includes: EtsyListingIncludesEnum[] = [],
+  includes: EtsyParamIncludesEnum[] = [],
   language: Maybe<EtsyListingTranslateEnum> = null,
 ): Promise<AxiosResponse<EtsyListing>> {
   const params = new URLSearchParams({

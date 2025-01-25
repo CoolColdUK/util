@@ -5,7 +5,7 @@ import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
 /**
  * Query parameters for fetching listings by shop receipt.
  */
-export interface GetListingsByShopReceiptParams {
+export interface GetEtsyListingsByShopReceiptParams {
   /**
    * The maximum number of results to return. Default is 25.
    * Range: [1, 100].
@@ -29,12 +29,12 @@ export interface GetListingsByShopReceiptParams {
  * @param params - Optional query parameters for pagination.
  * @returns A promise resolving to the EtsyListings response.
  */
-export async function getListingsByShopReceipt(
+export async function getEtsyListingsByShopReceipt(
   apiKey: string,
   accessToken: string,
   shopId: number,
   receiptId: number,
-  params?: GetListingsByShopReceiptParams,
+  params?: GetEtsyListingsByShopReceiptParams,
 ): Promise<AxiosResponse<EtsyListings>> {
   const queryParams = new URLSearchParams();
 

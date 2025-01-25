@@ -9,7 +9,7 @@ import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
 /**
  * Query parameters for the `getListingsByShop` function.
  */
-export interface GetListingsByShopParams {
+export interface GetEtsyListingsByShopParams {
   state?: EtsyListingStateEnum; // Default: "active"
   limit?: number; // Default: 25, Range: [1, 100]
   offset?: number; // Default: 0, Min: 0
@@ -27,14 +27,14 @@ export interface GetListingsByShopParams {
  * @param apiKey - Your Etsy API key for authorization.
  * @returns A promise resolving to the Etsy listings response.
  */
-export async function getListingsByShop(
+export async function getEtsyListingsByShop(
   apiKey: string,
   accessToken: string,
   shopId: number,
-  params: GetListingsByShopParams = {},
+  params: GetEtsyListingsByShopParams = {},
 ): Promise<AxiosResponse<EtsyListings>> {
   // Default query parameters
-  const defaultParams: GetListingsByShopParams = {
+  const defaultParams: GetEtsyListingsByShopParams = {
     state: EtsyListingStateEnum.ACTIVE,
     limit: 25,
     offset: 0,
