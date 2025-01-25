@@ -1,7 +1,7 @@
 /**
  * Enum for listing includes options
  */
-export enum EtsyListingIncludesEnum {
+export enum EtsyParamIncludesEnum {
   SHIPPING = 'Shipping',
   IMAGES = 'Images',
   SHOP = 'Shop',

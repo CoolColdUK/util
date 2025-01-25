@@ -1,6 +1,6 @@
 import axios, {AxiosResponse} from 'axios';
-import {EtsyListingIncludesEnum} from '../../enum/EtsyListingIncludesEnum';
 import {EtsyListingStateEnum} from '../../enum/EtsyListingStateEnum';
+import {EtsyParamIncludesEnum} from '../../enum/EtsyParamIncludesEnum';
 import {EtsyParamSortOnEnum} from '../../enum/EtsyParamSortOnEnum';
 import {EtsyParamSortOrderEnum} from '../../enum/EtsyParamSortOrderEnum';
 import {EtsyListings} from '../../interfaces/EtsyListings';
@@ -15,7 +15,7 @@ export interface GetListingsByShopParams {
   offset?: number; // Default: 0, Min: 0
   sort_on?: EtsyParamSortOnEnum; // Default: "created"
   sort_order?: EtsyParamSortOrderEnum; // Default: "desc"
-  includes?: EtsyListingIncludesEnum[]; // Optional associations to include
+  includes?: EtsyParamIncludesEnum[]; // Optional associations to include
 }
 
 /**
