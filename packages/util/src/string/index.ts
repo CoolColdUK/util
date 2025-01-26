@@ -1,1 +1,2 @@
-export * from './mapStringToArray';
+export * from './castArrayToString';
+export * from './mapTextboxStringToArray';

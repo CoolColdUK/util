@@ -6,7 +6,7 @@
  * @param s
  * @returns
  */
-export default function mapStringToArray(s: string) {
+export function mapTextboxStringToArray(s: string) {
   return s
     .split('\n')
     .map((p) => p.trim())
