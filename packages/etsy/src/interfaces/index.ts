@@ -12,5 +12,6 @@ export * from './EtsyShippingProfile';
 export * from './EtsyShippingProfileDestination';
 export * from './EtsyShippingProfileUpgrade ';
 export * from './EtsyShop';
+export * from './EtsyToken';
 export * from './EtsyTranslation';
 export * from './EtsyUser';
