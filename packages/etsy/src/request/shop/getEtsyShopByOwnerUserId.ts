@@ -6,7 +6,7 @@ import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig'; //
  * Fetches the shop information based on the owner's user ID.
  * @see https://developers.etsy.com/documentation/reference#operation/getShopByOwnerUserId
  * @param apiKey - The API key
- * @param accessToken - The OAuth2 access token for authorization.
+ * @param accessToken - The OAuth2 access token for authorization. (required even though the documentation says it doesn't)
  * @param userId - The user ID of the shop owner.
  * @returns Shop details as a promise of EtsyShop.
  */
