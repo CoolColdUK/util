@@ -1,5 +1,5 @@
 export interface RetryOptions {
-  /** number of times to try */
+  /** number of times to try, 1 means no retry. (default: 3) */
   numberOfTries?: number;
   /** function to delay before retry */
   delay?: () => Promise<void> | void;
@@ -11,14 +11,15 @@ export interface RetryOptions {
  * Retry a function
  * @returns
  */
-export async function retry<Return>(fn: () => Return | Promise<Return>, options: RetryOptions = {}) {
+export async function retry<Return>(fn: (index: number) => Return | Promise<Return>, options: RetryOptions = {}) {
   const {delay, shouldRetry, numberOfTries = 3} = options;
 
-  for (let i = 1; i < numberOfTries; i += 1) {
+  for (let i = 0; i < numberOfTries; i += 1) {
     try {
       // eslint-disable-next-line no-await-in-loop
-      return await fn();
+      return await fn(i);
     } catch (e) {
+      if (i === numberOfTries - 1) throw e;
       // can decide to retry or not
       if (shouldRetry && !shouldRetry(e)) throw e;
 
@@ -27,7 +28,5 @@ export async function retry<Return>(fn: () => Return | Promise<Return>, options:
     }
   }
 
-  // make sure it throws within the function
-  const result = await fn();
-  return result;
+  throw new Error('Exceed retry count');
 }
