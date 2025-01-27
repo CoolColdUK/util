@@ -1,11 +1,18 @@
 // Import the express library
 import {buildPkce, extractPkce} from '@coolcolduk/util';
 import express from 'express';
-import {ETSY_API_KEY, OAUTH_CALLBACK, OAUTH_REDIRECT, PORT, SERVER_URL} from './constants';
 import {createEndpointPing} from './endpoint/createEndpointPing';
 import {runEndpointOauthCallback} from './endpoint/runEndpointOauthCallback';
 import {filterEtsyScopeEnum} from './util//filter/filterEtsyScopeEnum';
 import {buildEtsyOauthUrl} from './util/buildEtsyOauthUrl';
+
+const PORT = 3003;
+const SERVER = 'http://localhost';
+const SERVER_URL = SERVER + ':' + PORT;
+const OAUTH_REDIRECT = '/oauth/redirect';
+const OAUTH_CALLBACK = '/oauth/callback';
+
+const ETSY_API_KEY = process.env['ETSY_API_KEY'] || '';
 
 const key = 'ergheioghoe333rijgeirgj43wt3w';
 const app = express();
