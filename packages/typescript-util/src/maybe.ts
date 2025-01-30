@@ -17,3 +17,8 @@ export type May<T> = T | undefined;
  * Make it array or not array
  */
 export type MaybeArray<T> = T | T[];
+
+/**
+ * Like partial but for nullable
+ */
+export type NullablePartial<T> = {[P in keyof T]?: T[P] | null};
