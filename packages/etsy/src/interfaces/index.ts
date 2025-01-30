@@ -15,3 +15,4 @@ export * from './EtsyShop';
 export * from './EtsyToken';
 export * from './EtsyTranslation';
 export * from './EtsyUser';
+export * from './UpdatedEtsyListing';

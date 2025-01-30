@@ -1,0 +1,32 @@
+import axios, {AxiosResponse} from 'axios';
+import {
+  UpdatedEtsyListing,
+  UpdateEtsyListingRequest,
+  zUpdateEtsyListingRequestSchema,
+} from '../../interfaces/UpdatedEtsyListing';
+import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
+
+/**
+ * Updates a specific Etsy listing.
+ * @see https://openapi.etsy.com/v3/application/shops/{shop_id}/listings/{listing_id}
+ * @param apiKey - The API key.
+ * @param accessToken - The OAuth2 access token.
+ * @param shopId - The ID of the shop.
+ * @param listingId - The ID of the listing to update.
+ * @param updateData - The data to update the listing with.
+ * @returns The updated listing details.
+ */
+export async function updateEtsyListing(
+  apiKey: string,
+  accessToken: string,
+  shopId: number,
+  listingId: number,
+  updateData: UpdateEtsyListingRequest,
+): Promise<AxiosResponse<UpdatedEtsyListing>> {
+  const body = zUpdateEtsyListingRequestSchema.strip().parse(updateData);
+  return axios.patch<UpdatedEtsyListing>(
+    `/application/shops/${shopId}/listings/${listingId}`,
+    body,
+    getEtsyRequestAxiosConfig({accessToken, apiKey}),
+  );
+}
