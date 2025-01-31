@@ -1,7 +1,8 @@
-import axios, {AxiosResponse} from 'axios';
+import axios from 'axios';
 import {EtsyListingItemDimensionUnitEnum, EtsyListingItemWeightEnum, EtsyListingTypeEnum} from '../../enum';
 import {EtsyListingWhoMadeEnum} from '../../enum/EtsyListingWhoMadeEnum';
 import {EtsyListing} from '../../interfaces/EtsyListing';
+import {EtsyResponse} from '../../interfaces/EtsyResponse';
 import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
 
 /**
@@ -205,7 +206,7 @@ export function createEtsyDraftListing(
   accessToken: string,
   shopId: number,
   data: CreateDraftListingRequest,
-): Promise<AxiosResponse<EtsyListingDraftResponse>> {
+): EtsyResponse<EtsyListingDraftResponse> {
   return axios.post<EtsyListingDraftResponse>(
     `/application/shops/${shopId}/listings/draft`,
     JSON.stringify(data),

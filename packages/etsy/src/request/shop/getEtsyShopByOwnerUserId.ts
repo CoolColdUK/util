@@ -1,4 +1,5 @@
-import axios, {AxiosResponse} from 'axios';
+import axios from 'axios';
+import {EtsyResponse} from '../../interfaces/EtsyResponse';
 import {EtsyShop} from '../../interfaces/EtsyShop';
 import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig'; // Adjust the import path as needed
 
@@ -10,10 +11,6 @@ import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig'; //
  * @param userId - The user ID of the shop owner.
  * @returns Shop details as a promise of EtsyShop.
  */
-export function getEtsyShopByOwnerUserId(
-  apiKey: string,
-  accessToken: string,
-  userId: number,
-): Promise<AxiosResponse<EtsyShop>> {
+export function getEtsyShopByOwnerUserId(apiKey: string, accessToken: string, userId: number): EtsyResponse<EtsyShop> {
   return axios.get<EtsyShop>(`/application/users/${userId}/shops`, getEtsyRequestAxiosConfig({apiKey, accessToken}));
 }

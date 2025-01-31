@@ -1,4 +1,5 @@
-import axios, {AxiosResponse} from 'axios';
+import axios from 'axios';
+import {EtsyResponse} from '../../interfaces/EtsyResponse';
 import {EtsyToken} from '../../interfaces/EtsyToken';
 import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
 
@@ -6,12 +7,12 @@ import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
  * Post to etsy for access token for first login
  * @returns
  */
-export async function getEtsyAccessToken(
+export function getEtsyAccessToken(
   apiKey: string,
   redirectUri: string,
   authCode: string,
   codeVerifier: string,
-): Promise<AxiosResponse<EtsyToken, any>> {
+): EtsyResponse<EtsyToken> {
   const body = JSON.stringify({
     grant_type: 'authorization_code',
     client_id: apiKey,

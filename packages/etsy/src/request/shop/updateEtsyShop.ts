@@ -1,5 +1,6 @@
-import axios, {AxiosResponse} from 'axios';
+import axios from 'axios';
 import {EtsyShop} from '../../interfaces';
+import {EtsyResponse} from '../../interfaces/EtsyResponse';
 import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
 
 export interface UpdateEtsyShopRequest {
@@ -34,7 +35,7 @@ export function updateShop(
   accessToken: string,
   shopId: number,
   data: UpdateEtsyShopRequest,
-): Promise<AxiosResponse<EtsyShop>> {
+): EtsyResponse<EtsyShop> {
   const body = JSON.stringify(data);
   return axios.put<EtsyShop>(`/application/shops/${shopId}`, body, getEtsyRequestAxiosConfig({accessToken, apiKey}));
 }

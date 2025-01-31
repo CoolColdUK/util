@@ -1,4 +1,5 @@
-import axios, {AxiosResponse} from 'axios';
+import axios from 'axios';
+import {EtsyResponse} from '../../interfaces/EtsyResponse';
 import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
 
 export interface GetEtsyMeResponse {
@@ -16,6 +17,6 @@ export interface GetEtsyMeResponse {
  * @param accessToken
  * @returns
  */
-export function getEtsyMe(apiKey: string, accessToken: string): Promise<AxiosResponse<GetEtsyMeResponse>> {
+export function getEtsyMe(apiKey: string, accessToken: string): EtsyResponse<GetEtsyMeResponse> {
   return axios.get<GetEtsyMeResponse>(`/application/users/me`, getEtsyRequestAxiosConfig({apiKey, accessToken}));
 }

@@ -1,4 +1,5 @@
-import axios, {AxiosResponse} from 'axios';
+import axios from 'axios';
+import {EtsyResponse} from '../../interfaces/EtsyResponse';
 import {
   UpdatedEtsyListing,
   UpdateEtsyListingRequest,
@@ -22,7 +23,7 @@ export async function updateEtsyListing(
   shopId: number,
   listingId: number,
   updateData: UpdateEtsyListingRequest,
-): Promise<AxiosResponse<UpdatedEtsyListing>> {
+): EtsyResponse<UpdatedEtsyListing> {
   const body = zUpdateEtsyListingRequestSchema.strip().parse(updateData);
   return axios.patch<UpdatedEtsyListing>(
     `/application/shops/${shopId}/listings/${listingId}`,

@@ -1,14 +1,7 @@
-import axios, {AxiosResponse} from 'axios';
+import axios from 'axios';
+import {EtsyList, EtsyResponseMany} from '../../interfaces/EtsyResponse';
 import {EtsyShop} from '../../interfaces/EtsyShop';
 import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig'; // Adjust the import path
-
-export interface FindEtsyShopsResponse {
-  /** The total number of Shops. */
-  count: number;
-
-  /** The Shop resources. */
-  results: EtsyShop[];
-}
 
 /**
  * Fetches a list of Etsy shops based on the provided parameters.
@@ -24,15 +17,12 @@ export function findEtsyShops(
   shopName: string,
   limit: number = 25,
   offset: number = 0,
-): Promise<AxiosResponse<FindEtsyShopsResponse>> {
+): EtsyResponseMany<EtsyShop> {
   const params = new URLSearchParams({
     shop_name: shopName,
     limit: limit.toString(),
     offset: offset.toString(),
   });
 
-  return axios.get<FindEtsyShopsResponse>(
-    `/application/shops?${params.toString()}`,
-    getEtsyRequestAxiosConfig({apiKey}),
-  );
+  return axios.get<EtsyList<EtsyShop>>(`/application/shops?${params.toString()}`, getEtsyRequestAxiosConfig({apiKey}));
 }

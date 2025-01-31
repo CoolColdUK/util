@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {EtsyResponse} from '../../interfaces/EtsyResponse';
 import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
 
 /**
@@ -10,6 +11,6 @@ import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
  * @param listingId - The ID of the listing to delete.
  * @returns True if the deletion was successful (HTTP 204), false otherwise.
  */
-export function deleteEtsyListing(apiKey: string, accessToken: string, listingId: number): Promise<boolean> {
+export function deleteEtsyListing(apiKey: string, accessToken: string, listingId: number): EtsyResponse<undefined> {
   return axios.delete(`/application/listings/${listingId}`, getEtsyRequestAxiosConfig({accessToken, apiKey}));
 }
