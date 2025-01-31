@@ -27,7 +27,7 @@ export interface GetEtsyListingsByShopParams {
  * @param apiKey - Your Etsy API key for authorization.
  * @returns A promise resolving to the Etsy listings response.
  */
-export async function getEtsyListingsByShop(
+export function getEtsyListingsByShop(
   apiKey: string,
   accessToken: string,
   shopId: number,

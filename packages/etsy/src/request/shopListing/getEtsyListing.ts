@@ -15,7 +15,7 @@ import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
  * @param language - The language for the response (e.g., "en").
  * @returns The details of the listing.
  */
-export async function getEtsyListing(
+export function getEtsyListing(
   apiKey: string,
   accessToken: string,
   listingId: number,

@@ -29,7 +29,7 @@ export interface GetEtsyListingsByShopReceiptParams {
  * @param params - Optional query parameters for pagination.
  * @returns A promise resolving to the EtsyListings response.
  */
-export async function getEtsyListingsByShopReceipt(
+export function getEtsyListingsByShopReceipt(
   apiKey: string,
   accessToken: string,
   shopId: number,

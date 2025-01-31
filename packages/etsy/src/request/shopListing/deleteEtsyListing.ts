@@ -10,6 +10,6 @@ import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
  * @param listingId - The ID of the listing to delete.
  * @returns True if the deletion was successful (HTTP 204), false otherwise.
  */
-export async function deleteEtsyListing(apiKey: string, accessToken: string, listingId: number): Promise<boolean> {
-  return await axios.delete(`/application/listings/${listingId}`, getEtsyRequestAxiosConfig({accessToken, apiKey}));
+export function deleteEtsyListing(apiKey: string, accessToken: string, listingId: number): Promise<boolean> {
+  return axios.delete(`/application/listings/${listingId}`, getEtsyRequestAxiosConfig({accessToken, apiKey}));
 }
