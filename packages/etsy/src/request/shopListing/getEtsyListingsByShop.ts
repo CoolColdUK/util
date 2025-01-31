@@ -3,8 +3,8 @@ import {EtsyListingStateEnum} from '../../enum/EtsyListingStateEnum';
 import {EtsyParamIncludesEnum} from '../../enum/EtsyParamIncludesEnum';
 import {EtsyParamSortOnEnum} from '../../enum/EtsyParamSortOnEnum';
 import {EtsyParamSortOrderEnum} from '../../enum/EtsyParamSortOrderEnum';
+import {EtsyListing} from '../../interfaces/EtsyListing';
 import {EtsyList, EtsyResponseMany} from '../../interfaces/EtsyResponse';
-import {EtsyShop} from '../../interfaces/EtsyShop';
 import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
 
 /**
@@ -33,7 +33,7 @@ export function getEtsyListingsByShop(
   accessToken: string,
   shopId: number,
   params: GetEtsyListingsByShopParams = {},
-): EtsyResponseMany<EtsyShop> {
+): EtsyResponseMany<EtsyListing> {
   // Default query parameters
   const defaultParams: GetEtsyListingsByShopParams = {
     state: EtsyListingStateEnum.ACTIVE,
@@ -46,7 +46,7 @@ export function getEtsyListingsByShop(
   // Merge default params with user-provided params
   const queryParams = {...defaultParams, ...params};
 
-  return axios.get<EtsyList<EtsyShop>>(
+  return axios.get<EtsyList<EtsyListing>>(
     `/application/shops/${shopId}/listings`,
     getEtsyRequestAxiosConfig({
       accessToken,

@@ -1,8 +1,8 @@
 import {Maybe} from '@coolcolduk/typescript-util';
-import axios, {AxiosResponse} from 'axios';
+import axios from 'axios';
 import {EtsyListingTranslateEnum} from '../../enum/EtsyListingTranslateEnum';
 import {EtsyParamIncludesEnum} from '../../enum/EtsyParamIncludesEnum';
-import {EtsyListing} from '../../interfaces';
+import {EtsyListing, EtsyResponse} from '../../interfaces';
 import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
 
 /**
@@ -21,7 +21,7 @@ export function getEtsyListing(
   listingId: number,
   includes: EtsyParamIncludesEnum[] = [],
   language: Maybe<EtsyListingTranslateEnum> = null,
-): Promise<AxiosResponse<EtsyListing>> {
+): EtsyResponse<EtsyListing> {
   const params = new URLSearchParams({
     includes: includes.join(','),
   });

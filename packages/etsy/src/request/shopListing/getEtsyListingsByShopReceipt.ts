@@ -1,6 +1,6 @@
 import axios from 'axios';
+import {EtsyListing} from '../../interfaces/EtsyListing';
 import {EtsyList, EtsyResponseMany} from '../../interfaces/EtsyResponse';
-import {EtsyShop} from '../../interfaces/EtsyShop';
 import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
 
 /**
@@ -36,14 +36,14 @@ export function getEtsyListingsByShopReceipt(
   shopId: number,
   receiptId: number,
   params?: GetEtsyListingsByShopReceiptParams,
-): EtsyResponseMany<EtsyShop> {
+): EtsyResponseMany<EtsyListing> {
   const queryParams = new URLSearchParams();
 
   // Add query parameters if provided
   if (params?.limit) queryParams.append('limit', params.limit.toString());
   if (params?.offset) queryParams.append('offset', params.offset.toString());
 
-  return axios.get<EtsyList<EtsyShop>>(
+  return axios.get<EtsyList<EtsyListing>>(
     `/application/shops/${shopId}/receipts/${receiptId}/listings?${queryParams.toString()}`,
     getEtsyRequestAxiosConfig({accessToken, apiKey}),
   );
