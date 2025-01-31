@@ -1,3 +1,4 @@
+import {generateTestEach} from '../testHelper/generateTestEach';
 import {indexOfCaseInsensitive} from './indexOfCaseInsensitive';
 
 interface TestCase {
@@ -43,7 +44,7 @@ describe('indexOfCaseInsensitive', () => {
     },
   };
 
-  test.each(Object.entries(testCases))('%s', (_title, testcase) => {
+  generateTestEach(testCases, (_title, testcase) => {
     const {searchElement, result} = testcase;
     expect(indexOfCaseInsensitive(data, searchElement)).toBe(result);
   });

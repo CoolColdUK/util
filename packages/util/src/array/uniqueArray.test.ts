@@ -1,3 +1,4 @@
+import {generateTestEach} from '../testHelper/generateTestEach';
 import {uniqueArray} from './uniqueArray';
 
 interface ITestCase {
@@ -16,7 +17,7 @@ describe('uniqueArray', () => {
     },
   };
 
-  test.each(Object.keys(testCases).map((title) => [title, testCases[title]]))('%s', (_title, param) => {
+  generateTestEach(testCases, (_title, param) => {
     const {data, expected} = param as ITestCase;
     expect(uniqueArray(data)).toStrictEqual(expected);
   });

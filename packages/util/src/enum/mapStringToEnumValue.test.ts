@@ -1,3 +1,4 @@
+import {generateTestEach} from '../testHelper/generateTestEach';
 import {mapStringToEnumValue} from './mapStringToEnumValue';
 
 enum Color {
@@ -28,7 +29,7 @@ describe('mapStringToEnumValue', () => {
     },
   };
 
-  test.each(Object.keys(testCases).map((title) => [title, testCases[title]]))('%s', (_title, param) => {
+  generateTestEach(testCases, (_title, param) => {
     const {data, expected} = param as ITestCase;
     // console.log(Color, typeof Color.BLUE, typeof Color);
     expect(mapStringToEnumValue(Color, data)).toStrictEqual(expected);

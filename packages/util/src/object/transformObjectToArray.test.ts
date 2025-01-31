@@ -1,3 +1,4 @@
+import {generateTestEach} from '../testHelper/generateTestEach';
 import {transformObjectToArray} from './transformObjectToArray';
 
 interface ITestData {
@@ -21,7 +22,7 @@ describe('transformObjectToArray', () => {
     },
   };
 
-  test.each(Object.keys(testCases).map((tc) => [tc, testCases[tc]]))('%s', (_title, input) => {
+  generateTestEach(testCases, (_title, input) => {
     const {obj, result} = input as ITestData;
     expect(transformObjectToArray(obj)).toStrictEqual(result);
   });

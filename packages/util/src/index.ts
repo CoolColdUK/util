@@ -9,6 +9,7 @@ export * from './retry';
 export * from './safe';
 export * from './sleep';
 export * from './string';
+export * from './testHelper';
 export * from './trythrow';
 export * from './tube';
 export * from './url';

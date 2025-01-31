@@ -1,3 +1,4 @@
+import {generateTestEach} from '../testHelper/generateTestEach';
 import {transformObjectValue} from './transformObjectValue';
 
 interface ITestCase {
@@ -25,7 +26,7 @@ describe('transformObjectValue', () => {
     },
   };
 
-  test.each(Object.keys(testCases).map((title) => [title, testCases[title]]))('%s', (_title, param) => {
+  generateTestEach(testCases, (_title, param) => {
     const {data, fn, expected} = param as ITestCase;
     expect(transformObjectValue(data, fn)).toStrictEqual(expected);
   });

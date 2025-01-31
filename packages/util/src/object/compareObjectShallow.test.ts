@@ -1,3 +1,4 @@
+import {generateTestEach} from '../testHelper/generateTestEach';
 import {compareObjectShallow} from './compareObjectShallow';
 
 interface ITestData {
@@ -39,7 +40,7 @@ describe('compareObjectShallow', () => {
     },
   };
 
-  test.each(Object.keys(testCases).map((tc) => [tc, testCases[tc]]))('%s', (_title, input) => {
+  generateTestEach(testCases, (_title, input) => {
     const {obj1, obj2, result} = input as ITestData;
     expect(compareObjectShallow(obj1, obj2)).toBe(result);
   });
