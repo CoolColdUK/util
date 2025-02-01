@@ -5,6 +5,7 @@ export * from './extractArrayLast';
 export * from './fillerArray';
 export * from './filterArrayDuplicates';
 export * from './filterArrayUndefined';
+export * from './hasArrayDuplicates';
 export * from './indexOfCaseInsensitive';
 export * from './padArray';
 export * from './removeDuplicateCaseInsensitive';
