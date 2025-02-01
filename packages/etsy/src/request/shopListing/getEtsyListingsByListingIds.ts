@@ -12,7 +12,7 @@ import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
  * @param includes - Optional includes for additional data (e.g., "Images", "Shop").
  * @returns The details of the listings.
  */
-export function getListingsByListingIds(
+export function getEtsyListingsByListingIds(
   apiKey: string,
   accessToken: string,
   listingIds: number[],
