@@ -3,7 +3,7 @@ export * from './combineArraysObject';
 export * from './combineArraysString';
 export * from './extractArrayLast';
 export * from './fillerArray';
-export * from './filterArrayDuplicatedValues';
+export * from './filterArrayDuplicates';
 export * from './filterArrayUndefined';
 export * from './indexOfCaseInsensitive';
 export * from './padArray';

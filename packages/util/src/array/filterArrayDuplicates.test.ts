@@ -1,12 +1,12 @@
 import {generateTestEach} from '../testHelper/generateTestEach';
-import {filterArrayDuplicatedValues} from './filterArrayDuplicatedValues';
+import {filterArrayDuplicates} from './filterArrayDuplicates';
 
 interface ITestData {
   arr: any[];
   result: any[];
 }
 
-describe('filterArrayDuplicatedValues', () => {
+describe('filterArrayDuplicates', () => {
   const testCases: Record<string, ITestData> = {
     'Should return an empty array when input is empty': {
       arr: [],
@@ -41,6 +41,6 @@ describe('filterArrayDuplicatedValues', () => {
 
   generateTestEach(testCases, (_title, input) => {
     const {arr, result} = input as ITestData;
-    expect(filterArrayDuplicatedValues(arr)).toStrictEqual(result);
+    expect(filterArrayDuplicates(arr)).toStrictEqual(result);
   });
 });
