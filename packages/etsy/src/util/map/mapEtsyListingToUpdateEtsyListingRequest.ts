@@ -5,12 +5,15 @@ import {UpdateEtsyListingRequest} from '../../interfaces/UpdatedEtsyListing';
 
 export function mapEtsyListingToUpdateEtsyListingRequest(
   listing: EtsyListing,
+  /** this is used as override for listing */
   image_ids?: number[],
+  /** this is used as override for listing */
   production_partner_ids?: Maybe<number[]>,
 ): UpdateEtsyListingRequest {
   return {
-    image_ids,
-    production_partner_ids,
+    image_ids: image_ids || (listing.images || []).map((i) => i.listing_image_id),
+    production_partner_ids:
+      production_partner_ids || (listing.production_partners || []).map((l) => l.production_partner_id),
     ...pick(listing, [
       'title',
       'description',
