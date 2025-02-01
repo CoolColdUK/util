@@ -8,3 +8,4 @@ export * from './transformObjectToArray';
 export * from './transformObjectValue';
 export * from './transformObjectValueNullToUndefined';
 export * from './transformObjectValueUndefinedToNull';
+export * from './uniqueObjectWithKey';
