@@ -42,5 +42,7 @@ export function mapEtsyListingToUpdateEtsyListingRequest(
       'is_supply',
       'listing_type',
     ]),
+    personalization_char_count_max: listing.personalization_char_count_max || 0,
+    personalization_instructions: listing.personalization_instructions || '',
   };
 }
