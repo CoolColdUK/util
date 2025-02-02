@@ -28,7 +28,7 @@ export enum EtsyScopeEnum {
   /** Read a member's inactive and expired (i.e., non-public) listings. */
   LISTINGS_READ = 'listings_r',
   /** Create and edit a member's listings. */
-  LISTINGS_WRITE = 'listings_d',
+  LISTINGS_WRITE = 'listings_w',
 
   /** Read a member's private profile information. */
   PROFILE_READ = 'profile_r',
