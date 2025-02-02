@@ -76,7 +76,8 @@ export const zUpdateEtsyListingRequestSchema = z.object({
   tags: z.array(z.string()).nullable(),
   who_made: z.nativeEnum(EtsyListingWhoMadeEnum),
   when_made: z.string(),
-  featured_rank: z.number().int().positive().nullable(),
+  /** somehow data from end point does not match documentation */
+  featured_rank: z.number().int().min(-1).nullable(),
   is_personalizable: z.boolean().nullable(),
   personalization_is_required: z.boolean().nullable(),
   personalization_char_count_max: z.number().int().nullable(),
