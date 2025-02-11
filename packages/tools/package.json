@@ -31,8 +31,8 @@
     "prettier-package-json": "^2.8.0"
   },
   "devDependencies": {
-    "@coolcolduk/eslint-config": "latest",
-    "@coolcolduk/ts-config": "latest"
+    "@coolcolduk/eslint-config": "^1.5.1",
+    "@coolcolduk/ts-config": "^1.5.1"
   },
   "eslintConfig": {
     "extends": [
