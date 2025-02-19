@@ -1,0 +1,10 @@
+{
+  "extends": "@coolcolduk/ts-config",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "baseUrl": "."
+  },
+  "include": ["src/**/*"],
+  "exclude": ["dist"]
+}

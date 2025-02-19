@@ -140,6 +140,14 @@ jobs:
             ./packages/*.tgz
 
       - uses: CoolColdUK/npm-publish@v3.1.1
+        id: enum
+        with:
+          token: ${{ secrets.NPM_AUTH_TOKEN }}
+          package: './packages/enum'
+          access: public
+      - run: echo ${{ steps.enum.outputs.id }}
+
+      - uses: CoolColdUK/npm-publish@v3.1.1
         id: etsy
         with:
           token: ${{ secrets.NPM_AUTH_TOKEN }}
