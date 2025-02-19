@@ -180,6 +180,14 @@ jobs:
       - run: echo ${{ steps.typescript-util.outputs.id }}
 
       - uses: CoolColdUK/npm-publish@v3.1.1
+        id: express
+        with:
+          token: ${{ secrets.NPM_AUTH_TOKEN }}
+          package: './packages/express'
+          access: public
+      - run: echo ${{ steps.express.outputs.id }}
+
+      - uses: CoolColdUK/npm-publish@v3.1.1
         id: util
         with:
           token: ${{ secrets.NPM_AUTH_TOKEN }}
