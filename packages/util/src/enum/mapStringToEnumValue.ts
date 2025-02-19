@@ -1,7 +1,7 @@
 /**
  * convert string to enum
  * @param enumObject the enum object
- * @param value
+ * @param value value of enum
  * @returns undefined if string does not belong to enum, otherwise return enum
  */
 export function mapStringToEnumValue<T extends {[key: number | string]: string | number}>(
