@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@coolcolduk/enum",
-  "version": "1.43.0",
+  "version": "1.44.0",
   "description": "various enum",
   "license": "MIT",
   "main": "dist/index.js",
@@ -22,7 +22,6 @@
     "test:unit": "jest --testMatch **/*.test.ts"
   },
   "types": "dist/index.d.ts",
-  "dependencies": {},
   "devDependencies": {
     "@coolcolduk/eslint-config": "^1.5.1",
     "@coolcolduk/jest-config": "^1.5.1",
