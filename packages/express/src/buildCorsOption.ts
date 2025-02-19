@@ -9,7 +9,7 @@ export type CustomOrigin = (
   callback: (err: Error | null, origin?: StaticOrigin) => void,
 ) => void;
 
-export function getCorsOption(
+export function buildCorsOption(
   origin?: MaybeArray<StaticOrigin> | CustomOrigin,
   methods?: MaybeArray<ExpressMethod>,
   options: Omit<CorsOptions, 'origin' | 'methods'> = {},
