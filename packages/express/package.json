@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@coolcolduk/express",
-  "version": "1.44.0",
+  "version": "1.45.0",
   "description": "various express related stuff",
   "license": "MIT",
   "main": "dist/index.js",
@@ -23,7 +23,7 @@
   },
   "types": "dist/index.d.ts",
   "dependencies": {
-    "@coolcolduk/typescript-util": "^1.44.0",
+    "@coolcolduk/typescript-util": "^1.45.0",
     "cors": "^2.8.5",
     "express": "^4.21.2"
   },
