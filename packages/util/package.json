@@ -24,7 +24,7 @@
   "types": "dist/index.d.ts",
   "dependencies": {
     "@coolcolduk/typescript-util": "^1.45.0",
-    "async": "^3.2.5",
+    "async": "^3.2.6",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
