@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@coolcolduk/util",
-  "version": "1.48.2",
+  "version": "1.48.3",
   "description": "all utils combined",
   "license": "MIT",
   "main": "dist/index.js",
@@ -23,7 +23,7 @@
   },
   "types": "dist/index.d.ts",
   "dependencies": {
-    "@coolcolduk/typescript-util": "^1.48.2",
+    "@coolcolduk/typescript-util": "^1.48.3",
     "async": "^3.2.6",
     "lodash": "^4.17.21"
   },
