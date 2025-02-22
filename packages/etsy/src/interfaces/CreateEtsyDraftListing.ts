@@ -90,8 +90,8 @@ export const zCreateEtsyDraftListingRequestSchema = z.object({
   image_ids: z.array(z.number().int()).max(10).optional(),
   production_partner_ids: z.array(z.number().int()).nullable().optional(),
 
-  processing_min: z.number().int().min(0),
-  processing_max: z.number().int().min(0),
+  processing_min: z.number().int().min(0).nullable(),
+  processing_max: z.number().int().min(0).nullable(),
   quantity: z.number().int().min(0),
   price: zEtsyPrice,
   style: z.array(z.string()).nullable(),
