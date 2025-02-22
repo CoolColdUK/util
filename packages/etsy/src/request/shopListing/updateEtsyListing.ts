@@ -9,7 +9,7 @@ import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
 
 /**
  * Updates a specific Etsy listing.
- * @see https://openapi.etsy.com/v3/application/shops/{shop_id}/listings/{listing_id}
+ * @see https://developers.etsy.com/documentation/reference/#operation/updateListing
  * @param apiKey - The API key.
  * @param accessToken - The OAuth2 access token.
  * @param shopId - The ID of the shop.

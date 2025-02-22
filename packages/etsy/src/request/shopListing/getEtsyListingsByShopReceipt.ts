@@ -22,6 +22,7 @@ export interface GetEtsyListingsByShopReceiptParams {
 
 /**
  * Fetches listings associated with a specific shop receipt.
+ * @see https://developers.etsy.com/documentation/reference/#operation/getListingsByShopReceipt
  * @requires scope transactions_r
  * @param apiKey - The API key for Etsy API authentication.
  * @param accessToken - The OAuth2 access token for authorization.
