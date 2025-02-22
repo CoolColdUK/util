@@ -20,7 +20,7 @@ export function createEtsyDraftListing(
   data: CreateEtsyDraftListingRequest,
 ): EtsyResponse<CreateEtsyDraftListingResponse> {
   return axios.post<CreateEtsyDraftListingResponse>(
-    `/application/shops/${shopId}/listings/draft`,
+    `/application/shops/${shopId}/listings`,
     JSON.stringify(data),
     getEtsyRequestAxiosConfig({accessToken, apiKey, contentType: 'application/x-www-form-urlencoded'}),
   );
