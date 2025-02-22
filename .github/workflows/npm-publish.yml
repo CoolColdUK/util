@@ -4,7 +4,7 @@ on:
     # tags:
     #   - 'v*.*.*'
     branches:
-      - main # Change this to your default branch
+      - main123 # Change this to your default branch
 jobs:
   npm-publish:
     name: npm-publish
