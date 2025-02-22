@@ -1,3 +1,4 @@
+import {filterObject} from '@coolcolduk/util';
 import axios from 'axios';
 import {CreateEtsyDraftListingRequest, CreateEtsyDraftListingResponse} from '../../interfaces/CreateEtsyDraftListing';
 import {EtsyResponse} from '../../interfaces/EtsyResponse';
@@ -21,7 +22,7 @@ export function createEtsyDraftListing(
 ): EtsyResponse<CreateEtsyDraftListingResponse> {
   return axios.post<CreateEtsyDraftListingResponse>(
     `/application/shops/${shopId}/listings`,
-    JSON.stringify(data),
+    filterObject(data as Record<string, any>, (_key, v) => !!v),
     getEtsyRequestAxiosConfig({accessToken, apiKey}),
   );
 }
