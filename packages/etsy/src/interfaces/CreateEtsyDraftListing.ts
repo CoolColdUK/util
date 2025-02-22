@@ -41,8 +41,9 @@ export interface CreateEtsyDraftListingRequest
     | 'personalization_instructions'
     | 'should_auto_renew'
     | 'is_taxable'
-    | 'listing_type'
   > {
+  type: EtsyListing['listing_type'];
+
   price: number;
   /**
    * Array of unique IDs of production partners.
@@ -85,7 +86,7 @@ export const zCreateEtsyDraftListingRequestSchema = z.object({
   personalization_instructions: z.string().nullable(),
   // state: z.literal(EtsyListingStateEnum.DRAFT),
   is_supply: z.boolean(),
-  listing_type: z.nativeEnum(EtsyListingTypeEnum),
+  type: z.nativeEnum(EtsyListingTypeEnum),
   image_ids: z.array(z.number().int()).max(10).optional(),
   production_partner_ids: z.array(z.number().int()).nullable().optional(),
 
