@@ -45,7 +45,7 @@ export function mapEtsyListingToCreateDraftListingRequest(
       'is_taxable',
     ]),
     type: listing.listing_type,
-    price: listing.price.amount,
+    price: listing.price.amount / listing.price.divisor,
     personalization_char_count_max: listing.personalization_char_count_max || 0,
     personalization_instructions: listing.personalization_instructions || '',
   };
