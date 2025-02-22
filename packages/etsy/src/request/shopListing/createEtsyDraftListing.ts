@@ -22,6 +22,6 @@ export function createEtsyDraftListing(
   return axios.post<CreateEtsyDraftListingResponse>(
     `/application/shops/${shopId}/listings`,
     JSON.stringify(data),
-    getEtsyRequestAxiosConfig({accessToken, apiKey, contentType: 'application/x-www-form-urlencoded'}),
+    getEtsyRequestAxiosConfig({accessToken, apiKey}),
   );
 }
