@@ -1,3 +1,5 @@
+import {number, object, string} from 'zod';
+
 /**
  * Represents the price of a product or listing on Etsy.
  */
@@ -18,3 +20,9 @@ export interface EtsyPrice {
    */
   currency_code: string;
 }
+
+export const zEtsyPrice = object({
+  amount: number(),
+  divisor: number(),
+  currency_code: string(),
+});
