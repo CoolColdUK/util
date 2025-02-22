@@ -2,7 +2,6 @@ import {Maybe} from '@coolcolduk/typescript-util';
 import {z, ZodType} from 'zod';
 import {EtsyListingItemDimensionUnitEnum} from '../enum/EtsyListingItemDimensionUnitEnum';
 import {EtsyListingItemWeightEnum} from '../enum/EtsyListingItemWeightEnum';
-import {EtsyListingStateEnum} from '../enum/EtsyListingStateEnum';
 import {EtsyListingTypeEnum} from '../enum/EtsyListingTypeEnum';
 import {EtsyListingWhoMadeEnum} from '../enum/EtsyListingWhoMadeEnum';
 import {EtsyListing} from './EtsyListing';
@@ -79,12 +78,12 @@ export const zCreateEtsyDraftListingRequestSchema = z.object({
   who_made: z.nativeEnum(EtsyListingWhoMadeEnum),
   when_made: z.string(),
   /** somehow data from end point does not match documentation */
-  featured_rank: z.number().int().min(-1).nullable(),
+  // featured_rank: z.number().int().min(-1).nullable(),
   is_personalizable: z.boolean().nullable(),
   personalization_is_required: z.boolean().nullable(),
   personalization_char_count_max: z.number().int().nullable(),
   personalization_instructions: z.string().nullable(),
-  state: z.nativeEnum(EtsyListingStateEnum),
+  // state: z.literal(EtsyListingStateEnum.DRAFT),
   is_supply: z.boolean(),
   listing_type: z.nativeEnum(EtsyListingTypeEnum),
   image_ids: z.array(z.number().int()).max(10).optional(),
