@@ -3,6 +3,7 @@ import {z, ZodType} from 'zod';
 import {EtsyListingItemDimensionUnitEnum} from '../enum/EtsyListingItemDimensionUnitEnum';
 import {EtsyListingItemWeightEnum} from '../enum/EtsyListingItemWeightEnum';
 import {EtsyListingTypeEnum} from '../enum/EtsyListingTypeEnum';
+import {EtsyListingWhenMadeEnum} from '../enum/EtsyListingWhenMadeEnum';
 import {EtsyListingWhoMadeEnum} from '../enum/EtsyListingWhoMadeEnum';
 import {EtsyListing} from './EtsyListing';
 import {zEtsyPrice} from './EtsyPrice';
@@ -76,7 +77,7 @@ export const zCreateEtsyDraftListingRequestSchema = z.object({
   taxonomy_id: z.number().int().positive(),
   tags: z.array(z.string()).nullable(),
   who_made: z.nativeEnum(EtsyListingWhoMadeEnum),
-  when_made: z.string(),
+  when_made: z.nativeEnum(EtsyListingWhenMadeEnum),
   /** somehow data from end point does not match documentation */
   // featured_rank: z.number().int().min(-1).nullable(),
   is_personalizable: z.boolean().nullable(),

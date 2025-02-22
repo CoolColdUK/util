@@ -3,6 +3,7 @@ import {EtsyListingItemDimensionUnitEnum} from '../enum/EtsyListingItemDimension
 import {EtsyListingItemWeightEnum} from '../enum/EtsyListingItemWeightEnum';
 import {EtsyListingStateEnum} from '../enum/EtsyListingStateEnum';
 import {EtsyListingTypeEnum} from '../enum/EtsyListingTypeEnum';
+import {EtsyListingWhenMadeEnum} from '../enum/EtsyListingWhenMadeEnum';
 import {EtsyListingWhoMadeEnum} from '../enum/EtsyListingWhoMadeEnum';
 import {EtsyListingImage} from './EtsyListingImage';
 import {EtsyListingInventory} from './EtsyListingInventory ';
@@ -183,7 +184,7 @@ export interface EtsyListing {
    * Enum: Various decade strings (e.g., "2020_2025", "1990s", etc.).
    * Maybe if not applicable.
    */
-  when_made: Maybe<string>;
+  when_made: Maybe<EtsyListingWhenMadeEnum>;
 
   /**
    * When true, tags the listing as a supply product.

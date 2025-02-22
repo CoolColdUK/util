@@ -4,6 +4,7 @@ import {EtsyListingItemDimensionUnitEnum} from '../enum/EtsyListingItemDimension
 import {EtsyListingItemWeightEnum} from '../enum/EtsyListingItemWeightEnum';
 import {EtsyListingStateEnum} from '../enum/EtsyListingStateEnum';
 import {EtsyListingTypeEnum} from '../enum/EtsyListingTypeEnum';
+import {EtsyListingWhenMadeEnum} from '../enum/EtsyListingWhenMadeEnum';
 import {EtsyListingWhoMadeEnum} from '../enum/EtsyListingWhoMadeEnum';
 import {EtsyListing} from './EtsyListing';
 
@@ -75,7 +76,7 @@ export const zUpdateEtsyListingRequestSchema = z.object({
   taxonomy_id: z.number().int().positive(),
   tags: z.array(z.string()).nullable(),
   who_made: z.nativeEnum(EtsyListingWhoMadeEnum),
-  when_made: z.string(),
+  when_made: z.nativeEnum(EtsyListingWhenMadeEnum),
   /** somehow data from end point does not match documentation */
   featured_rank: z.number().int().min(-1).nullable(),
   is_personalizable: z.boolean().nullable(),
