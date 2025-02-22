@@ -6,7 +6,6 @@ import {EtsyListingTypeEnum} from '../enum/EtsyListingTypeEnum';
 import {EtsyListingWhenMadeEnum} from '../enum/EtsyListingWhenMadeEnum';
 import {EtsyListingWhoMadeEnum} from '../enum/EtsyListingWhoMadeEnum';
 import {EtsyListing} from './EtsyListing';
-import {zEtsyPrice} from './EtsyPrice';
 
 /**
  * The data required to create a draft listing.
@@ -17,7 +16,6 @@ export interface CreateEtsyDraftListingRequest
     | 'quantity'
     | 'title'
     | 'description'
-    | 'price'
     | 'who_made'
     | 'when_made'
     | 'taxonomy_id'
@@ -45,6 +43,7 @@ export interface CreateEtsyDraftListingRequest
     | 'is_taxable'
     | 'listing_type'
   > {
+  price: number;
   /**
    * Array of unique IDs of production partners.
    */
@@ -93,7 +92,7 @@ export const zCreateEtsyDraftListingRequestSchema = z.object({
   processing_min: z.number().int().min(0).nullable(),
   processing_max: z.number().int().min(0).nullable(),
   quantity: z.number().int().min(0),
-  price: zEtsyPrice,
+  price: z.number().min(0),
   style: z.array(z.string()).nullable(),
   is_customizable: z.boolean(),
 }) satisfies ZodType<CreateEtsyDraftListingRequest>;

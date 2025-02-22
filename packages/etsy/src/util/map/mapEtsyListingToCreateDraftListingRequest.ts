@@ -18,7 +18,6 @@ export function mapEtsyListingToCreateDraftListingRequest(
       'quantity',
       'title',
       'description',
-      'price',
       'who_made',
       'when_made',
       'taxonomy_id',
@@ -46,6 +45,7 @@ export function mapEtsyListingToCreateDraftListingRequest(
       'is_taxable',
       'listing_type',
     ]),
+    price: listing.price.amount,
     personalization_char_count_max: listing.personalization_char_count_max || 0,
     personalization_instructions: listing.personalization_instructions || '',
   };
