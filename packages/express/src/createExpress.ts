@@ -1,10 +1,11 @@
+import {castArray} from '@coolcolduk/util';
 import cors, {CorsOptions} from 'cors';
 import express, {ErrorRequestHandler, Handler} from 'express';
 import {ExpressMethod} from './ExpressMethod';
 
 export interface CreateExpressData {
   method?: ExpressMethod;
-  handler: Handler;
+  handler: Handler | Handler[];
 }
 
 export interface CreateExpressOptions {
@@ -22,28 +23,28 @@ export function createExpress(route: Record<string, CreateExpressData>, options:
   Object.entries(route).forEach(([k, v]) => {
     switch (v.method) {
       case ExpressMethod.GET:
-        app.get(`/${k}`, v.handler);
+        app.get(`/${k}`, ...castArray(v.handler));
         return;
       case ExpressMethod.PUT:
-        app.put(`/${k}`, v.handler);
+        app.put(`/${k}`, ...castArray(v.handler));
         return;
       case ExpressMethod.DELETE:
-        app.delete(`/${k}`, v.handler);
+        app.delete(`/${k}`, ...castArray(v.handler));
         return;
       case ExpressMethod.POST:
-        app.post(`/${k}`, v.handler);
+        app.post(`/${k}`, ...castArray(v.handler));
         return;
       case ExpressMethod.PATCH:
-        app.patch(`/${k}`, v.handler);
+        app.patch(`/${k}`, ...castArray(v.handler));
         return;
       case ExpressMethod.OPTIONS:
-        app.options(`/${k}`, v.handler);
+        app.options(`/${k}`, ...castArray(v.handler));
         return;
       case ExpressMethod.HEAD:
-        app.head(`/${k}`, v.handler);
+        app.head(`/${k}`, ...castArray(v.handler));
         return;
       default:
-        app.all(`/${k}`, v.handler);
+        app.all(`/${k}`, ...castArray(v.handler));
     }
   });
 

@@ -24,6 +24,7 @@
   "types": "dist/index.d.ts",
   "dependencies": {
     "@coolcolduk/typescript-util": "^1.50.0",
+    "@coolcolduk/util": "^1.50.0",
     "cors": "^2.8.5",
     "express": "^4.21.2"
   },
