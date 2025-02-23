@@ -1,7 +1,7 @@
 import axios from 'axios';
-import FormData from 'form-data';
 import {EtsyResponse} from '../../interfaces/EtsyResponse';
-import {UploadEtsyListingFileResponse} from '../../interfaces/UploadEtsyListingFile';
+import {UploadEtsyListingFileRequest, UploadEtsyListingFileResponse} from '../../interfaces/UploadEtsyListingFile';
+import {buildFormData} from '../../util';
 import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
 
 /**
@@ -11,7 +11,7 @@ import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
  * @param accessToken - The OAuth2 access token.
  * @param shopId - The ID of the shop.
  * @param listingId - The ID of the listing to upload the file to.
- * @param file - the file object
+ * @param data - data for request
  * @returns The response containing details of the uploaded file.
  */
 export function uploadEtsyListingFile(
@@ -19,12 +19,10 @@ export function uploadEtsyListingFile(
   accessToken: string,
   shopId: number,
   listingId: number,
-  file: File,
+  data: UploadEtsyListingFileRequest,
 ): EtsyResponse<UploadEtsyListingFileResponse> {
   // Prepare FormData for multipart upload (browser-native FormData)
-  const formData = new FormData();
-  formData.append('file', file); // File object from browser (e.g., from <input type="file">)
-  formData.append('name', file.name); // Optional: Etsy uses this as the display name
+  const formData = buildFormData(data);
 
   // Make the API request
   return axios.post<UploadEtsyListingFileResponse>(

@@ -1,3 +1,4 @@
+export * from './builder';
 export * from './buildEtsyOauthUrl';
 export * from './filter';
 export * from './getEtsyRequestAxiosConfig';
