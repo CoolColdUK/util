@@ -7,14 +7,17 @@ export interface CreateExpressData {
   handler: Handler;
 }
 
-export function createExpress(
-  route: Record<string, CreateExpressData>,
-  corsOptions?: CorsOptions,
-  errorHandler?: ErrorRequestHandler,
-) {
+export interface CreateExpressOptions {
+  cors?: CorsOptions;
+  errorHandler?: ErrorRequestHandler;
+  middleware?: Handler[];
+}
+
+export function createExpress(route: Record<string, CreateExpressData>, options: CreateExpressOptions) {
   const app = express();
 
-  if (corsOptions) app.use(cors(corsOptions));
+  if (options.cors) app.use(cors(options.cors));
+  if (options.middleware) options.middleware.forEach((m) => app.use(m));
 
   Object.entries(route).forEach(([k, v]) => {
     switch (v.method) {
@@ -47,7 +50,7 @@ export function createExpress(
   /**
    * error handler, do NOT remove the next parameter otherwise it won't work
    */
-  if (errorHandler) app.use(errorHandler);
+  if (options.errorHandler) app.use(options.errorHandler);
 
   return app;
 }
