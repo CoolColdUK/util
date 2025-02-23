@@ -6,6 +6,6 @@ import {mapPromiseSeries} from './mapPromiseSeries';
  * @param fn
  * @returns
  */
-export function mapPromiseFnSeries<T, R>(arr: T[], fn: (data: T) => Promise<R> | R): Promise<R[]> {
-  return mapPromiseSeries(arr.map((d) => () => fn(d)));
+export function mapPromiseFnSeries<T, R>(arr: T[], fn: (data: T, index: number) => Promise<R> | R): Promise<R[]> {
+  return mapPromiseSeries(arr.map((d, i) => () => fn(d, i)));
 }
