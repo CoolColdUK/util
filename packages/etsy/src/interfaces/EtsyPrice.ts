@@ -1,4 +1,4 @@
-import {number, object, string} from 'zod';
+import {number, object, string, ZodType} from 'zod';
 
 /**
  * Represents the price of a product or listing on Etsy.
@@ -25,4 +25,4 @@ export const zEtsyPrice = object({
   amount: number(),
   divisor: number(),
   currency_code: string(),
-});
+}) satisfies ZodType<EtsyPrice>;
