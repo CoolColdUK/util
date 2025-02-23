@@ -17,3 +17,5 @@ export * from './EtsyToken';
 export * from './EtsyTranslation';
 export * from './EtsyUser';
 export * from './UpdatedEtsyListing';
+export * from './UploadEtsyListingFile';
+export * from './UploadEtsyListingImage';
