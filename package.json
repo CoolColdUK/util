@@ -23,6 +23,7 @@
     "release:major": "lerna version major -y",
     "release:minor": "lerna version minor -y",
     "release:patch": "lerna version patch -y",
+    "t": "lerna exec --scope=@coolcolduk/etsy -- npm run t",
     "test": "npm run test:unit",
     "test:unit": "lerna exec -- npm run test:unit"
   },
