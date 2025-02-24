@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {EtsyResponse} from '../../interfaces/EtsyResponse';
 import {UploadEtsyListingVideoRequest, UploadEtsyListingVideoResponse} from '../../interfaces/UploadEtsyListingVideo';
-import {buildFormData} from '../../util';
+import {buildFormData} from '../../util/builder/buildFormData';
 import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
 
 /**
