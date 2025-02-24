@@ -4,4 +4,5 @@ export * from './shop';
 export * from './shopListing';
 export * from './shopListingFile';
 export * from './shopListingImage';
+export * from './shopListingVideo';
 export * from './user';

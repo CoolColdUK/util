@@ -19,3 +19,4 @@ export * from './EtsyUser';
 export * from './UpdatedEtsyListing';
 export * from './UploadEtsyListingFile';
 export * from './UploadEtsyListingImage';
+export * from './UploadEtsyListingVideo';
