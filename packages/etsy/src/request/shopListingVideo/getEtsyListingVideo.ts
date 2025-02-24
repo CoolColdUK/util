@@ -1,0 +1,36 @@
+import axios from 'axios';
+import {EtsyListingVideo} from '../../interfaces';
+import {EtsyResponse} from '../../interfaces/EtsyResponse';
+import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
+
+/**
+ * Retrieves a video associated with an Etsy listing.
+ * @see https://developers.etsy.com/documentation/reference/#operation/getListingVideos
+ * @param apiKey - The API key.
+ * @param accessToken - The OAuth2 access token.
+ * @param listingId - The numeric ID of the listing to retrieve videos for (required, integer >= 1).
+ * @param videoId - The numeric ID of the video to retrieve (required, integer >= 1).
+ * @returns The response containing an array of video details for the listing.
+ * @throws {Error} If listingId is not a positive integer.
+ */
+export function getEtsyListingVideo(
+  apiKey: string,
+  accessToken: string,
+  listingId: number,
+  videoId: number,
+): EtsyResponse<EtsyListingVideo> {
+  // Validate listingId
+  if (!Number.isInteger(listingId) || listingId < 1) {
+    throw new Error('listingId must be an integer >= 1');
+  }
+
+  if (!Number.isInteger(videoId) || videoId < 1) {
+    throw new Error('videoId must be an integer >= 1');
+  }
+
+  // Make the API request without query parameters
+  return axios.get<EtsyListingVideo>(
+    `/application/listings/${listingId}/videos/${videoId}`,
+    getEtsyRequestAxiosConfig({accessToken, apiKey}),
+  );
+}
