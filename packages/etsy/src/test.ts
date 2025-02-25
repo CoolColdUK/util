@@ -1,5 +1,5 @@
 import {getEtsyListingVideos, uploadEtsyListingVideo} from './request';
-import {getEtsyListingVideo} from './request/shopListingVideo/getEtsyListingVideo';
+import {getEtsyListingVideo} from './request/listingVideo/getEtsyListingVideo';
 import {getFile} from './util/helper/getFile';
 
 const apiKey = process.env['ETSY_API_KEY'] || '';
