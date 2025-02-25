@@ -1,5 +1,4 @@
 import {z} from 'zod';
-import {EtsyListingVideoStateEnum} from '../enum/EtsyListingVideoStateEnum';
 
 /**
  * Request data for uploading a video to an Etsy listing.
@@ -34,43 +33,3 @@ export const zUploadEtsyListingVideoRequest = z
     message: 'Must provide either video_id or both video and name',
     path: [],
   }) satisfies z.ZodType<UploadEtsyListingVideoRequest>;
-
-/**
- * Response data from uploading a video to an Etsy listing.
- * @see https://developers.etsy.com/documentation/reference/#operation/uploadListingVideo
- */
-export interface UploadEtsyListingVideoResponse {
-  /**
-   * The unique ID of a video associated with a listing.
-   * Integer >= 1.
-   */
-  video_id: number;
-
-  /**
-   * The video height dimension in pixels.
-   * Integer.
-   */
-  height: number;
-
-  /**
-   * The video width dimension in pixels.
-   * Integer.
-   */
-  width: number;
-
-  /**
-   * The URL of the video thumbnail.
-   */
-  thumbnail_url: string;
-
-  /**
-   * The URL of the video file.
-   */
-  video_url: string;
-
-  /**
-   * The current state of a given video.
-   * One of: "active", "inactive", "deleted", "flagged".
-   */
-  video_state: EtsyListingVideoStateEnum;
-}

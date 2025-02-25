@@ -1,6 +1,7 @@
 import axios from 'axios';
+import {EtsyListingVideo} from '../../interfaces/EtsyListingVideo';
 import {EtsyResponse} from '../../interfaces/EtsyResponse';
-import {UploadEtsyListingVideoRequest, UploadEtsyListingVideoResponse} from '../../interfaces/UploadEtsyListingVideo';
+import {UploadEtsyListingVideoRequest} from '../../interfaces/UploadEtsyListingVideo';
 import {buildFormData} from '../../util/builder/buildFormData';
 import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
 
@@ -20,12 +21,12 @@ export function uploadEtsyListingVideo(
   shopId: number,
   listingId: number,
   data: UploadEtsyListingVideoRequest,
-): EtsyResponse<UploadEtsyListingVideoResponse> {
+): EtsyResponse<EtsyListingVideo> {
   // Prepare FormData for multipart upload (browser-native FormData)
   const formData = buildFormData(data);
 
   // Make the API request
-  return axios.post<UploadEtsyListingVideoResponse>(
+  return axios.post<EtsyListingVideo>(
     `/application/shops/${shopId}/listings/${listingId}/videos`,
     formData,
     getEtsyRequestAxiosConfig({accessToken, apiKey, contentType: 'multipart/form-data'}),
