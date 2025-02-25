@@ -5,7 +5,10 @@ import axios from 'axios';
  * @param url
  * @returns
  */
-export async function fetchFileAsBuffer(url: string) {
+export async function fetchFileAsBuffer(url: string): Promise<{
+  buffer: Buffer<any>;
+  type: string;
+}> {
   const response = await axios.get(url, {responseType: 'arraybuffer'});
-  return Buffer.from(response.data);
+  return {buffer: Buffer.from(response.data), type: response.headers['content-type'] || 'image/jpeg'};
 }
