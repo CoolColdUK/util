@@ -1,6 +1,6 @@
 import {getEtsyListingVideos, uploadEtsyListingVideo} from './request';
 import {getEtsyListingVideo} from './request/listingVideo/getEtsyListingVideo';
-import {getFile} from './util/helper/getFile';
+import {fetchFile} from './util/helper/fetchFile';
 
 const apiKey = process.env['ETSY_API_KEY'] || '';
 const accessToken = process.env['ETSY_ACCESS_TOKEN'] || '';
@@ -15,7 +15,7 @@ async function downloadLinkedVideo(apiKey: string, accessToken: string, listingI
     video.data.video_url.split('/').at(-1),
     `video/${video.data.video_url.split('.').at(-1)}`,
   );
-  return getFile(
+  return fetchFile(
     video.data.video_url,
     video.data.video_url.split('/').at(-1) as string,
     `video/${video.data.video_url.split('.').at(-1) as string}`,
