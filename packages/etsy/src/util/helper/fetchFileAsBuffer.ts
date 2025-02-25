@@ -6,7 +6,7 @@ import axios from 'axios';
  * @returns
  */
 export async function fetchFileAsBuffer(url: string): Promise<{
-  buffer: Buffer<any>;
+  buffer: Buffer;
   type: string;
 }> {
   const response = await axios.get(url, {responseType: 'arraybuffer'});
