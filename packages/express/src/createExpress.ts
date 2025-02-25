@@ -1,7 +1,7 @@
 import {castArray} from '@coolcolduk/util';
 import cors, {CorsOptions} from 'cors';
 import express, {ErrorRequestHandler, Handler} from 'express';
-import {ExpressMethod} from './ExpressMethod';
+import {ExpressMethod} from './enum/ExpressMethod';
 
 export interface CreateExpressData {
   method?: ExpressMethod;

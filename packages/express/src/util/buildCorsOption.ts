@@ -1,13 +1,8 @@
 import {MaybeArray} from '@coolcolduk/typescript-util';
 import {CorsOptions} from 'cors';
-import {ExpressMethod} from './ExpressMethod';
-
-export type StaticOrigin = boolean | string | RegExp;
-
-export type CustomOrigin = (
-  requestOrigin: string | undefined,
-  callback: (err: Error | null, origin?: StaticOrigin) => void,
-) => void;
+import {ExpressMethod} from '../enum/ExpressMethod';
+import {CustomOrigin} from '../interface/CustomOrigin';
+import {StaticOrigin} from '../interface/StaticOrigin';
 
 export function buildCorsOption(
   origin?: MaybeArray<StaticOrigin> | CustomOrigin,
