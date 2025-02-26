@@ -4,7 +4,7 @@
  * @param file2
  * @returns
  */
-export default function isFileEqual(file1: File, file2: File): boolean {
+export function isFileEqual(file1: File, file2: File): boolean {
   return (
     file1.name === file2.name &&
     file1.size === file2.size &&
