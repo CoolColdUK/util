@@ -1,7 +1,8 @@
 import axios from 'axios';
 import {EtsyResponse} from '../../interfaces/EtsyResponse';
 import {UploadEtsyListingFileRequest, UploadEtsyListingFileResponse} from '../../interfaces/UploadEtsyListingFile';
-import {buildFormData} from '../../util';
+import {buildFormData} from '../../util/builder/buildFormData';
+import {formatListingFileName} from '../../util/format/formatListingFileName';
 import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
 
 /**
@@ -22,7 +23,10 @@ export function uploadEtsyListingFile(
   data: UploadEtsyListingFileRequest,
 ): EtsyResponse<UploadEtsyListingFileResponse> {
   // Prepare FormData for multipart upload (browser-native FormData)
-  const formData = buildFormData(data);
+  const formData = buildFormData({
+    ...data,
+    ...(data.name ? {name: formatListingFileName(data.name)} : {}),
+  });
 
   // Make the API request
   return axios.post<UploadEtsyListingFileResponse>(
