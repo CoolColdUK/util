@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@coolcolduk/typescript-util",
-  "version": "1.55.2",
+  "version": "1.56.0",
   "description": "utils for typings only",
   "license": "MIT",
   "main": "dist/index.js",
