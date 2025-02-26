@@ -3,6 +3,7 @@ export * from './csv';
 export * from './delay';
 export * from './enum';
 export * from './error';
+export * from './file';
 export * from './number';
 export * from './object';
 export * from './pkceCodeChallenge';
