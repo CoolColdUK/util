@@ -6,6 +6,8 @@ export * from './enum';
 export * from './interfaces';
 export * from './regex';
 export * from './request';
+export * from './settings';
+// export * from './test';
 export * from './util';
 
 export {ETSY_API_ENDPOINT};
