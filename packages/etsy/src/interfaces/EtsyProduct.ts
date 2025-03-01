@@ -1,5 +1,6 @@
-import {EtsyProductOffering} from './EtsyProductOffering';
-import {EtsyProductPropertyValue} from './EtsyProductPropertyValue';
+import {z} from 'zod';
+import {EtsyProductOffering, zEtsyProductOffering} from './EtsyProductOffering';
+import {EtsyProductPropertyValue, zEtsyProductPropertyValue} from './EtsyProductPropertyValue';
 
 /**
  * Represents a product in an Etsy listing's inventory.
@@ -30,3 +31,11 @@ export interface EtsyProduct {
    */
   property_values: EtsyProductPropertyValue[];
 }
+
+export const zEtsyProduct = z.object({
+  product_id: z.number().min(1).int(),
+  sku: z.string(),
+  is_deleted: z.boolean(),
+  offerings: z.array(zEtsyProductOffering),
+  property_values: z.array(zEtsyProductPropertyValue),
+}) satisfies z.ZodType<EtsyProduct>;

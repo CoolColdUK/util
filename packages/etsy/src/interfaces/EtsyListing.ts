@@ -6,7 +6,7 @@ import {EtsyListingTypeEnum} from '../enum/EtsyListingTypeEnum';
 import {EtsyListingWhenMadeEnum} from '../enum/EtsyListingWhenMadeEnum';
 import {EtsyListingWhoMadeEnum} from '../enum/EtsyListingWhoMadeEnum';
 import {EtsyListingImage} from './EtsyListingImage';
-import {EtsyListingInventory} from './EtsyListingInventory ';
+import {EtsyListingInventory} from './EtsyListingInventory';
 import {EtsyListingVideo} from './EtsyListingVideo';
 import {EtsyPrice} from './EtsyPrice';
 import {EtsyProductionPartner} from './EtsyProductionPartner';

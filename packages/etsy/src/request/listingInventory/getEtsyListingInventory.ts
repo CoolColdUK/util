@@ -1,0 +1,23 @@
+import axios from 'axios';
+import {EtsyListingInventory} from '../../interfaces/EtsyListingInventory';
+import {EtsyResponse} from '../../interfaces/EtsyResponse';
+import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
+
+/**
+ * Retrieves the inventory for a listing identified by a listing ID.
+ * @see https://developers.etsy.com/documentation/reference/#operation/getListingInventory
+ * @param apiKey - The API key.
+ * @param accessToken - The OAuth2 access token.
+ * @param listingId - The ID of the listing to retrieve inventory for (required, integer >= 1).
+ * @returns The inventory details for the specified listing.
+ */
+export async function getEtsyListingInventory(
+  apiKey: string,
+  accessToken: string,
+  listingId: number,
+): EtsyResponse<EtsyListingInventory> {
+  return axios.get<EtsyListingInventory>(
+    `/application/listings/${listingId}/inventory`,
+    getEtsyRequestAxiosConfig({accessToken, apiKey}),
+  );
+}

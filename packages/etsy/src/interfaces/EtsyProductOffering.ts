@@ -1,4 +1,5 @@
-import {EtsyPrice} from './EtsyPrice';
+import {boolean, number, object, ZodType} from 'zod';
+import {EtsyPrice, zEtsyPrice} from './EtsyPrice';
 
 /**
  * Represents an offering for a product in an Etsy listing's inventory.
@@ -29,3 +30,11 @@ export interface EtsyProductOffering {
    */
   price: EtsyPrice;
 }
+
+export const zEtsyProductOffering = object({
+  offering_id: number().int().min(1),
+  quantity: number().int().min(0),
+  is_enabled: boolean(),
+  is_deleted: boolean(),
+  price: zEtsyPrice,
+}) satisfies ZodType<EtsyProductOffering>;
