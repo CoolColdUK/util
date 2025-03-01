@@ -1,7 +1,7 @@
 export * from './CreateEtsyDraftListing';
 export * from './EtsyListing';
 export * from './EtsyListingImage';
-export * from './EtsyListingInventory ';
+export * from './EtsyListingInventory';
 export * from './EtsyListingVideo';
 export * from './EtsyPrice';
 export * from './EtsyProduct';
