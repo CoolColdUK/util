@@ -1,10 +1,6 @@
 import axios from 'axios';
 import {EtsyResponse} from '../../interfaces/EtsyResponse';
-import {
-  UpdatedEtsyListing,
-  UpdateEtsyListingRequest,
-  zUpdateEtsyListingRequestSchema,
-} from '../../interfaces/UpdatedEtsyListing';
+import {UpdatedEtsyListing, UpdateEtsyListingRequest} from '../../interfaces/UpdatedEtsyListing';
 import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
 
 /**
@@ -24,10 +20,9 @@ export async function updateEtsyListing(
   listingId: number,
   updateData: UpdateEtsyListingRequest,
 ): EtsyResponse<UpdatedEtsyListing> {
-  const body = zUpdateEtsyListingRequestSchema.strip().parse(updateData);
   return axios.patch<UpdatedEtsyListing>(
     `/application/shops/${shopId}/listings/${listingId}`,
-    body,
+    updateData,
     getEtsyRequestAxiosConfig({accessToken, apiKey}),
   );
 }

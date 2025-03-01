@@ -1,9 +1,5 @@
 import axios from 'axios';
-import {
-  EtsyListingInventory,
-  UpdateEtsyListingInventoryRequest,
-  zUpdateEtsyListingInventoryRequestSchema,
-} from '../../interfaces/EtsyListingInventory';
+import {EtsyListingInventory, UpdateEtsyListingInventoryRequest} from '../../interfaces/EtsyListingInventory';
 import {EtsyResponse} from '../../interfaces/EtsyResponse';
 import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
 
@@ -22,10 +18,9 @@ export async function updateEtsyListingInventory(
   listingId: number,
   updateData: UpdateEtsyListingInventoryRequest,
 ): EtsyResponse<EtsyListingInventory> {
-  const body = zUpdateEtsyListingInventoryRequestSchema.strip().parse(updateData);
   return axios.put<EtsyListingInventory>(
     `/application/listings/${listingId}/inventory`,
-    body,
+    updateData,
     getEtsyRequestAxiosConfig({accessToken, apiKey, contentType: 'application/json'}),
   );
 }
