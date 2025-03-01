@@ -50,20 +50,20 @@ export interface UpdateEtsyListingInventoryRequest {
   /**
    * An array of unique listing property ID integers for the properties that change product prices (optional).
    */
-  price_on_property: number[];
+  price_on_property?: number[];
 
   /**
    * An array of unique listing property ID integers for the properties that change product quantities (optional).
    */
-  quantity_on_property: number[];
+  quantity_on_property?: number[];
 
   /**
    * An array of unique listing property ID integers for the properties that change product SKUs (optional).
    */
-  sku_on_property: number[];
+  sku_on_property?: number[];
 }
 
-export const zUpdateEtsyListingInventoryRequestSchema = z.object({
+export const zUpdateEtsyListingInventoryRequest = z.object({
   products: z
     .array(
       zEtsyProduct
@@ -71,7 +71,7 @@ export const zUpdateEtsyListingInventoryRequestSchema = z.object({
         .merge(z.object({sku: zEtsyProduct.shape.sku.nullable()})),
     )
     .nonempty({message: 'products array must not be empty'}),
-  price_on_property: z.array(z.number().int().min(1)),
-  quantity_on_property: z.array(z.number().int().min(1)),
-  sku_on_property: z.array(z.number().int().min(1)),
+  price_on_property: z.array(z.number().int().min(1)).optional(),
+  quantity_on_property: z.array(z.number().int().min(1)).optional(),
+  sku_on_property: z.array(z.number().int().min(1)).optional(),
 }) satisfies z.ZodType<UpdateEtsyListingInventoryRequest>;
