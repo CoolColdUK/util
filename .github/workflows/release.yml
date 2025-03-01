@@ -90,7 +90,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Install
-        run: npm i --production
+        run: npm i
       - name: Build
         run: npm run ci:build
       - name: bump patch
