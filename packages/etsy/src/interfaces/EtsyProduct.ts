@@ -1,6 +1,17 @@
+import {Maybe} from '@coolcolduk/typescript-util';
 import {z} from 'zod';
-import {EtsyProductOffering, zEtsyProductOffering} from './EtsyProductOffering';
-import {EtsyProductPropertyValue, zEtsyProductPropertyValue} from './EtsyProductPropertyValue';
+import {
+  EtsyProductOffering,
+  EtsyProductOfferingRequest,
+  zEtsyProductOffering,
+  zEtsyProductOfferingRequest,
+} from './EtsyProductOffering';
+import {
+  EtsyProductPropertyValue,
+  EtsyProductPropertyValueRequest,
+  zEtsyProductPropertyValue,
+  zEtsyProductPropertyValueRequest,
+} from './EtsyProductPropertyValue';
 
 /**
  * Represents a product in an Etsy listing's inventory.
@@ -39,3 +50,18 @@ export const zEtsyProduct = z.object({
   offerings: z.array(zEtsyProductOffering),
   property_values: z.array(zEtsyProductPropertyValue),
 }) satisfies z.ZodType<EtsyProduct>;
+
+/**
+ * etsy product in a request
+ */
+export interface EtsyProductRequest {
+  sku?: Maybe<string>;
+  property_values?: EtsyProductPropertyValueRequest[];
+  offerings: EtsyProductOfferingRequest[];
+}
+
+export const zEtsyProductRequest = z.object({
+  sku: zEtsyProduct.shape.sku.nullable().optional(),
+  property_values: z.array(zEtsyProductPropertyValueRequest).optional(),
+  offerings: z.array(zEtsyProductOfferingRequest),
+}) satisfies z.ZodType<EtsyProductRequest>;

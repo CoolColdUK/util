@@ -1,9 +1,7 @@
-// interfaces/EtsyListingInventory.ts
-
-import {Maybe, NullableBy} from '@coolcolduk/typescript-util';
+import {Maybe} from '@coolcolduk/typescript-util';
 import {z} from 'zod';
 import {EtsyListing} from './EtsyListing';
-import {EtsyProduct, zEtsyProduct} from './EtsyProduct';
+import {EtsyProduct, EtsyProductRequest, zEtsyProductRequest} from './EtsyProduct';
 
 /**
  * Represents the inventory data for an Etsy listing.
@@ -45,7 +43,7 @@ export interface UpdateEtsyListingInventoryRequest {
    * A JSON array of products available in a listing, even if only one product.
    * Required.
    */
-  products: NullableBy<Pick<EtsyProduct, 'offerings' | 'property_values' | 'sku'>, 'sku'>[];
+  products: EtsyProductRequest[];
 
   /**
    * An array of unique listing property ID integers for the properties that change product prices (optional).
@@ -64,13 +62,7 @@ export interface UpdateEtsyListingInventoryRequest {
 }
 
 export const zUpdateEtsyListingInventoryRequest = z.object({
-  products: z
-    .array(
-      zEtsyProduct
-        .pick({offerings: true, property_values: true})
-        .merge(z.object({sku: zEtsyProduct.shape.sku.nullable()})),
-    )
-    .nonempty({message: 'products array must not be empty'}),
+  products: z.array(zEtsyProductRequest).nonempty({message: 'products array must not be empty'}),
   price_on_property: z.array(z.number().int().min(1)).optional(),
   quantity_on_property: z.array(z.number().int().min(1)).optional(),
   sku_on_property: z.array(z.number().int().min(1)).optional(),

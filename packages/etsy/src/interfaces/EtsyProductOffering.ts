@@ -38,3 +38,14 @@ export const zEtsyProductOffering = object({
   is_deleted: boolean(),
   price: zEtsyPrice,
 }) satisfies ZodType<EtsyProductOffering>;
+
+export interface EtsyProductOfferingRequest extends Pick<EtsyProductOffering, 'quantity' | 'is_enabled'> {
+  price: number;
+}
+
+export const zEtsyProductOfferingRequest = zEtsyProductOffering
+  .pick({
+    quantity: true,
+    is_enabled: true,
+  })
+  .merge(object({price: number().min(0)})) satisfies ZodType<EtsyProductOfferingRequest>;
