@@ -25,6 +25,7 @@
   },
   "types": "dist/index.d.ts",
   "dependencies": {
+    "@coolcolduk/enum": "^1.60.0",
     "@coolcolduk/util": "^1.60.0",
     "axios": "^1.7.9",
     "express": "^4.21.2",
