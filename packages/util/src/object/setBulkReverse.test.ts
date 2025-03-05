@@ -1,9 +1,10 @@
 import {generateTestEach} from '../testHelper/generateTestEach';
-import {setBulkReverse} from './setBulkReverse';
+import {setBulkReverse, ValidatorFn} from './setBulkReverse';
 
 interface TestCase {
   input: Record<string, any>;
   expected: Record<string, any>;
+  validator?: ValidatorFn[];
 }
 
 describe('setBulkReverse', () => {
@@ -36,10 +37,15 @@ describe('setBulkReverse', () => {
       input: {a: [{b: 1}, {c: 2}]},
       expected: {'a.0.b': 1, 'a.1.c': 2},
     },
+    'Should work with File array': {
+      input: {a: [new File([''], 'a.txt'), new File([''], 'b.txt')]},
+      expected: {'a.0': expect.any(File), 'a.1': expect.any(File)},
+      validator: [(_prefix, _key, value) => value instanceof File],
+    },
   };
 
   generateTestEach(testCases, (_title, testCase) => {
-    const {input, expected} = testCase;
-    expect(setBulkReverse(input)).toEqual(expected);
+    const {input, expected, validator} = testCase;
+    expect(setBulkReverse(input, undefined, validator)).toEqual(expected);
   });
 });
