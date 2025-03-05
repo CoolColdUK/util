@@ -1,6 +1,6 @@
 import {Base64Object} from './Base64Object';
 
-export default function fileToBase64Object(file: File): Promise<Base64Object> {
+export function fileToBase64Object(file: File): Promise<Base64Object> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
 
