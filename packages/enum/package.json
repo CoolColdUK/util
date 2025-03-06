@@ -2,7 +2,7 @@
   "private": false,
   "name": "@coolcolduk/enum",
   "version": "1.64.1",
-  "description": "various enum",
+  "description": "various enum and types",
   "license": "MIT",
   "main": "dist/index.js",
   "files": [
@@ -10,8 +10,8 @@
     "src"
   ],
   "scripts": {
-    "build:main": "tsc",
-    "build:package": "echo skip",
+    "build:main": "echo skip",
+    "build:package": "tsc",
     "check": "tsc --noEmit",
     "clean:dist": "rm -rf dist && rm -rf tsconfig.tsbuildinfo",
     "lint": "eslint ./src/**/*.{ts,tsx}",
