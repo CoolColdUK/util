@@ -4,6 +4,7 @@ export * from './combineArraysString';
 export * from './extractArrayLast';
 export * from './fillerArray';
 export * from './filterArrayDuplicates';
+export * from './filterArrayNull';
 export * from './filterArrayUndefined';
 export * from './hasArrayDuplicates';
 export * from './indexOfCaseInsensitive';
