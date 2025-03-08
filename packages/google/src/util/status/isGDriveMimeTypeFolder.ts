@@ -1,3 +1,3 @@
-export default function isGDriveMimeTypeFolder(mimeType: string) {
+export function isGDriveMimeTypeFolder(mimeType: string) {
   return mimeType === 'application/vnd.google-apps.folder';
 }

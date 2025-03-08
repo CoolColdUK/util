@@ -28,7 +28,7 @@ export interface ListGDriveContentResponse {
  * @returns Promise resolving to the list of files
  * Note: This method returns all files by default, including trashed files. If you don't want trashed files to appear in the list, use the trashed=false query parameter to remove trashed files from the results.
  */
-export async function listGDriveContent(
+export function listGDriveContent(
   apiKey: string,
   params: ListGDriveContentParam,
 ): GDriveResponse<ListGDriveContentResponse> {
