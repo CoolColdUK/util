@@ -202,6 +202,15 @@ jobs:
           package: './packages/gql'
           access: public
       - run: echo ${{ steps.gql.outputs.id }}
+
+      - uses: CoolColdUK/npm-publish@v3.1.1
+        id: google
+        with:
+          token: ${{ secrets.NPM_AUTH_TOKEN }}
+          package: './packages/google'
+          access: public
+      - run: echo ${{ steps.google.outputs.id }}
+
       # - uses: CoolColdUK/github-script@v7
       #   if: github.event_name != 'workflow_dispatch'
       #   with:
