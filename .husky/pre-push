@@ -1,0 +1,4 @@
+npm i
+
+git add package-lock.json
+git commit -m "bump lock"
