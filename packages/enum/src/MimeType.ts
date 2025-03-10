@@ -30,6 +30,7 @@ export enum MimeType {
   VIDEO_OGG = 'video/ogg',
   VIDEO_AVI = 'video/x-msvideo',
   VIDEO_WMV = 'video/x-ms-wmv',
+  VIDEO_QUICKTIME = 'video/quicktime',
 
   // Application
   APPLICATION_JSON = 'application/json',
@@ -44,6 +45,14 @@ export enum MimeType {
   APPLICATION_VND_OPENXML_WORD = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', // .docx
   APPLICATION_VND_OPENXML_EXCEL = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', // .xlsx
   APPLICATION_VND_OPENXML_POWERPOINT = 'application/vnd.openxmlformats-officedocument.presentationml.presentation', // .pptx
+  APPLICATION_POSTSCRIPT = 'application/postscript',
+  APPLICATION_RTF = 'application/rtf',
+  APPLICATION_SLA = 'application/sla',
+
+  // ebook
+  APPLICATION_MOBIPOCKET_EBOOK = 'application/x-mobipocket-ebook',
+  APPLICATION_EPUB_EBOOK = 'application/epub+zip',
+  APPLICATION_IBOOKS_EBOOK = 'application/x-ibooks+zip',
 
   // Google Apps (commonly used in Google Drive)
   GOOGLE_DOCS = 'application/vnd.google-apps.document',
