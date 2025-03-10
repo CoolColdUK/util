@@ -1,6 +1,6 @@
+import {GDriveContent} from '../types/GDriveContent';
+import {GDriveResponse} from '../types/GDriveResponse';
 import {getGDriveAxios} from '../util/axios/getGDriveAxios';
-import {GDriveContent} from './GDriveContent';
-import {GDriveResponse} from './GDriveResponse';
 
 export interface GetGDriveContentParam {
   /** The ID of the Google Drive item (file or folder) to retrieve */

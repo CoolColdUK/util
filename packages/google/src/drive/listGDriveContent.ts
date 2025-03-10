@@ -1,6 +1,6 @@
+import {GDriveContent} from '../types/GDriveContent';
+import {GDriveResponse} from '../types/GDriveResponse';
 import {getGDriveAxios} from '../util/axios/getGDriveAxios';
-import {GDriveContent} from './GDriveContent';
-import {GDriveResponse} from './GDriveResponse';
 
 // Input parameters for getting Google Drive content
 export interface ListGDriveContentParam {
