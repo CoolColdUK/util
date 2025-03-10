@@ -4,9 +4,6 @@ import {getGDriveAxios} from '../util/axios/getGDriveAxios';
 
 // Input parameters for getting Google Drive content
 export interface ListGDriveContentParam {
-  /** The ID of the folder to list files from */
-  id: string;
-
   /** Number of results per page (default: 1000) */
   pageSize?: number;
 
@@ -24,16 +21,17 @@ export interface ListGDriveContentResponse {
 /**
  * Lists files in a Google Drive folder
  * @param apiKey
+ * @param folderId The ID of the folder to list files from
  * @param params Parameters for listing files
  * @returns Promise resolving to the list of files
  * Note: This method returns all files by default, including trashed files. If you don't want trashed files to appear in the list, use the trashed=false query parameter to remove trashed files from the results.
  */
 export function listGDriveContent(
   apiKey: string,
+  folderId: string,
   params: ListGDriveContentParam,
 ): GDriveResponse<ListGDriveContentResponse> {
   const {
-    id,
     pageSize = 1000,
     pageToken,
     trashed = true, // Default to true to match API default behavior
@@ -41,7 +39,7 @@ export function listGDriveContent(
 
   return getGDriveAxios(apiKey).get('/files', {
     params: {
-      q: `'${id}' in parents`,
+      q: `'${folderId}' in parents`,
       fields: 'files(id,name,mimeType,webViewLink),nextPageToken',
       pageSize,
       pageToken,
