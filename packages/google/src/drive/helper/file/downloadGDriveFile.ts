@@ -1,5 +1,5 @@
-import {GDriveContent} from '../../types/GDriveContent';
-import {getGDriveFile} from './getGDriveFile';
+import {GDriveContent} from '../../../types/GDriveContent';
+import {getGDriveFile} from '../../file/getGDriveFile';
 
 /**
  * Downloads a Google Drive file

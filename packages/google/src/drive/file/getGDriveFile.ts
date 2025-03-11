@@ -1,4 +1,4 @@
-import {getGDriveAxios} from '@coolcolduk/google';
+import {getGDriveAxios} from '../../util/axios/getGDriveAxios';
 
 /**
  * Fetches a Google Drive file's content as an ArrayBuffer

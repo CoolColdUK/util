@@ -1,5 +1,5 @@
 import {mapPromiseFnSeries} from '@coolcolduk/util';
-import {GDriveContent} from '../../types/GDriveContent';
+import {GDriveContent} from '../../../types/GDriveContent';
 import {downloadGDriveFile} from './downloadGDriveFile';
 
 /**
