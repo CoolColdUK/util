@@ -1,2 +1,2 @@
-export * from './getGDriveContent';
-export * from './listGDriveContent';
+export * from './content';
+export * from './file';
