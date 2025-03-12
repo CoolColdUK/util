@@ -1,6 +1,6 @@
 import {MimeType} from '@coolcolduk/enum';
 
-export const etsyListingFileSupportedMimeTypes = [
+export const etsyListingDigitalSupportedMimeTypes = [
   MimeType.IMAGE_BMP,
   MimeType.APPLICATION_MSWORD,
   MimeType.IMAGE_GIF,
@@ -20,4 +20,25 @@ export const etsyListingFileSupportedMimeTypes = [
   MimeType.APPLICATION_ZIP,
   MimeType.APPLICATION_EPUB_EBOOK,
   MimeType.APPLICATION_IBOOKS_EBOOK,
+];
+
+export const etsyListingDigitalSupportedExtensions = [
+  '.bmp',
+  '.doc',
+  '.gif',
+  '.jpeg',
+  '.jpg',
+  '.mobi',
+  '.mov',
+  '.mp3',
+  '.mpeg',
+  '.pdf',
+  '.png',
+  '.psp',
+  '.rtf',
+  '.stl',
+  '.txt',
+  '.zip',
+  '.ePUB',
+  '.iBook',
 ];
