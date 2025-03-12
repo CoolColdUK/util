@@ -1,3 +1,4 @@
+import {MimeType} from '@coolcolduk/enum';
 import {EtsyListingVideo} from '../../interfaces/EtsyListingVideo';
 import {EtsyResponse} from '../../interfaces/EtsyResponse';
 import {UploadEtsyListingVideoRequest} from '../../interfaces/UploadEtsyListingVideo';
@@ -25,7 +26,7 @@ export function uploadEtsyListingVideo(
   const formData = buildFormData(data);
 
   // Make the API request
-  return getEtsyAxios(apiKey, accessToken, {contentType: 'multipart/form-data'}).post<EtsyListingVideo>(
+  return getEtsyAxios(apiKey, accessToken, {contentType: MimeType.MULTIPART_FORM_DATA}).post<EtsyListingVideo>(
     `/application/shops/${shopId}/listings/${listingId}/videos`,
     formData,
   );

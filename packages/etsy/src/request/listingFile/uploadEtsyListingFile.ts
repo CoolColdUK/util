@@ -1,3 +1,4 @@
+import {MimeType} from '@coolcolduk/enum';
 import {EtsyResponse} from '../../interfaces/EtsyResponse';
 import {UploadEtsyListingFileRequest, UploadEtsyListingFileResponse} from '../../interfaces/UploadEtsyListingFile';
 import {buildFormData} from '../../util/builder/buildFormData';
@@ -28,8 +29,7 @@ export function uploadEtsyListingFile(
   });
 
   // Make the API request
-  return getEtsyAxios(apiKey, accessToken, {contentType: 'multipart/form-data'}).post<UploadEtsyListingFileResponse>(
-    `/application/shops/${shopId}/listings/${listingId}/files`,
-    formData,
-  );
+  return getEtsyAxios(apiKey, accessToken, {
+    contentType: MimeType.MULTIPART_FORM_DATA,
+  }).post<UploadEtsyListingFileResponse>(`/application/shops/${shopId}/listings/${listingId}/files`, formData);
 }

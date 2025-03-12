@@ -17,7 +17,7 @@ export async function updateEtsyListingInventory(
   listingId: number,
   updateData: UpdateEtsyListingInventoryRequest,
 ): EtsyResponse<EtsyListingInventory> {
-  return getEtsyAxios(apiKey, accessToken, {contentType: 'application/json'}).put<EtsyListingInventory>(
+  return getEtsyAxios(apiKey, accessToken).put<EtsyListingInventory>(
     `/application/listings/${listingId}/inventory`,
     updateData,
   );

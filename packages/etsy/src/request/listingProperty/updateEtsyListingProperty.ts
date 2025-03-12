@@ -1,3 +1,4 @@
+import {MimeType} from '@coolcolduk/enum';
 import {EtsyListingProperty, UpdateEtsyListingPropertyRequest} from '../../interfaces/EtsyListingProperty';
 import {EtsyResponse} from '../../interfaces/EtsyResponse';
 import {getEtsyAxios} from '../../util/getEtsyAxios';
@@ -22,7 +23,9 @@ export async function updateEtsyListingProperty(
   propertyId: number,
   updateData: UpdateEtsyListingPropertyRequest,
 ): EtsyResponse<EtsyListingProperty> {
-  return getEtsyAxios(apiKey, accessToken, {contentType: 'application/x-www-form-urlencoded'}).put<EtsyListingProperty>(
+  return getEtsyAxios(apiKey, accessToken, {
+    contentType: MimeType.APPLICATION_FORM_URLENCODED,
+  }).put<EtsyListingProperty>(
     `/application/shops/${shopId}/listings/${listingId}/properties/${propertyId}`,
     updateData,
   );

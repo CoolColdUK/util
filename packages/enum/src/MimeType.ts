@@ -50,6 +50,7 @@ export enum MimeType {
   APPLICATION_VND_OPENXML_WORD = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', // .docx
   APPLICATION_XML = 'application/xml',
   APPLICATION_ZIP = 'application/zip',
+  APPLICATION_FORM_URLENCODED = 'application/x-www-form-urlencoded ',
 
   // ebook
   APPLICATION_EPUB_EBOOK = 'application/epub+zip',
@@ -65,4 +66,6 @@ export enum MimeType {
   // Miscellaneous
   MULTIPART_FORM_DATA = 'multipart/form-data',
   MULTIPART_MIXED = 'multipart/mixed',
+  MULTIPART_ALTERNATIVE = 'multipart/alternative',
+  MULTIPART_RELATED = 'multipart/related',
 }
