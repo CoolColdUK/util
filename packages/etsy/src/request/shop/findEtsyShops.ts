@@ -23,5 +23,5 @@ export function findEtsyShops(
     offset: offset.toString(),
   });
 
-  return getEtsyAxios(apiKey).get<EtsyList<EtsyShop>>(`/application/shops?${params.toString()}`);
+  return getEtsyAxios(apiKey, undefined, {params}).get<EtsyList<EtsyShop>>(`/application/shops`);
 }
