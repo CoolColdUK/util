@@ -1,7 +1,6 @@
-import axios from 'axios';
 import {EtsyListingProperty} from '../../interfaces/EtsyListingProperty';
 import {EtsyResponse} from '../../interfaces/EtsyResponse';
-import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
+import {getEtsyAxios} from '../../util/getEtsyAxios';
 
 /**
  * Retrieves a listing's property.
@@ -17,8 +16,5 @@ export async function getEtsyListingProperty(
   listingId: number,
   propertyId: number,
 ): EtsyResponse<EtsyListingProperty> {
-  return axios.get<EtsyListingProperty>(
-    `/application/listings/${listingId}/properties/${propertyId}`,
-    getEtsyRequestAxiosConfig({apiKey}),
-  );
+  return getEtsyAxios(apiKey).get<EtsyListingProperty>(`/application/listings/${listingId}/properties/${propertyId}`);
 }

@@ -1,6 +1,5 @@
-import axios from 'axios';
 import {EtsyResponse} from '../../interfaces/EtsyResponse';
-import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
+import {getEtsyAxios} from '../../util/getEtsyAxios';
 
 export interface GetEtsyMeResponse {
   /** The numeric ID of a user. This number is also a valid shop ID for the user's shop. */
@@ -18,5 +17,5 @@ export interface GetEtsyMeResponse {
  * @returns
  */
 export function getEtsyMe(apiKey: string, accessToken: string): EtsyResponse<GetEtsyMeResponse> {
-  return axios.get<GetEtsyMeResponse>(`/application/users/me`, getEtsyRequestAxiosConfig({apiKey, accessToken}));
+  return getEtsyAxios(apiKey, accessToken).get<GetEtsyMeResponse>(`/application/users/me`);
 }

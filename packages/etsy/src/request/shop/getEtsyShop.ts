@@ -1,7 +1,6 @@
-import axios from 'axios';
 import {EtsyResponse} from '../../interfaces/EtsyResponse';
 import {EtsyShop} from '../../interfaces/EtsyShop';
-import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
+import {getEtsyAxios} from '../../util/getEtsyAxios';
 
 /**
  * Retrieves the shop identified by a specific shop ID.
@@ -11,5 +10,5 @@ import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
  * @returns Shop details as a promise of EtsyShop.
  */
 export function getShop(apiKey: string, shopId: number): EtsyResponse<EtsyShop> {
-  return axios.get<EtsyShop>(`/application/shops/${shopId}`, getEtsyRequestAxiosConfig({apiKey}));
+  return getEtsyAxios(apiKey).get<EtsyShop>(`/application/shops/${shopId}`);
 }

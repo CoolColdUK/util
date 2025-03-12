@@ -1,7 +1,6 @@
-import axios from 'axios';
 import {EtsyParamIncludesEnum} from '../../enum/EtsyParamIncludesEnum';
 import {EtsyList, EtsyListing, EtsyResponseMany} from '../../interfaces';
-import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
+import {getEtsyAxios} from '../../util/getEtsyAxios';
 
 /**
  * Fetches multiple Etsy listings by their listing IDs.
@@ -33,8 +32,5 @@ export function getEtsyListingsByListingIds(
     params.append('includes', includes.join(','));
   }
 
-  return axios.get<EtsyList<EtsyListing>>(
-    `/application/listings/batch`,
-    getEtsyRequestAxiosConfig({accessToken, apiKey, params}),
-  );
+  return getEtsyAxios(apiKey, accessToken, {params}).get<EtsyList<EtsyListing>>(`/application/listings/batch`);
 }

@@ -1,7 +1,6 @@
-import axios from 'axios';
 import {EtsyListingProperty, UpdateEtsyListingPropertyRequest} from '../../interfaces/EtsyListingProperty';
 import {EtsyResponse} from '../../interfaces/EtsyResponse';
-import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
+import {getEtsyAxios} from '../../util/getEtsyAxios';
 
 /**
  * Updates or populates the properties list defining product offerings for a listing.
@@ -23,9 +22,8 @@ export async function updateEtsyListingProperty(
   propertyId: number,
   updateData: UpdateEtsyListingPropertyRequest,
 ): EtsyResponse<EtsyListingProperty> {
-  return axios.put<EtsyListingProperty>(
+  return getEtsyAxios(apiKey, accessToken, {contentType: 'application/x-www-form-urlencoded'}).put<EtsyListingProperty>(
     `/application/shops/${shopId}/listings/${listingId}/properties/${propertyId}`,
     updateData,
-    getEtsyRequestAxiosConfig({accessToken, apiKey, contentType: 'application/x-www-form-urlencoded'}),
   );
 }

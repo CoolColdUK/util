@@ -1,7 +1,6 @@
-import axios from 'axios';
 import {EtsyListingVideo} from '../../interfaces';
 import {EtsyResponse} from '../../interfaces/EtsyResponse';
-import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
+import {getEtsyAxios} from '../../util/getEtsyAxios';
 
 /**
  * Retrieves a video associated with an Etsy listing.
@@ -29,8 +28,7 @@ export function getEtsyListingVideo(
   }
 
   // Make the API request without query parameters
-  return axios.get<EtsyListingVideo>(
+  return getEtsyAxios(apiKey, accessToken).get<EtsyListingVideo>(
     `/application/listings/${listingId}/videos/${videoId}`,
-    getEtsyRequestAxiosConfig({accessToken, apiKey}),
   );
 }

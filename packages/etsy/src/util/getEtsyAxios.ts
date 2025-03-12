@@ -1,17 +1,19 @@
 import {buildObjectWhenExists} from '@coolcolduk/util';
-import {AxiosRequestConfig} from 'axios';
+import axios from 'axios';
 import {ETSY_API_ENDPOINT} from '../constants';
 
-export interface RequestOption {
-  apiKey?: string;
-  accessToken?: string;
+export interface EtsyAxiosOption {
   contentType?: string;
   params?: any;
 }
 
-export default function getEtsyRequestAxiosConfig(options: RequestOption = {}): AxiosRequestConfig {
-  const {apiKey, accessToken, contentType, params} = options;
-  return {
+/**
+ * Get axios specifically connects to google drive api
+ * @returns
+ */
+export function getEtsyAxios(apiKey?: string, accessToken?: string, options: EtsyAxiosOption = {}) {
+  const {contentType, params} = options;
+  return axios.create({
     baseURL: ETSY_API_ENDPOINT,
     params,
     headers: {
@@ -19,5 +21,5 @@ export default function getEtsyRequestAxiosConfig(options: RequestOption = {}): 
       ...buildObjectWhenExists('x-api-key', apiKey),
       ...buildObjectWhenExists('Authorization', accessToken ? `Bearer ${accessToken}` : undefined),
     },
-  };
+  });
 }

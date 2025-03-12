@@ -1,6 +1,5 @@
-import axios from 'axios';
 import {EtsyResponse} from '../../interfaces/EtsyResponse';
-import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
+import {getEtsyAxios} from '../../util/getEtsyAxios';
 
 /**
  * Deletes a specific Etsy listing.
@@ -12,5 +11,5 @@ import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
  * @returns True if the deletion was successful (HTTP 204), false otherwise.
  */
 export function deleteEtsyListing(apiKey: string, accessToken: string, listingId: number): EtsyResponse<undefined> {
-  return axios.delete(`/application/listings/${listingId}`, getEtsyRequestAxiosConfig({accessToken, apiKey}));
+  return getEtsyAxios(apiKey, accessToken).delete(`/application/listings/${listingId}`);
 }

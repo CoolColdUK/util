@@ -1,6 +1,5 @@
-import axios from 'axios';
 import {EtsyResponse} from '../../interfaces/EtsyResponse';
-import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
+import {getEtsyAxios} from '../../util/getEtsyAxios';
 
 /**
  * Deletes a property for a Listing.
@@ -19,8 +18,7 @@ export async function deleteEtsyListingProperty(
   listingId: number,
   propertyId: number,
 ): EtsyResponse<void> {
-  return axios.delete<void>(
+  return getEtsyAxios(apiKey, accessToken).delete<void>(
     `/application/shops/${shopId}/listings/${listingId}/properties/${propertyId}`,
-    getEtsyRequestAxiosConfig({accessToken, apiKey}),
   );
 }

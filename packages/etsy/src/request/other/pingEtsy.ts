@@ -1,6 +1,5 @@
-import axios from 'axios';
 import {EtsyResponse} from '../../interfaces/EtsyResponse';
-import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
+import {getEtsyAxios} from '../../util/getEtsyAxios';
 
 export interface PingEtsyResponse {
   application_id: number;
@@ -13,5 +12,5 @@ export interface PingEtsyResponse {
  * @returns
  */
 export function pingEtsy(apiKey: string): EtsyResponse<PingEtsyResponse> {
-  return axios.get<PingEtsyResponse>('/application/openapi-ping', getEtsyRequestAxiosConfig({apiKey}));
+  return getEtsyAxios(apiKey).get<PingEtsyResponse>('/application/openapi-ping');
 }

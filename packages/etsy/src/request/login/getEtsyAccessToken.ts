@@ -1,7 +1,6 @@
-import axios from 'axios';
 import {EtsyResponse} from '../../interfaces/EtsyResponse';
 import {EtsyToken} from '../../interfaces/EtsyToken';
-import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
+import {getEtsyAxios} from '../../util/getEtsyAxios';
 
 /**
  * Post to etsy for access token for first login
@@ -21,5 +20,5 @@ export function getEtsyAccessToken(
     code_verifier: codeVerifier,
   });
 
-  return axios.post<EtsyToken>('/public/oauth/token', body, getEtsyRequestAxiosConfig());
+  return getEtsyAxios().post<EtsyToken>('/public/oauth/token', body);
 }

@@ -1,7 +1,6 @@
-import axios from 'axios';
 import {EtsyListingInventory} from '../../interfaces/EtsyListingInventory';
 import {EtsyResponse} from '../../interfaces/EtsyResponse';
-import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
+import {getEtsyAxios} from '../../util/getEtsyAxios';
 
 /**
  * Retrieves the inventory for a listing identified by a listing ID.
@@ -16,8 +15,5 @@ export async function getEtsyListingInventory(
   accessToken: string,
   listingId: number,
 ): EtsyResponse<EtsyListingInventory> {
-  return axios.get<EtsyListingInventory>(
-    `/application/listings/${listingId}/inventory`,
-    getEtsyRequestAxiosConfig({accessToken, apiKey}),
-  );
+  return getEtsyAxios(apiKey, accessToken).get<EtsyListingInventory>(`/application/listings/${listingId}/inventory`);
 }

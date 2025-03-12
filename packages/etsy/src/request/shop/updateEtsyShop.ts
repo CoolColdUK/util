@@ -1,7 +1,6 @@
-import axios from 'axios';
 import {EtsyShop} from '../../interfaces';
 import {EtsyResponse} from '../../interfaces/EtsyResponse';
-import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
+import {getEtsyAxios} from '../../util/getEtsyAxios';
 
 export interface UpdateEtsyShopRequest {
   /** A brief heading string for the shop's main page. */
@@ -36,6 +35,5 @@ export function updateShop(
   shopId: number,
   data: UpdateEtsyShopRequest,
 ): EtsyResponse<EtsyShop> {
-  const body = JSON.stringify(data);
-  return axios.put<EtsyShop>(`/application/shops/${shopId}`, body, getEtsyRequestAxiosConfig({accessToken, apiKey}));
+  return getEtsyAxios(apiKey, accessToken).put<EtsyShop>(`/application/shops/${shopId}`, data);
 }

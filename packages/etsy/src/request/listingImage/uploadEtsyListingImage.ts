@@ -1,8 +1,7 @@
-import axios from 'axios';
 import {EtsyResponse} from '../../interfaces/EtsyResponse';
 import {UploadEtsyListingImageRequest, UploadEtsyListingImageResponse} from '../../interfaces/UploadEtsyListingImage';
-import {buildFormData} from '../../util';
-import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
+import {buildFormData} from '../../util/builder/buildFormData';
+import {getEtsyAxios} from '../../util/getEtsyAxios';
 
 /**
  * Uploads an image to an existing Etsy listing.
@@ -25,9 +24,8 @@ export function uploadEtsyListingImage(
   const formData = buildFormData(data);
 
   // Make the API request
-  return axios.post<UploadEtsyListingImageResponse>(
+  return getEtsyAxios(apiKey, accessToken, {contentType: 'multipart/form-data'}).post<UploadEtsyListingImageResponse>(
     `/application/shops/${shopId}/listings/${listingId}/images`,
     formData,
-    getEtsyRequestAxiosConfig({accessToken, apiKey, contentType: 'multipart/form-data'}),
   );
 }

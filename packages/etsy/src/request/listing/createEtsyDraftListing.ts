@@ -1,8 +1,7 @@
 import {filterObject} from '@coolcolduk/util';
-import axios from 'axios';
 import {CreateEtsyDraftListingRequest, CreateEtsyDraftListingResponse} from '../../interfaces/CreateEtsyDraftListing';
 import {EtsyResponse} from '../../interfaces/EtsyResponse';
-import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
+import {getEtsyAxios} from '../../util/getEtsyAxios';
 
 /**
  * Creates a physical draft listing product in a shop on the Etsy channel.
@@ -20,9 +19,8 @@ export function createEtsyDraftListing(
   shopId: number,
   data: CreateEtsyDraftListingRequest,
 ): EtsyResponse<CreateEtsyDraftListingResponse> {
-  return axios.post<CreateEtsyDraftListingResponse>(
+  return getEtsyAxios(apiKey, accessToken).post<CreateEtsyDraftListingResponse>(
     `/application/shops/${shopId}/listings`,
     filterObject(data as Record<string, any>, (_key, v) => !!v),
-    getEtsyRequestAxiosConfig({accessToken, apiKey}),
   );
 }

@@ -1,7 +1,6 @@
-import axios from 'axios';
 import {EtsyList, EtsyResponseMany} from '../../interfaces/EtsyResponse';
 import {EtsyShop} from '../../interfaces/EtsyShop';
-import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig'; // Adjust the import path
+import {getEtsyAxios} from '../../util/getEtsyAxios';
 
 /**
  * Fetches a list of Etsy shops based on the provided parameters.
@@ -24,5 +23,5 @@ export function findEtsyShops(
     offset: offset.toString(),
   });
 
-  return axios.get<EtsyList<EtsyShop>>(`/application/shops?${params.toString()}`, getEtsyRequestAxiosConfig({apiKey}));
+  return getEtsyAxios(apiKey).get<EtsyList<EtsyShop>>(`/application/shops?${params.toString()}`);
 }

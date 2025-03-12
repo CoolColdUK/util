@@ -1,9 +1,8 @@
-import axios from 'axios';
 import {EtsyResponse} from '../../interfaces/EtsyResponse';
 import {UploadEtsyListingFileRequest, UploadEtsyListingFileResponse} from '../../interfaces/UploadEtsyListingFile';
 import {buildFormData} from '../../util/builder/buildFormData';
 import {formatListingFileName} from '../../util/format/formatListingFileName';
-import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
+import {getEtsyAxios} from '../../util/getEtsyAxios';
 
 /**
  * Uploads a file to an existing Etsy listing.
@@ -29,9 +28,8 @@ export function uploadEtsyListingFile(
   });
 
   // Make the API request
-  return axios.post<UploadEtsyListingFileResponse>(
+  return getEtsyAxios(apiKey, accessToken, {contentType: 'multipart/form-data'}).post<UploadEtsyListingFileResponse>(
     `/application/shops/${shopId}/listings/${listingId}/files`,
     formData,
-    getEtsyRequestAxiosConfig({accessToken, apiKey, contentType: 'multipart/form-data'}),
   );
 }

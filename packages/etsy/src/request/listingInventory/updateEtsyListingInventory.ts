@@ -1,7 +1,6 @@
-import axios from 'axios';
 import {EtsyListingInventory, UpdateEtsyListingInventoryRequest} from '../../interfaces/EtsyListingInventory';
 import {EtsyResponse} from '../../interfaces/EtsyResponse';
-import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
+import {getEtsyAxios} from '../../util/getEtsyAxios';
 
 /**
  * Updates the inventory for a listing identified by a listing ID.
@@ -18,9 +17,8 @@ export async function updateEtsyListingInventory(
   listingId: number,
   updateData: UpdateEtsyListingInventoryRequest,
 ): EtsyResponse<EtsyListingInventory> {
-  return axios.put<EtsyListingInventory>(
+  return getEtsyAxios(apiKey, accessToken, {contentType: 'application/json'}).put<EtsyListingInventory>(
     `/application/listings/${listingId}/inventory`,
     updateData,
-    getEtsyRequestAxiosConfig({accessToken, apiKey, contentType: 'application/json'}),
   );
 }

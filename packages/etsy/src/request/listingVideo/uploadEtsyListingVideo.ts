@@ -1,9 +1,8 @@
-import axios from 'axios';
 import {EtsyListingVideo} from '../../interfaces/EtsyListingVideo';
 import {EtsyResponse} from '../../interfaces/EtsyResponse';
 import {UploadEtsyListingVideoRequest} from '../../interfaces/UploadEtsyListingVideo';
 import {buildFormData} from '../../util/builder/buildFormData';
-import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
+import {getEtsyAxios} from '../../util/getEtsyAxios';
 
 /**
  * Uploads a video to an existing Etsy listing.
@@ -26,9 +25,8 @@ export function uploadEtsyListingVideo(
   const formData = buildFormData(data);
 
   // Make the API request
-  return axios.post<EtsyListingVideo>(
+  return getEtsyAxios(apiKey, accessToken, {contentType: 'multipart/form-data'}).post<EtsyListingVideo>(
     `/application/shops/${shopId}/listings/${listingId}/videos`,
     formData,
-    getEtsyRequestAxiosConfig({accessToken, apiKey, contentType: 'multipart/form-data'}),
   );
 }

@@ -1,7 +1,7 @@
-import axios from 'axios';
+import {filterObject, transformObjectValue} from '@coolcolduk/util';
 import {EtsyListing} from '../../interfaces/EtsyListing';
 import {EtsyList, EtsyResponseMany} from '../../interfaces/EtsyResponse';
-import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
+import {getEtsyAxios} from '../../util/getEtsyAxios';
 
 /**
  * Query parameters for fetching listings by shop receipt.
@@ -36,16 +36,20 @@ export function getEtsyListingsByShopReceipt(
   accessToken: string,
   shopId: number,
   receiptId: number,
-  params?: GetEtsyListingsByShopReceiptParams,
+  getListingParams: GetEtsyListingsByShopReceiptParams = {},
 ): EtsyResponseMany<EtsyListing> {
-  const queryParams = new URLSearchParams();
+  const recRemoveUndefined = filterObject(
+    getListingParams as Record<string, number | undefined>,
+    (d) => d !== undefined,
+  );
+  const recStr = transformObjectValue(recRemoveUndefined, (v) => String(v));
+  const params = new URLSearchParams(recStr);
 
   // Add query parameters if provided
-  if (params?.limit) queryParams.append('limit', params.limit.toString());
-  if (params?.offset) queryParams.append('offset', params.offset.toString());
+  // if (getListingParams?.limit) params.append('limit', getListingParams.limit.toString());
+  // if (getListingParams?.offset) params.append('offset', getListingParams.offset.toString());
 
-  return axios.get<EtsyList<EtsyListing>>(
-    `/application/shops/${shopId}/receipts/${receiptId}/listings?${queryParams.toString()}`,
-    getEtsyRequestAxiosConfig({accessToken, apiKey}),
+  return getEtsyAxios(apiKey, accessToken, {params}).get<EtsyList<EtsyListing>>(
+    `/application/shops/${shopId}/receipts/${receiptId}/listings`,
   );
 }

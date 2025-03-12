@@ -1,7 +1,6 @@
-import axios from 'axios';
 import {EtsyResponse} from '../../interfaces/EtsyResponse';
 import {UpdatedEtsyListing, UpdateEtsyListingRequest} from '../../interfaces/UpdatedEtsyListing';
-import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
+import {getEtsyAxios} from '../../util/getEtsyAxios';
 
 /**
  * Updates a specific Etsy listing.
@@ -20,9 +19,8 @@ export async function updateEtsyListing(
   listingId: number,
   updateData: UpdateEtsyListingRequest,
 ): EtsyResponse<UpdatedEtsyListing> {
-  return axios.patch<UpdatedEtsyListing>(
+  return getEtsyAxios(apiKey, accessToken).patch<UpdatedEtsyListing>(
     `/application/shops/${shopId}/listings/${listingId}`,
     updateData,
-    getEtsyRequestAxiosConfig({accessToken, apiKey}),
   );
 }

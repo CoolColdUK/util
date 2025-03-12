@@ -1,11 +1,11 @@
-import axios from 'axios';
+import {transformObjectValue} from '@coolcolduk/util';
 import {EtsyListingStateEnum} from '../../enum/EtsyListingStateEnum';
 import {EtsyParamIncludesEnum} from '../../enum/EtsyParamIncludesEnum';
 import {EtsyParamSortOnEnum} from '../../enum/EtsyParamSortOnEnum';
 import {EtsyParamSortOrderEnum} from '../../enum/EtsyParamSortOrderEnum';
 import {EtsyListing} from '../../interfaces/EtsyListing';
 import {EtsyList, EtsyResponseMany} from '../../interfaces/EtsyResponse';
-import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
+import {getEtsyAxios} from '../../util/getEtsyAxios';
 
 /**
  * Query parameters for the `getListingsByShop` function.
@@ -44,14 +44,9 @@ export function getEtsyListingsByShop(
   };
 
   // Merge default params with user-provided params
-  const queryParams = {...defaultParams, ...params};
+  const queryParams = transformObjectValue({...defaultParams, ...params}, (v) => String(v));
 
-  return axios.get<EtsyList<EtsyListing>>(
+  return getEtsyAxios(apiKey, accessToken, {params: new URLSearchParams(queryParams)}).get<EtsyList<EtsyListing>>(
     `/application/shops/${shopId}/listings`,
-    getEtsyRequestAxiosConfig({
-      accessToken,
-      apiKey,
-      params: queryParams,
-    }),
   );
 }

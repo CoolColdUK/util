@@ -1,7 +1,6 @@
-import axios from 'axios';
 import {EtsyResponse} from '../../interfaces/EtsyResponse';
 import {EtsyUser} from '../../interfaces/EtsyUser';
-import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
+import {getEtsyAxios} from '../../util/getEtsyAxios';
 
 /**
  * Retrieves a user profile based on a unique user ID. Access is limited to profiles of the authenticated user or linked buyers. For the primary_email field, specific app-based permissions are required and granted case-by-case.
@@ -13,5 +12,5 @@ import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
  * @returns
  */
 export function getEtsyUser(apiKey: string, accessToken: string, userId: string): EtsyResponse<EtsyUser> {
-  return axios.get<EtsyUser>(`/application/users/${userId}`, getEtsyRequestAxiosConfig({apiKey, accessToken}));
+  return getEtsyAxios(apiKey, accessToken).get<EtsyUser>(`/application/users/${userId}`);
 }

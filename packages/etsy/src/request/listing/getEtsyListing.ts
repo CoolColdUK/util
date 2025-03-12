@@ -1,9 +1,8 @@
 import {Maybe} from '@coolcolduk/typescript-util';
-import axios from 'axios';
 import {EtsyListingTranslateEnum} from '../../enum/EtsyListingTranslateEnum';
 import {EtsyParamIncludesEnum} from '../../enum/EtsyParamIncludesEnum';
 import {EtsyListing, EtsyResponse} from '../../interfaces';
-import getEtsyRequestAxiosConfig from '../../util/getEtsyRequestAxiosConfig';
+import {getEtsyAxios} from '../../util/getEtsyAxios';
 
 /**
  * Fetches the details of a specific listing.
@@ -30,8 +29,5 @@ export function getEtsyListing(
     params.append('language', language);
   }
 
-  return axios.get<EtsyListing>(
-    `/application/listings/${listingId}?${params.toString()}`,
-    getEtsyRequestAxiosConfig({accessToken, apiKey}),
-  );
+  return getEtsyAxios(apiKey, accessToken, {params}).get<EtsyListing>(`/application/listings/${listingId}`);
 }
