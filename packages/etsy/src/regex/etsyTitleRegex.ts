@@ -1,1 +1,5 @@
-export const etsyTitleRegex = /^[0-9a-zA-Z]{1}.{0,139}$/;
+/**
+ * title regex
+ * @deprecated this is not official and does not appear to be the full list
+ */
+export const etsyTitleRegex = /^[A-Za-z0-9][A-Za-z0-9\s%&:]*$/;
