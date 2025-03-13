@@ -6,10 +6,13 @@ import {MaybePromise} from '@coolcolduk/typescript-util';
  * @param err
  * @returns
  */
-export async function throwNewError<T, E extends Error>(fn: () => MaybePromise<T>, err: (e: any) => E): Promise<T> {
+export async function throwNewError<T, E extends Error>(
+  fn: () => MaybePromise<T>,
+  err: string | ((e: any) => E),
+): Promise<T> {
   try {
     return await fn();
   } catch (e) {
-    throw err(e);
+    throw typeof err === 'string' ? new Error(err) : err(e);
   }
 }
