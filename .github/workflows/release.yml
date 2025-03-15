@@ -156,6 +156,14 @@ jobs:
       - run: echo ${{ steps.typescript-util.outputs.id }}
 
       - uses: CoolColdUK/npm-publish@v3.1.1
+        id: axios
+        with:
+          token: ${{ secrets.NPM_AUTH_TOKEN }}
+          package: './packages/axios'
+          access: public
+      - run: echo ${{ steps.axios.outputs.id }}
+
+      - uses: CoolColdUK/npm-publish@v3.1.1
         id: enum
         with:
           token: ${{ secrets.NPM_AUTH_TOKEN }}
