@@ -7,6 +7,14 @@ export interface WithEtsyRefreshTokenResult<T> {
   result: T;
 }
 
+/**
+ * run the required function twice and run refresh access token when it failed the first time
+ * @param etsyApiKey
+ * @param accessToken
+ * @param refreshToken
+ * @param fn
+ * @returns
+ */
 export async function withEtsyRefreshToken<T>(
   etsyApiKey: string,
   accessToken: string,
