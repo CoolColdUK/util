@@ -10,8 +10,8 @@
     "src"
   ],
   "scripts": {
-    "build:main": "echo skip",
-    "build:package": "tsc",
+    "build:main": "tsc",
+    "build:package": "echo skip",
     "check": "tsc --noEmit",
     "clean:dist": "rm -rf dist && rm -rf tsconfig.tsbuildinfo",
     "lint": "eslint ./src/**/*.{ts,tsx}",
