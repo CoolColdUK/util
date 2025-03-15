@@ -1,6 +1,6 @@
+import {fetchFile} from '@coolcolduk/axios';
 import {getEtsyListingVideos, uploadEtsyListingVideo} from './request';
 import {getEtsyListingVideo} from './request/listingVideo/getEtsyListingVideo';
-import {fetchFile} from './util/helper/fetchFile';
 
 const apiKey = process.env['ETSY_API_KEY'] || '';
 const accessToken = process.env['ETSY_ACCESS_TOKEN'] || '';

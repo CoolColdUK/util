@@ -1,2 +1,2 @@
-export * from './enum';
-export * from './types';
+export * from './fetchFile';
+export * from './fetchFileAsBuffer';
