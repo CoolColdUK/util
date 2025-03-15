@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@coolcolduk/firebase",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "firebase utils",
   "license": "MIT",
   "main": "dist/index.js",
