@@ -6,9 +6,16 @@ import {Maybe} from '@coolcolduk/typescript-util';
  * @param errorMessage
  * @returns
  */
-export function throwIfNull<T>(val: Maybe<T>, errorMessage = 'Value not available'): T {
+export function throwIfNull<T, E extends Error>(
+  val: Maybe<T>,
+  errorMessage: string | (() => E) = 'Value not available',
+): T {
   if (val === null) {
-    throw new Error(errorMessage);
+    if (typeof errorMessage === 'string') {
+      throw new Error(errorMessage);
+    } else {
+      throw errorMessage();
+    }
   }
   return val;
 }

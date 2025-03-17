@@ -1,6 +1,13 @@
-export function throwIfUndefined<T>(val?: T, errorMessage = 'Value not available'): T {
+export function throwIfUndefined<T, E extends Error>(
+  val?: T,
+  errorMessage: string | (() => E) = 'Value not available',
+): T {
   if (val === undefined) {
-    throw new Error(errorMessage);
+    if (typeof errorMessage === 'string') {
+      throw new Error(errorMessage);
+    } else {
+      throw errorMessage();
+    }
   }
   return val;
 }

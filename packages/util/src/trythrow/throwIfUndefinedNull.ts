@@ -1,8 +1,15 @@
 import {Maybe} from '@coolcolduk/typescript-util';
 
-export function throwIfUndefinedNull<T>(val?: Maybe<T>, errorMessage = 'Value not available'): T {
+export function throwIfUndefinedNull<T, E extends Error>(
+  val?: Maybe<T>,
+  errorMessage: string | (() => E) = 'Value not available',
+): T {
   if (val === undefined || val === null) {
-    throw new Error(errorMessage);
+    if (typeof errorMessage === 'string') {
+      throw new Error(errorMessage);
+    } else {
+      throw errorMessage();
+    }
   }
   return val;
 }
