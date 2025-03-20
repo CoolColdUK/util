@@ -16,7 +16,7 @@ export const etsySettings = {
     },
     image: {
       extension: etsyListingImageSupportedExtensions,
-      maxFileSizeMb: 1,
+      maxFileSizeMb: 10,
       maxNumber: 10,
       mimeType: etsyListingImageSupportedMimeTypes,
     },
