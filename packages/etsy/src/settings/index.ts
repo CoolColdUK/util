@@ -4,10 +4,19 @@
 
 import {etsyListingDigitalSupportedExtensions, etsyListingDigitalSupportedMimeTypes} from './etsyListingDigital';
 import {etsyListingImageSupportedExtensions, etsyListingImageSupportedMimeTypes} from './etsyListingImage';
+import {etsyTagRegex} from './etsyListingTags';
 import {etsyListingVideoSupportedExtensions, etsyListingVideoSupportedMimeTypes} from './etsyListingVideo';
 
 export const etsySettings = {
   listing: {
+    title: {
+      maxLength: 140,
+    },
+    tags: {
+      maxLength: 20,
+      maxCount: 13,
+      regex: etsyTagRegex,
+    },
     digital: {
       extension: etsyListingDigitalSupportedExtensions,
       maxFileSizeMb: 20,
