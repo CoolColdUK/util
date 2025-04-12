@@ -142,81 +142,81 @@ jobs:
       - uses: CoolColdUK/npm-publish@v3.1.1
         id: tools
         with:
-          token: ${{ secrets.NPM_AUTH_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           package: './packages/tools'
-          access: public
+          registry: 'https://npm.pkg.github.com'
       - run: echo ${{ steps.tools.outputs.id }}
 
       - uses: CoolColdUK/npm-publish@v3.1.1
         id: typescript-util
         with:
-          token: ${{ secrets.NPM_AUTH_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           package: './packages/typescript-util'
-          access: public
+          registry: 'https://npm.pkg.github.com'
       - run: echo ${{ steps.typescript-util.outputs.id }}
 
       - uses: CoolColdUK/npm-publish@v3.1.1
         id: enum
         with:
-          token: ${{ secrets.NPM_AUTH_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           package: './packages/enum'
-          access: public
+          registry: 'https://npm.pkg.github.com'
       - run: echo ${{ steps.enum.outputs.id }}
 
       - uses: CoolColdUK/npm-publish@v3.1.1
         id: util
         with:
-          token: ${{ secrets.NPM_AUTH_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           package: './packages/util'
-          access: public
+          registry: 'https://npm.pkg.github.com'
       - run: echo ${{ steps.util.outputs.id }}
 
       - uses: CoolColdUK/npm-publish@v3.1.1
         id: axios
         with:
-          token: ${{ secrets.NPM_AUTH_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           package: './packages/axios'
-          access: public
+          registry: 'https://npm.pkg.github.com'
       - run: echo ${{ steps.axios.outputs.id }}
 
       - uses: CoolColdUK/npm-publish@v3.1.1
         id: etsy
         with:
-          token: ${{ secrets.NPM_AUTH_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           package: './packages/etsy'
-          access: public
+          registry: 'https://npm.pkg.github.com'
       - run: echo ${{ steps.etsy.outputs.id }}
 
       - uses: CoolColdUK/npm-publish@v3.1.1
         id: firebase
         with:
-          token: ${{ secrets.NPM_AUTH_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           package: './packages/firebase'
-          access: public
+          registry: 'https://npm.pkg.github.com'
       - run: echo ${{ steps.firebase.outputs.id }}
 
       - uses: CoolColdUK/npm-publish@v3.1.1
         id: express
         with:
-          token: ${{ secrets.NPM_AUTH_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           package: './packages/express'
-          access: public
+          registry: 'https://npm.pkg.github.com'
       - run: echo ${{ steps.express.outputs.id }}
 
       - uses: CoolColdUK/npm-publish@v3.1.1
         id: gql
         with:
-          token: ${{ secrets.NPM_AUTH_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           package: './packages/gql'
-          access: public
+          registry: 'https://npm.pkg.github.com'
       - run: echo ${{ steps.gql.outputs.id }}
 
       - uses: CoolColdUK/npm-publish@v3.1.1
         id: google
         with:
-          token: ${{ secrets.NPM_AUTH_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           package: './packages/google'
-          access: public
+          registry: 'https://npm.pkg.github.com'
       - run: echo ${{ steps.google.outputs.id }}
 
       # - uses: CoolColdUK/github-script@v7
