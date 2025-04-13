@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@coolcolduk/axios",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "axios helper function",
   "license": "MIT",
   "main": "dist/index.js",
@@ -23,8 +23,8 @@
   },
   "types": "dist/index.d.ts",
   "dependencies": {
-    "@coolcolduk/enum": "^3.0.0",
-    "@coolcolduk/util": "^3.0.0",
+    "@coolcolduk/enum": "^3.1.0",
+    "@coolcolduk/util": "^3.1.0",
     "axios": "^1.7.9"
   },
   "devDependencies": {
