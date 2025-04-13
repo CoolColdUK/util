@@ -1,0 +1,49 @@
+{
+  "private": false,
+  "name": "@coolcolduk/crypto-util",
+  "version": "3.2.0",
+  "description": "utils that require crypto package",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build:main": "tsc",
+    "build:package": "echo skip",
+    "check": "tsc --noEmit",
+    "clean:dist": "rm -rf dist && rm -rf tsconfig.tsbuildinfo",
+    "lint": "eslint ./src/**/*.{ts,tsx}",
+    "lint:fix": "eslint --fix ./src/**/*.{ts,tsx}",
+    "pack": "npm pack --pack-destination=../",
+    "test": "jest",
+    "test:int": "jest --testMatch **/*.spec.ts",
+    "test:unit": "jest --testMatch **/*.test.ts"
+  },
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "@coolcolduk/typescript-util": "^3.2.0",
+    "async": "^3.2.6",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@coolcolduk/eslint-config": "^3.0.0",
+    "@coolcolduk/jest-config": "^3.0.0",
+    "@coolcolduk/ts-config": "^3.0.0",
+    "@types/async": "^3.2.24",
+    "@types/lodash": "^4.17.16"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@coolcolduk/eslint-config"
+    ],
+    "rules": {
+      "no-console": "off"
+    }
+  },
+  "jest": {
+    "preset": "@coolcolduk/jest-config",
+    "rootDir": "./src"
+  }
+}
