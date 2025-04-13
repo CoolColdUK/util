@@ -1,5 +1,5 @@
 // Import the express library
-import {buildPkce, extractPkce} from '@coolcolduk/util';
+import {buildPkce, extractPkce} from '@coolcolduk/crypto-util';
 import express from 'express';
 import {createEndpointPing} from './endpoint/createEndpointPing';
 import {runEndpointOauthCallback} from './endpoint/runEndpointOauthCallback';
