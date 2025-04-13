@@ -5,7 +5,7 @@ import cors, {CorsOptions} from 'cors';
 import express, {Handler} from 'express';
 import {GraphQLDirective, GraphQLFormattedError} from 'graphql';
 import {buildSchema, NonEmptyArray} from 'type-graphql';
-import {BuildContextOptions} from 'type-graphql/build/typings/schema/build-context';
+import {BuildContextOptions, ValidateSettings} from 'type-graphql/build/typings/schema/build-context';
 
 export interface CreateApolloServerOptions<TContext extends BaseContext> {
   cors?: CorsOptions;
@@ -13,6 +13,8 @@ export interface CreateApolloServerOptions<TContext extends BaseContext> {
   directives?: GraphQLDirective[];
   // errorHandler?: ErrorRequestHandler;
   middleware?: Handler[];
+  orphanedTypes?: Function[];
+  validate?: ValidateSettings;
   logger?: Logger;
   formatError?: (formattedError: GraphQLFormattedError, error: unknown) => GraphQLFormattedError;
   plugins?: ApolloServerPlugin<TContext>[];
@@ -23,7 +25,18 @@ export async function createApolloServer<TContext extends BaseContext>(
   resolvers: NonEmptyArray<Function>,
   options: CreateApolloServerOptions<TContext> = {},
 ) {
-  const {cors: corsOptions, authChecker, directives, middleware, logger, formatError, plugins, context} = options;
+  const {
+    cors: corsOptions,
+    authChecker,
+    orphanedTypes,
+    directives,
+    middleware,
+    logger,
+    formatError,
+    plugins,
+    context,
+    validate,
+  } = options;
   const app = express();
 
   // Build a GraphQL schema using TypeGraphQL
@@ -31,6 +44,8 @@ export async function createApolloServer<TContext extends BaseContext>(
     resolvers,
     authChecker,
     directives,
+    orphanedTypes,
+    validate,
   });
 
   // Initialize Apollo Server with the schema
