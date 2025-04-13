@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@coolcolduk/crypto-util",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "description": "utils that require crypto package",
   "license": "MIT",
   "main": "dist/index.js",
@@ -23,7 +23,7 @@
   },
   "types": "dist/index.d.ts",
   "dependencies": {
-    "@coolcolduk/typescript-util": "^3.2.0",
+    "@coolcolduk/typescript-util": "^3.3.0",
     "async": "^3.2.6",
     "lodash": "^4.17.21"
   },
