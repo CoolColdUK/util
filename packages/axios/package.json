@@ -28,9 +28,9 @@
     "axios": "^1.7.9"
   },
   "devDependencies": {
-    "@coolcolduk/eslint-config": "^1.5.1",
-    "@coolcolduk/jest-config": "^1.5.1",
-    "@coolcolduk/ts-config": "^1.5.1"
+    "@coolcolduk/eslint-config": "^3.0.0",
+    "@coolcolduk/jest-config": "^3.0.0",
+    "@coolcolduk/ts-config": "^3.0.0"
   },
   "eslintConfig": {
     "extends": [
