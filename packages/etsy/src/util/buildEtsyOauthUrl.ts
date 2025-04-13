@@ -1,4 +1,5 @@
-import {buildUrlQuery, castArray, PkceData} from '@coolcolduk/util';
+import {PkceData} from '@coolcolduk/crypto-util';
+import {buildUrlQuery, castArray} from '@coolcolduk/util';
 import {EtsyScopeEnum} from '../enum/EtsyScopeEnum';
 
 export function buildEtsyOauthUrl(

@@ -6,7 +6,6 @@ export * from './error';
 export * from './file';
 export * from './number';
 export * from './object';
-export * from './pkceCodeChallenge';
 export * from './promise';
 export * from './regex';
 export * from './retry';

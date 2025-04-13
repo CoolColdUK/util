@@ -26,6 +26,7 @@
   "types": "dist/index.d.ts",
   "dependencies": {
     "@coolcolduk/axios": "^3.2.0",
+    "@coolcolduk/crypto-util": "^3.2.0",
     "@coolcolduk/enum": "^3.2.0",
     "@coolcolduk/util": "^3.2.0",
     "axios": "^1.7.9",
