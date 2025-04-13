@@ -79,9 +79,8 @@ jobs:
         uses: CoolColdUK/setup-node@v4
         with:
           node-version: 20
-          # registry-url: 'https://npm.pkg.github.com' # [EXAMPLE]
-          # for publishing packages to npm
-          # registry-url: https://registry.npmjs.org
+          registry-url: 'https://npm.pkg.github.com'
+          always-auth: true
       - name: Git Identity
         run: |
           git config --global user.name 'github-actions[bot]'
@@ -91,6 +90,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Install
         run: npm i
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Build
         run: npm run ci:build
       - name: bump patch
@@ -145,6 +146,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           package: './packages/tools'
           registry: 'https://npm.pkg.github.com'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo ${{ steps.tools.outputs.id }}
 
       - uses: CoolColdUK/npm-publish@v3.1.1
@@ -153,6 +156,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           package: './packages/typescript-util'
           registry: 'https://npm.pkg.github.com'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo ${{ steps.typescript-util.outputs.id }}
 
       - uses: CoolColdUK/npm-publish@v3.1.1
@@ -161,6 +166,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           package: './packages/enum'
           registry: 'https://npm.pkg.github.com'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo ${{ steps.enum.outputs.id }}
 
       - uses: CoolColdUK/npm-publish@v3.1.1
@@ -169,6 +176,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           package: './packages/util'
           registry: 'https://npm.pkg.github.com'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo ${{ steps.util.outputs.id }}
 
       - uses: CoolColdUK/npm-publish@v3.1.1
@@ -177,6 +186,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           package: './packages/axios'
           registry: 'https://npm.pkg.github.com'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo ${{ steps.axios.outputs.id }}
 
       - uses: CoolColdUK/npm-publish@v3.1.1
@@ -185,6 +196,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           package: './packages/etsy'
           registry: 'https://npm.pkg.github.com'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo ${{ steps.etsy.outputs.id }}
 
       - uses: CoolColdUK/npm-publish@v3.1.1
@@ -193,6 +206,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           package: './packages/firebase'
           registry: 'https://npm.pkg.github.com'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo ${{ steps.firebase.outputs.id }}
 
       - uses: CoolColdUK/npm-publish@v3.1.1
@@ -201,6 +216,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           package: './packages/express'
           registry: 'https://npm.pkg.github.com'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo ${{ steps.express.outputs.id }}
 
       - uses: CoolColdUK/npm-publish@v3.1.1
@@ -209,6 +226,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           package: './packages/gql'
           registry: 'https://npm.pkg.github.com'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo ${{ steps.gql.outputs.id }}
 
       - uses: CoolColdUK/npm-publish@v3.1.1
@@ -217,6 +236,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           package: './packages/google'
           registry: 'https://npm.pkg.github.com'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo ${{ steps.google.outputs.id }}
 
       # - uses: CoolColdUK/github-script@v7
