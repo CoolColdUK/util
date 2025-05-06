@@ -4,6 +4,8 @@ export * from './filterObject';
 export * from './filterObjectEmpty';
 export * from './filterObjectNull';
 export * from './filterObjectUndefined';
+export * from './mapArrayToObject';
+export * from './mapObjectToArray';
 export * from './parseObjectValueFloat';
 export * from './parseObjectValueInt';
 export * from './setBulk';
