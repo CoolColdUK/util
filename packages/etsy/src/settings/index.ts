@@ -16,6 +16,7 @@ export const etsySettings = {
     tags: {
       maxLength: 20,
       maxCount: 13,
+      /** regex only checks character but not length */
       regex: etsyTagRegex,
     },
     sku: {
