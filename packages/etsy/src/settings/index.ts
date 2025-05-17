@@ -7,6 +7,7 @@ import {etsyListingImageSupportedExtensions, etsyListingImageSupportedMimeTypes}
 import {etsyTagRegex} from './etsyListingTags';
 import {etsyListingVideoSupportedExtensions, etsyListingVideoSupportedMimeTypes} from './etsyListingVideo';
 
+// some info: https://support.gelato.com/en/articles/8996461-are-there-any-limitations-to-publishing-listings-on-etsy
 export const etsySettings = {
   listing: {
     title: {
@@ -16,6 +17,17 @@ export const etsySettings = {
       maxLength: 20,
       maxCount: 13,
       regex: etsyTagRegex,
+    },
+    sku: {
+      maxLength: 32,
+    },
+    quantity: {
+      min: 1,
+      max: 100,
+    },
+    price: {
+      min: 0.2,
+      max: 50000,
     },
     digital: {
       extension: etsyListingDigitalSupportedExtensions,
