@@ -5,6 +5,7 @@ export * from './filterObjectEmpty';
 export * from './filterObjectNull';
 export * from './filterObjectUndefined';
 export * from './mapArrayToObject';
+export * from './mapObjectKeys';
 export * from './mapObjectToArray';
 export * from './parseObjectValueFloat';
 export * from './parseObjectValueInt';
