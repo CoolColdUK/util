@@ -4,7 +4,7 @@ import {sleepMs} from '../sleep';
 export async function repeatTillComplete<T>(
   fetchFunction: (prev?: T) => MaybePromise<T>,
   isComplete: (data: T) => boolean,
-  shouldRetry: (count: number, data?: T) => boolean,
+  shouldRetry: (attemptCount: number, data?: T) => boolean,
   delayMs: number = 1000,
 ): Promise<T> {
   let attempts = 0;
