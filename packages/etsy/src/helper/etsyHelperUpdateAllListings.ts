@@ -10,7 +10,7 @@ import {updateEtsyListing} from '../request/listing/updateEtsyListing';
  * @param listings - Listings to update
  * @returns Updated listings
  */
-export async function etsyHelperUpdateAllListings(
+export function etsyHelperUpdateAllListings(
   apiKey: string,
   accessToken: string,
   shopId: number,
