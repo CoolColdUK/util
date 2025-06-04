@@ -5,10 +5,11 @@
  * @returns The new object with the added value
  */
 export function addObjectValue<T extends Record<string, number>>(obj1: T, obj2: T): T {
-  return Object.entries(obj1).reduce((acc, [key, value]) => {
-    return {
+  return Object.entries(obj1).reduce(
+    (acc, [key, value]) => ({
       ...acc,
       [key]: (acc[key] ?? 0) + value,
-    };
-  }, obj2);
+    }),
+    obj2,
+  );
 }
