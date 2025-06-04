@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@coolcolduk/bin",
-  "version": "3.7.0",
+  "version": "3.8.0",
   "license": "ISC",
   "main": "src/index.ts",
   "bin": {
