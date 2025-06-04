@@ -5,7 +5,7 @@ import {EtsyList} from '../interfaces/EtsyResponse';
 import {getEtsyListingsByShop, GetEtsyListingsByShopParams} from '../request/listing/getEtsyListingsByShop';
 
 export interface EtsyHelperFetchAllListingParams extends Omit<GetEtsyListingsByShopParams, 'offset' | 'limit'> {
-  shouldRetry: (attemptCount: number, data?: EtsyList<EtsyListing>) => boolean;
+  shouldRetry?: (attemptCount: number, data?: EtsyList<EtsyListing>) => boolean;
 }
 
 /**

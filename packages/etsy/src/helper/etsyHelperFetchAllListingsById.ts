@@ -5,8 +5,8 @@ import {EtsyList} from '../interfaces/EtsyResponse';
 import {getEtsyListingsByListingIds} from '../request/listing/getEtsyListingsByListingIds';
 
 export interface EtsyHelperFetchAllListingsByIdParams {
-  shouldRetry: (attemptCount: number, data?: EtsyList<EtsyListing>) => boolean;
-  includes: EtsyParamIncludesEnum[];
+  shouldRetry?: (attemptCount: number, data?: EtsyList<EtsyListing>) => boolean;
+  includes?: EtsyParamIncludesEnum[];
 }
 
 /**
@@ -30,7 +30,7 @@ export async function etsyHelperFetchAllListingsById(
         apiKey,
         accessToken,
         listingIds.slice(prev?.results.length || 0, (prev?.results.length || 0) + pageSize),
-        params.includes || [EtsyParamIncludesEnum.IMAGES],
+        params.includes,
       );
       return {
         count: result.data.count,
@@ -38,7 +38,7 @@ export async function etsyHelperFetchAllListingsById(
       };
     },
     (d) => d.results.length === listingIds.length,
-    (attemptCount, data) => !data || attemptCount < Math.ceil(listingIds.length / 100) + 3,
+    params.shouldRetry || ((attemptCount, data) => !data || attemptCount < Math.ceil(listingIds.length / 100) + 3),
     100,
   );
 }
