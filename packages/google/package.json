@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@coolcolduk/google",
-  "version": "3.8.0",
+  "version": "3.8.1",
   "description": "google related function",
   "license": "MIT",
   "main": "dist/index.js",
@@ -25,8 +25,8 @@
   },
   "types": "dist/index.d.ts",
   "dependencies": {
-    "@coolcolduk/enum": "^3.8.0",
-    "@coolcolduk/util": "^3.8.0",
+    "@coolcolduk/enum": "^3.8.1",
+    "@coolcolduk/util": "^3.8.1",
     "axios": "^1.7.9"
   },
   "devDependencies": {
