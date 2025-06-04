@@ -56,7 +56,7 @@ export async function etsyHelperFetchAndUpdate(
 
       return {
         id: l.listing_id,
-        data: merge(toBeUpdated, dataForUpdate),
+        data: {...merge(toBeUpdated, dataForUpdate), tags: dataForUpdate.tags || toBeUpdated.tags},
       };
     }),
   );
