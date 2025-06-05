@@ -14,8 +14,8 @@ import {etsyHelperUpdateAllListings} from './etsyHelperUpdateAllListings';
  * @param accessToken - Etsy access token
  * @param shopId - Etsy shop ID
  * @param listingIds - Etsy listing IDs
- * @param includes - Etsy listing fields to include
  * @param updateData - Data to update
+ * @param includes - Etsy listing fields to include
  * @returns Updated listings
  */
 export async function etsyHelperFetchAndUpdate(
@@ -23,10 +23,11 @@ export async function etsyHelperFetchAndUpdate(
   accessToken: string,
   shopId: number,
   listingIds: MaybeArray<number>,
-  includes: EtsyParamIncludesEnum[] = [],
-  updateData: Partial<EtsyListing>[] = [],
+  updateData: MaybeArray<Partial<EtsyListing>> = [],
+  includes: EtsyParamIncludesEnum[] = [EtsyParamIncludesEnum.IMAGES],
 ) {
   const listingIdsArray = castArray(listingIds);
+  const updateDataArray = castArray(updateData);
   const existingListing = await getEtsyListingsByListingIds(apiKey, accessToken, listingIdsArray, includes);
 
   if (listingIdsArray.length !== existingListing.data.results.length) {
@@ -38,7 +39,7 @@ export async function etsyHelperFetchAndUpdate(
 
   const updatedListing = filterArrayUndefined(
     existingListing.data.results.map((l) => {
-      const dataForUpdate = updateData.find((d) => d.listing_id === l.listing_id);
+      const dataForUpdate = updateDataArray.find((d) => d.listing_id === l.listing_id);
       if (!dataForUpdate) return undefined;
 
       const toBeUpdated = mapEtsyListingToUpdateEtsyListingRequest(l);
