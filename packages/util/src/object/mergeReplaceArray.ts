@@ -5,7 +5,7 @@
  * @param obj2 - The updated field
  * @returns The merged object
  */
-export function mergeReplaceArray<T extends Record<string, unknown>>(obj1: T, obj2: Partial<T>): T {
+export function mergeReplaceArray<T extends Record<string, any>>(obj1: T, obj2: Partial<T>): T {
   return Object.entries(obj2).reduce((acc, [key, value]) => {
     if (Array.isArray(value)) {
       return {...acc, [key]: value};
