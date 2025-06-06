@@ -22,7 +22,7 @@ export async function etsyHelperFetchAllListingsById(
   accessToken: string,
   listingIds: number[],
   params: EtsyHelperFetchAllListingsByIdParams,
-) {
+): Promise<EtsyList<EtsyListing>> {
   const pageSize = 100;
   return repeatTillComplete<EtsyList<EtsyListing>>(
     async (prev) => {

@@ -21,7 +21,7 @@ export async function etsyHelperFetchAllListing(
   accessToken: string,
   shopId: number,
   params: EtsyHelperFetchAllListingParams,
-) {
+): Promise<EtsyList<EtsyListing>> {
   const pageSize = 100;
   return repeatTillComplete<EtsyList<EtsyListing>>(
     async (prev) => {

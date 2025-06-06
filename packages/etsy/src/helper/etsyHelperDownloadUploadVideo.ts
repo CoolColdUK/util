@@ -1,4 +1,5 @@
 import {fetchFile} from '@coolcolduk/axios';
+import {EtsyListingVideo} from '../interfaces/EtsyListingVideo';
 import {uploadEtsyListingVideo} from '../request/listingVideo/uploadEtsyListingVideo';
 
 /**
@@ -13,11 +14,13 @@ export async function etsyHelperDownloadUploadVideo(
   listingId: number,
   videoUrl: string,
   videoFileName: string,
-) {
+): Promise<EtsyListingVideo> {
   const downloadFile = await fetchFile(videoUrl, videoFileName);
 
-  return uploadEtsyListingVideo(apiKey, accessToken, shopId, listingId, {
-    video: downloadFile,
-    name: downloadFile.name,
-  });
+  return (
+    await uploadEtsyListingVideo(apiKey, accessToken, shopId, listingId, {
+      video: downloadFile,
+      name: downloadFile.name,
+    })
+  ).data;
 }

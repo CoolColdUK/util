@@ -1,5 +1,7 @@
 import {mapPromiseFnSeries} from '@coolcolduk/util';
-import {UpdateEtsyListingRequest} from '../interfaces/UpdatedEtsyListing';
+import {omit} from 'lodash';
+import {UpdatedEtsyListing} from '../interfaces/UpdatedEtsyListing';
+import {UpdateEtsyListingRequestWithId} from '../interfaces/UpdateEtsyListingRequestWithId';
 import {updateEtsyListing} from '../request/listing/updateEtsyListing';
 
 /**
@@ -10,13 +12,15 @@ import {updateEtsyListing} from '../request/listing/updateEtsyListing';
  * @param listings - Listings to update
  * @returns Updated listings
  */
-export function etsyHelperUpdateAllListings(
+export async function etsyHelperUpdateAllListings(
   apiKey: string,
   accessToken: string,
   shopId: number,
-  listings: {id: number; data: UpdateEtsyListingRequest}[],
-) {
-  return mapPromiseFnSeries(listings, (listing) =>
+  listings: UpdateEtsyListingRequestWithId[],
+): Promise<UpdatedEtsyListing[]> {
+  const listingData = listings.map((l) => ({id: l.listing_id, data: omit(l, 'listing_id')}));
+  const result = await mapPromiseFnSeries(listingData, (listing) =>
     updateEtsyListing(apiKey, accessToken, shopId, listing.id, listing.data),
   );
+  return result.map((r) => r.data);
 }
