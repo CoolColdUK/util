@@ -1,11 +1,11 @@
 import {MaybeArray} from '@coolcolduk/typescript-util';
-import {castArray, filterArrayUndefined} from '@coolcolduk/util';
-import {merge, xor} from 'lodash';
-import {EtsyParamIncludesEnum} from '../enum';
-import {EtsyListing} from '../interfaces/EtsyListing';
-import {UpdateEtsyListingRequest} from '../interfaces/UpdatedEtsyListing';
-import {getEtsyListingsByListingIds} from '../request/listing/getEtsyListingsByListingIds';
+import {castArray, filterArrayUndefined, mergeReplaceArray} from '@coolcolduk/util';
+import {omit} from 'lodash';
+import {EtsyParamIncludesEnum} from '../enum/EtsyParamIncludesEnum';
+import {UpdateEtsyListingRequestWithId} from '../interfaces/UpdateEtsyListingRequestWithId';
+import {hasEtsyListingChange} from '../util/helper/hasEtsyListingChange';
 import {mapEtsyListingToUpdateEtsyListingRequest} from '../util/map/mapEtsyListingToUpdateEtsyListingRequest';
+import {etsyHelperFetchAllListingsById} from './etsyHelperFetchAllListingsById';
 import {etsyHelperUpdateAllListings} from './etsyHelperUpdateAllListings';
 
 /**
@@ -22,45 +22,44 @@ export async function etsyHelperFetchAndUpdate(
   apiKey: string,
   accessToken: string,
   shopId: number,
-  listingIds: MaybeArray<number>,
-  updateData: MaybeArray<Partial<EtsyListing>> = [],
-  includes: EtsyParamIncludesEnum[] = [EtsyParamIncludesEnum.IMAGES],
+  updateData: MaybeArray<UpdateEtsyListingRequestWithId> = [],
+  includes: EtsyParamIncludesEnum[] = [],
 ) {
-  const listingIdsArray = castArray(listingIds);
+  // data building
   const updateDataArray = castArray(updateData);
-  const existingListing = await getEtsyListingsByListingIds(apiKey, accessToken, listingIdsArray, includes);
+  const listingIdsArray = updateDataArray.map((d) => d.listing_id);
 
-  if (listingIdsArray.length !== existingListing.data.results.length) {
-    const existingListingIds = existingListing.data.results.map((d) => d.listing_id);
+  // fetch existing listings
+  const existingListings = await etsyHelperFetchAllListingsById(apiKey, accessToken, listingIdsArray, {includes});
+
+  // check if all listings are fetched
+  if (listingIdsArray.length !== existingListings.results.length) {
+    const existingListingIds = existingListings.results.map((d) => d.listing_id);
     throw new Error(
       `Some listing cannot be fetched: ${listingIdsArray.filter((l) => !existingListingIds.includes(l))}`,
     );
   }
 
-  const updatedListing = filterArrayUndefined(
-    existingListing.data.results.map((l) => {
-      const dataForUpdate = updateDataArray.find((d) => d.listing_id === l.listing_id);
+  const newListingData = filterArrayUndefined(
+    listingIdsArray.map((id) => {
+      //find data required
+      const dataForUpdate = updateDataArray.find((d) => d.listing_id === id);
       if (!dataForUpdate) return undefined;
+      const originalListingData = existingListings.results.find((l) => l.listing_id === id);
+      if (!originalListingData) return undefined;
 
-      const toBeUpdated = mapEtsyListingToUpdateEtsyListingRequest(l);
+      //map to update request
+      const toBeUpdated = mapEtsyListingToUpdateEtsyListingRequest(originalListingData);
 
-      const hasChanges = Object.entries(dataForUpdate).some(([key, value]) => {
-        if (key === 'tags') {
-          return xor(toBeUpdated.tags, value as string[]).length > 0;
-        }
-        return toBeUpdated[key as keyof UpdateEtsyListingRequest] !== value;
-      });
-
+      //check if has changes
+      const hasChanges = hasEtsyListingChange(toBeUpdated, omit(dataForUpdate, 'listing_id'));
       if (!hasChanges) {
         return undefined;
       }
 
-      return {
-        id: l.listing_id,
-        data: {...merge(toBeUpdated, dataForUpdate), tags: dataForUpdate.tags || toBeUpdated.tags},
-      };
+      return mergeReplaceArray(toBeUpdated, dataForUpdate) as UpdateEtsyListingRequestWithId;
     }),
   );
 
-  return etsyHelperUpdateAllListings(apiKey, accessToken, shopId, updatedListing);
+  return etsyHelperUpdateAllListings(apiKey, accessToken, shopId, newListingData);
 }
