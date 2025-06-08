@@ -1,3 +1,4 @@
-export * from './downloadGDriveFile';
-export * from './downloadGDriveFiles';
-export * from './downloadGDriveFilesInFolder';
+export * from './gdriveHelperDownloadFile';
+export * from './gdriveHelperDownloadFiles';
+export * from './gdriveHelperDownloadFilesInFolder';
+export * from './gdriveHelperDownloadFileWithUrl';

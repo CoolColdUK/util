@@ -7,7 +7,7 @@ import {getGDriveFile} from '../../file/getGDriveFile';
  * @param content gdrive content
  * @returns Promise resolving to a File object with the correct MIME type
  */
-export async function downloadGDriveFile(apiKey: string, content: GDriveContent) {
+export async function gdriveHelperDownloadFile(apiKey: string, content: GDriveContent): Promise<File> {
   const response = await getGDriveFile(apiKey, content.id);
 
   const buffer = Buffer.from(response.data);
