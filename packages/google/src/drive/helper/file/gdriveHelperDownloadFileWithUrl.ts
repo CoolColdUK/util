@@ -4,11 +4,11 @@ import {gdriveHelperDownloadFile} from './gdriveHelperDownloadFile';
 
 /**
  * Downloads a Google Drive file from a shared link
- * @param downloadUrl Google Drive shared link
  * @param apiKey Google Drive API key
+ * @param downloadUrl Google Drive shared link
  * @returns Promise resolving to a File object with the correct MIME type
  */
-export async function gdriveHelperDownloadFileWithUrl(downloadUrl: string, apiKey: string): Promise<File> {
+export async function gdriveHelperDownloadFileWithUrl(apiKey: string, downloadUrl: string): Promise<File> {
   if (!isGDriveSharedLink(downloadUrl)) {
     throw new Error('Invalid Google Drive shared link');
   }
