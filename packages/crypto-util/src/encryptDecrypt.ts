@@ -1,6 +1,6 @@
 import crypto from 'crypto';
 import createIv from './createIv';
-import createKey from './createKey';
+import {createKey} from './createKey';
 
 const ALGORITHM = 'aes-256-gcm'; // Encryption algorithm
 
