@@ -1,4 +1,5 @@
 export * from './buildPkce';
+export * from './createKey';
 // export * from './createIv';
 // export * from './createPkceCodeChallenge';
 // export * from './createPkceCodeVerifier';
