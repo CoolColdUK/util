@@ -24,15 +24,13 @@
   "types": "dist/index.d.ts",
   "dependencies": {
     "@coolcolduk/typescript-util": "^3.12.0",
-    "async": "^3.2.6",
-    "lodash": "^4.17.21"
+    "async": "^3.2.6"
   },
   "devDependencies": {
     "@coolcolduk/eslint-config": "^3.0.0",
     "@coolcolduk/jest-config": "^3.0.0",
     "@coolcolduk/ts-config": "^3.0.0",
-    "@types/async": "^3.2.24",
-    "@types/lodash": "^4.17.16"
+    "@types/async": "^3.2.24"
   },
   "eslintConfig": {
     "extends": [

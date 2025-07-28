@@ -1,14 +1,10 @@
-import {random} from 'lodash';
+import {randomNumberRange} from '../number/randomNumberRange';
 import {sleepMs} from './sleepMs';
 
 // Mock the setTimeout function
 jest.useFakeTimers();
 
-jest.mock('lodash', () => ({
-  random: jest.fn(),
-}));
-
-const spyRandom = jest.mocked(random);
+const spyRandom = jest.mocked(randomNumberRange);
 const spySetTimeout = jest.spyOn(global, 'setTimeout');
 
 describe('sleepMs', () => {
