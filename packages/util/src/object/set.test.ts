@@ -8,7 +8,7 @@ interface ITestData {
   expected: Record<string, any>;
 }
 
-describe('set123', () => {
+describe('set', () => {
   const testCases: Record<string, ITestData> = {
     'Should set simple property': {
       obj: {a: 1},

@@ -7,25 +7,24 @@
  */
 export function set<T extends Record<string, any>>(obj: T, path: string, value: any): T {
   const keys = path.split('.');
-  let current = JSON.parse(JSON.stringify(obj));
+  const result = JSON.parse(JSON.stringify(obj));
+  let current = result;
 
-  for (let i = 0; i < keys.length - 1; i++) {
-    const key = keys[i];
-    if (key === undefined) continue;
+  keys.forEach((key, index) => {
+    if (key === undefined) return;
 
-    const nextKey = keys[i + 1];
-    const isNextKeyArray = nextKey !== undefined && /^\d+$/.test(nextKey);
+    if (index < keys.length - 1) {
+      const nextKey = keys[index + 1];
+      const isNextKeyArray = nextKey !== undefined && /^\d+$/.test(nextKey);
 
-    if (!(key in current) || typeof current[key] !== 'object' || current[key] === null) {
-      current[key] = isNextKeyArray ? [] : {};
+      if (!(key in current) || typeof current[key] !== 'object' || current[key] === null) {
+        current[key] = isNextKeyArray ? [] : {};
+      }
+      current = current[key];
+    } else {
+      current[key] = value;
     }
-    current = current[key];
-  }
+  });
 
-  const lastKey = keys[keys.length - 1];
-  if (lastKey !== undefined) {
-    current[lastKey] = value;
-  }
-
-  return current;
+  return result;
 }
