@@ -34,7 +34,7 @@
     "@coolcolduk/prettier-config": "^3.0.0"
   },
   "devDependencies": {
-    "lerna": "^8.2.2"
+    "lerna": "^8.2.3"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
