@@ -1,4 +1,4 @@
-import {random} from 'lodash';
+import {randomNumberRange} from '../number/randomNumberRange';
 
 /**
  * Sleep function
@@ -8,6 +8,6 @@ import {random} from 'lodash';
  */
 export function sleepMs(ms: number, upperMs?: number): Promise<void> {
   return new Promise((resolve) => {
-    setTimeout(resolve, upperMs ? random(ms, upperMs, true) : ms);
+    setTimeout(resolve, upperMs ? randomNumberRange(ms, upperMs, true) : ms);
   });
 }
