@@ -1,4 +1,4 @@
-import {set} from 'lodash';
+import {set} from './set';
 
 /**
  * convert an multi layer object to single layer with keys in dot notation
