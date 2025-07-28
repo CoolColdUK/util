@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@coolcolduk/crypto-util",
-  "version": "3.12.0",
+  "version": "4.0.0",
   "description": "utils that require crypto package",
   "license": "MIT",
   "main": "dist/index.js",
@@ -23,7 +23,7 @@
   },
   "types": "dist/index.d.ts",
   "dependencies": {
-    "@coolcolduk/typescript-util": "^3.12.0"
+    "@coolcolduk/typescript-util": "^4.0.0"
   },
   "devDependencies": {
     "@coolcolduk/eslint-config": "^3.0.0",
