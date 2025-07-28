@@ -1,13 +1,14 @@
 /**
  * Sets the value at path of object. If a portion of path doesn't exist, it's created.
- * @param obj The object to modify
+ * @param obj the object is NOT modified, return a new object
  * @param path The path of the property to set
  * @param value The value to set
  * @returns The modified object
  */
-export function set<T extends Record<string, any>>(obj: T, path: string, value: any): T {
+export function setPure<T extends Record<string, any>>(obj: T, path: string, value: any): T {
   const keys = path.split('.');
-  let current: any = obj;
+  const result = JSON.parse(JSON.stringify(obj));
+  let current = result;
 
   keys.forEach((key, index) => {
     if (key === undefined) return;
@@ -25,5 +26,5 @@ export function set<T extends Record<string, any>>(obj: T, path: string, value: 
     }
   });
 
-  return obj;
+  return result;
 }
