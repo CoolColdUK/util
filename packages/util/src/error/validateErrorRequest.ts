@@ -1,4 +1,4 @@
-import {get} from 'lodash';
+import {get} from '../object/get';
 
 /**
  * check request data if it is an error
@@ -7,7 +7,7 @@ import {get} from 'lodash';
  */
 export function validateErrorRequest(data: any) {
   if ('errors' in data) {
-    throw new Error(get(data, 'errors.0.message'));
+    throw new Error(get(data, 'errors.0.message', 'Unknown error'));
   }
   return data;
 }

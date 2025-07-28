@@ -1,5 +1,3 @@
-import {get, set} from 'lodash';
-
 /**
  * Map input object to output object renaming keys
  * @param obj Object to map
@@ -11,10 +9,10 @@ export function mapObjectKeys<T extends Record<string, any>>(
   mapper: Record<keyof T, string>,
 ): T {
   return Object.entries(mapper).reduce((acc, [newKey, oldKey]) => {
-    const mappedValue = get(obj, oldKey);
-    if (mappedValue) {
-      set(acc, newKey, mappedValue);
+    const mappedValue = obj[oldKey];
+    if (mappedValue !== undefined) {
+      return {...acc, [newKey]: mappedValue};
     }
     return acc;
-  }, {}) as T;
+  }, {} as T);
 }
