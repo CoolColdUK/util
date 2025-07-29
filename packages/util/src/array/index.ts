@@ -1,4 +1,5 @@
 export * from './castArray';
+export * from './chunkArray';
 export * from './combineArraysObject';
 export * from './combineArraysString';
 export * from './extractArrayLast';
@@ -9,6 +10,7 @@ export * from './filterArrayUndefined';
 export * from './hasArrayDuplicates';
 export * from './indexOfCaseInsensitive';
 export * from './padArray';
+export * from './randomArray';
 export * from './removeDuplicateCaseInsensitive';
 export * from './toObject';
 export * from './uniqueArray';
