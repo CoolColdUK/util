@@ -12,6 +12,7 @@ export * from './mapObjectToArray';
 export * from './mergeReplaceArray';
 export * from './parseObjectValueFloat';
 export * from './parseObjectValueInt';
+export * from './pick';
 export * from './set';
 export * from './setBulk';
 export * from './setBulkReverse';
