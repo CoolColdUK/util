@@ -4,7 +4,7 @@
  * @param size The length of each chunk
  * @returns Returns the new array of chunks
  */
-export function chunkArray<T>(array: T[], size: number = 1): T[][] {
+export function chunk<T>(array: T[], size: number = 1): T[][] {
   if (size < 1) {
     return [];
   }

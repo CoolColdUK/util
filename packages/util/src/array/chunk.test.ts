@@ -1,5 +1,5 @@
 import {generateTestEach} from '../testHelper/generateTestEach';
-import {chunkArray} from './chunkArray';
+import {chunk} from './chunk';
 
 interface ITestData {
   array: any[];
@@ -7,7 +7,7 @@ interface ITestData {
   expected: any[][];
 }
 
-describe('chunkArray', () => {
+describe('chunk', () => {
   const testCases: Record<string, ITestData> = {
     'Should chunk array with size 2': {
       array: [1, 2, 3, 4, 5],
@@ -225,7 +225,7 @@ describe('chunkArray', () => {
 
   generateTestEach(testCases, (_title, input) => {
     const {array, size, expected} = input as ITestData;
-    const result = chunkArray(array, size);
+    const result = chunk(array, size);
     expect(result).toEqual(expected);
   });
 });

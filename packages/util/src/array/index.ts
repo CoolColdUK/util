@@ -1,5 +1,5 @@
 export * from './castArray';
-export * from './chunkArray';
+export * from './chunk';
 export * from './combineArraysObject';
 export * from './combineArraysString';
 export * from './extractArrayLast';
