@@ -1,5 +1,7 @@
 import {MaybePromise} from '@coolcolduk/typescript-util';
-import {fillerArray, filterArrayUndefined, mapPromiseFnSeries} from '@coolcolduk/util';
+import {fillerArray} from '../array/fillerArray';
+import {filterArrayUndefined} from '../array/filterArrayUndefined';
+import {mapPromiseFnSeries} from './mapPromiseFnSeries';
 
 /**
  * map promise when data is a fn
