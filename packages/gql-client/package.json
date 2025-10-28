@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@coolcolduk/gql-client",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "description": "gql client related stuff",
   "license": "MIT",
   "main": "dist/index.js",
@@ -24,8 +24,8 @@
   "types": "dist/index.d.ts",
   "dependencies": {
     "@apollo/client": "^3.0.0",
-    "@coolcolduk/enum": "^4.0.0",
-    "@coolcolduk/util": "^4.0.0",
+    "@coolcolduk/enum": "^4.1.0",
+    "@coolcolduk/util": "^4.1.0",
     "graphql": "^16.11.0"
   },
   "devDependencies": {
