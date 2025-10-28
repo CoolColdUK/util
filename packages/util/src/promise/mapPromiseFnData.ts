@@ -3,9 +3,9 @@ import {fillerArray, filterArrayUndefined, mapPromiseFnSeries} from '@coolcolduk
 
 /**
  * map promise when data is a fn
- * @param dataFn
- * @param count
- * @param fn
+ * @param dataFn function to provide data
+ * @param count number of times to run the data function
+ * @param fn function to map over the data
  * @returns
  */
 export async function mapPromiseFnData<T, R>(
