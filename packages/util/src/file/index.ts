@@ -4,5 +4,6 @@ export * from './base64ToFile';
 export * from './extractFilenameWithoutExtension';
 export * from './fileToBase64';
 export * from './fileToBase64Object';
+export * from './fileToBase64ObjectNoFileReader';
 export * from './isFileEqual';
 export * from './uniqueFile';
