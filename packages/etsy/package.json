@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@coolcolduk/etsy",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "description": "etsy related function",
   "license": "MIT",
   "main": "dist/index.js",
@@ -25,10 +25,10 @@
   },
   "types": "dist/index.d.ts",
   "dependencies": {
-    "@coolcolduk/axios": "^4.1.0",
-    "@coolcolduk/crypto-util": "^4.1.0",
-    "@coolcolduk/enum": "^4.1.0",
-    "@coolcolduk/util": "^4.1.0",
+    "@coolcolduk/axios": "^4.1.1",
+    "@coolcolduk/crypto-util": "^4.1.1",
+    "@coolcolduk/enum": "^4.1.1",
+    "@coolcolduk/util": "^4.1.1",
     "axios": "^1.7.9",
     "express": "^4.21.2",
     "lodash": "^4.17.21",
