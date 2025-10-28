@@ -1,3 +1,4 @@
+export * from './mapPromiseFnData';
 export * from './mapPromiseFnSeries';
 export * from './mapPromiseLimit';
 export * from './mapPromiseSeries';
