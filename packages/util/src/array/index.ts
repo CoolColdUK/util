@@ -12,5 +12,6 @@ export * from './indexOfCaseInsensitive';
 export * from './padArray';
 export * from './randomArray';
 export * from './removeDuplicateCaseInsensitive';
+export * from './selectArrayTernary';
 export * from './toObject';
 export * from './uniqueArray';
