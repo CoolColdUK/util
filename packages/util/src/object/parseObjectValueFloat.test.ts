@@ -50,7 +50,7 @@ describe('parseObjectValueFloat', () => {
 
     const result = parseObjectValueFloat(input, keys);
     expect(result).toEqual(expected);
-    expect(isNaN(result['price'])).toBe(true);
+    expect(Number.isNaN(result['price'])).toBe(true);
   });
 
   it('should handle null/undefined values by keeping them as-is', () => {

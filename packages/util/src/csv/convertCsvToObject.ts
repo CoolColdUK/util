@@ -18,7 +18,7 @@ export function convertCsvToObject(csv: string, emptyCell: any = null): Record<s
     const values = line.split(/,(?=(?:[^"]*"[^"]*")*[^"]*$)/).map((value) => {
       const trimmed = value.replace(/^"|"$/g, '').trim();
       if (trimmed.length === 0) return undefined;
-      return isNaN(Number(trimmed)) ? trimmed : Number(trimmed);
+      return Number.isNaN(Number(trimmed)) ? trimmed : Number(trimmed);
     });
 
     return headers.reduce(

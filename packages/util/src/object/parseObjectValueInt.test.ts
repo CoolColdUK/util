@@ -50,7 +50,7 @@ describe('parseObjectValueInt', () => {
 
     const result = parseObjectValueInt(input, keys);
     expect(result).toEqual(expected);
-    expect(isNaN(result['quantity'])).toBe(true);
+    expect(Number.isNaN(result['quantity'])).toBe(true);
   });
 
   it('should handle null/undefined values by keeping them as-is or converting to NaN', () => {

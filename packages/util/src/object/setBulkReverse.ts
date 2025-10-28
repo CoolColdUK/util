@@ -12,7 +12,7 @@ export function setBulkReverse<T extends Record<string, any>>(
   prefix: string = '',
   skipValidator: ValidatorFn[] = [],
 ): Record<string, any> {
-  let result: Record<string, any> = {};
+  const result: Record<string, any> = {};
 
   if (skipValidator.some((validator) => validator(prefix, '', obj))) {
     return {[prefix]: obj};

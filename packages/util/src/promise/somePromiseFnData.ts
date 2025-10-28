@@ -1,5 +1,5 @@
 import {MaybePromise} from '@coolcolduk/typescript-util';
-import {fillerArray} from '@coolcolduk/util';
+import {fillerArray} from '../array/fillerArray';
 
 /**
  * run array.some given number of times when data is provided by a fn

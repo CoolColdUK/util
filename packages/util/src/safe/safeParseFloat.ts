@@ -6,7 +6,7 @@
 export function safeParseFloat(value: string): number | undefined {
   try {
     const rtn = parseFloat(value);
-    if (isNaN(rtn)) return undefined;
+    if (Number.isNaN(rtn)) return undefined;
     return rtn;
   } catch (e) {
     // it shouldn't happen but just in case
