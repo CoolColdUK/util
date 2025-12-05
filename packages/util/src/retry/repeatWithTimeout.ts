@@ -1,6 +1,6 @@
 import {MaybePromise} from '@coolcolduk/typescript-util';
-import {repeatTillComplete, withTimeout} from '@coolcolduk/util';
-
+import {withTimeout} from '../promise/withTimeout';
+import {repeatTillComplete} from './repeatTillComplete';
 export interface RepeatWithTimeoutOptions<T> {
   /** The allowed outputs to restrict acceptable outcome, otherwise will return when result is not undefined */
   allowedOutputs?: T[];
@@ -17,7 +17,7 @@ export interface RepeatWithTimeoutOptions<T> {
  * @deprecated will move to coolcolduk/util
  * @returns The result of the function
  */
-export default async function repeatWithTimeout<T>(
+export async function repeatWithTimeout<T>(
   fn: () => MaybePromise<T>,
   options?: RepeatWithTimeoutOptions<T>,
 ): Promise<T> {
