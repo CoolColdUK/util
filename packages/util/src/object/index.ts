@@ -1,4 +1,5 @@
 export * from './addObjectValue';
+export * from './buildObjectValueAppliedFn';
 export * from './buildObjectWhenExists';
 export * from './compareObjectShallow';
 export * from './filterObject';
