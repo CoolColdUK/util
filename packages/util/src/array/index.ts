@@ -17,3 +17,4 @@ export * from './replaceArrayItem';
 export * from './selectArrayTernary';
 export * from './toObject';
 export * from './uniqueArray';
+export * from './upsertArrayItem';
