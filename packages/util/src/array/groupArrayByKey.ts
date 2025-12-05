@@ -1,15 +1,12 @@
 import {get} from '../object/get';
 
 /**
- * Reduce an array to a group array by a  given key
- * @param array - The array to reduce
- * @param key - The key to reduce by
- * @returns The reduced object array Record<key, T[]>
+ * Group an array of objects by a given key
+ * @param array - The array to group
+ * @param key - The key to group by
+ * @returns The grouped object array Record<key, T[]>
  */
-export default function reduceArrayToGroupArrayByKey<T extends Record<string, any>>(
-  array: T[],
-  key: keyof T,
-): Record<string, T[]> {
+export function groupArrayByKey<T extends Record<string, any>>(array: T[], key: keyof T): Record<string, T[]> {
   // Optimized: Use mutation instead of spread to avoid O(n²) complexity
   return array.reduce<Record<string, T[]>>((acc, item) => {
     const value = get(item, key as string) as any;
