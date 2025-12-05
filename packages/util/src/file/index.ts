@@ -7,4 +7,4 @@ export * from './fileToBase64Object';
 export * from './fileToBase64ObjectNoFileReader';
 export * from './isFileEqual';
 export * from './uniqueFile';
-export * from './validateBase64ObjectInputFileSize';
+export * from './validateBase64ObjectFileSize';
