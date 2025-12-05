@@ -11,6 +11,7 @@ export * from './hasArrayDuplicates';
 export * from './indexOfCaseInsensitive';
 export * from './padArray';
 export * from './randomArray';
+export * from './reduceArrayToGroupArrayByKey';
 export * from './removeDuplicateCaseInsensitive';
 export * from './replaceArrayItem';
 export * from './selectArrayTernary';
