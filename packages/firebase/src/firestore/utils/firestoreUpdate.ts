@@ -1,6 +1,6 @@
 import {throwIfNull} from '@coolcolduk/util';
 import {DocumentReference, UpdateData} from 'firebase-admin/firestore';
-import {WithId} from '../type/WithId';
+import {WithId} from '../../type/WithId';
 import {firestoreGet} from './firestoreGet';
 
 /**

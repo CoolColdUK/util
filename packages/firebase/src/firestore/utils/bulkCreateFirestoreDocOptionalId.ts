@@ -8,7 +8,7 @@ import {
   uniqueArrayByKey,
 } from '@coolcolduk/util';
 import {CollectionReference, Firestore} from 'firebase-admin/firestore';
-import {WithId} from '../type/WithId';
+import {WithId} from '../../type/WithId';
 
 export type BulkCreateFirestoreDocOptionalIdOptions = {
   /**

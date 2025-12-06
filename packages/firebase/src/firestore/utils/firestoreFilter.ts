@@ -1,6 +1,6 @@
 import {CollectionReference, DocumentData} from 'firebase-admin/firestore';
-import {mapFirestoreDocsToObjectTypeArray} from '../map/mapFirestoreDocsToObjectTypeArray';
-import {WithId} from '../type/WithId';
+import {mapFirestoreDocsToObjectTypeArray} from '../../map/mapFirestoreDocsToObjectTypeArray';
+import {WithId} from '../../type/WithId';
 import {firestoreFilterSnapshot} from './firestoreFilterSnapshot';
 import {QueryOptions} from './firestoreQuery';
 

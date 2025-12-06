@@ -1,6 +1,6 @@
 import {Maybe} from '@coolcolduk/typescript-util';
 import {DocumentReference} from 'firebase-admin/firestore';
-import {WithId} from '../type/WithId';
+import {WithId} from '../../type/WithId';
 import {firestoreGet} from './firestoreGet';
 
 /**

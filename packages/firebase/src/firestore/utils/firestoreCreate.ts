@@ -1,5 +1,5 @@
 import {CollectionReference} from 'firebase-admin/firestore';
-import {WithId} from '../type/WithId';
+import {WithId} from '../../type/WithId';
 import {createFirestoreDocOptionalId} from './createFirestoreDocOptionalId';
 
 /**
