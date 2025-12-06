@@ -1,4 +1,4 @@
-import {FirestoreDataConverter} from 'firebase-admin/firestore';
+import {DocumentData, FirestoreDataConverter} from 'firebase-admin/firestore';
 import {firestoreTimestampToDateFromFirestore} from './firestoreTimestampToDateFromFirestore';
 
 /**
@@ -7,7 +7,7 @@ import {firestoreTimestampToDateFromFirestore} from './firestoreTimestampToDateF
  * @param snapshot - snapshot to convert
  * @returns converted data
  */
-export const firestoreTimestampToDateConverter: FirestoreDataConverter<any> = {
+export const firestoreTimestampToDateConverter: FirestoreDataConverter<DocumentData> = {
   fromFirestore: firestoreTimestampToDateFromFirestore,
-  toFirestore: (data: any) => data,
+  toFirestore: (data: DocumentData) => data,
 };

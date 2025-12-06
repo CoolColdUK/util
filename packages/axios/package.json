@@ -25,6 +25,7 @@
   "types": "dist/index.d.ts",
   "dependencies": {
     "@coolcolduk/enum": "^4.1.1",
+    "@coolcolduk/typescript-util": "^4.1.1",
     "@coolcolduk/util": "^4.1.1",
     "axios": "^1.7.9"
   },

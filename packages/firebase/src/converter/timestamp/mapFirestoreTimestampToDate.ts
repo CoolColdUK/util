@@ -28,7 +28,6 @@ export function mapTimestampToDate<T>(
   if (!options.skipHandleRawTimestamp) {
     // Handle raw Timestamp structure with _seconds and _nanoseconds
     if (timestamp && typeof timestamp === 'object' && '_seconds' in timestamp && '_nanoseconds' in timestamp) {
-      // eslint-disable-next-line no-underscore-dangle
       return new Timestamp((timestamp as any)._seconds, (timestamp as any)._nanoseconds).toDate();
     }
   }

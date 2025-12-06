@@ -5,7 +5,7 @@ export default function writeJsonFile(jsonPath: string, data: string | Record<st
     const combineStr = typeof data === 'string' ? data : JSON.stringify(data, null, 2);
     writeFileSync(jsonPath, `${combineStr}`);
     return true;
-  } catch (err) {
+  } catch (_err) {
     return false;
   }
 }

@@ -29,6 +29,7 @@
     "@coolcolduk/axios": "^4.1.1",
     "@coolcolduk/crypto-util": "^4.1.1",
     "@coolcolduk/enum": "^4.1.1",
+    "@coolcolduk/typescript-util": "^4.1.1",
     "@coolcolduk/util": "^4.1.1",
     "axios": "^1.7.9",
     "express": "^5.0.0",

@@ -1,4 +1,4 @@
-import {omit} from 'lodash';
+import {omit} from '@coolcolduk/util';
 import {WithId} from '../type/WithId';
 
 /**

@@ -9,5 +9,5 @@ import {fetchFileAsBuffer} from './fetchFileAsBuffer';
  */
 export async function fetchFile(url: string, filename: string, overrideType?: string): Promise<File> {
   const data = await fetchFileAsBuffer(url);
-  return new File([data.buffer], filename, {type: overrideType || data.type});
+  return new File([data.buffer as unknown as ArrayBuffer], filename, {type: overrideType || data.type});
 }

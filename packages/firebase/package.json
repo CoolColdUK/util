@@ -24,6 +24,8 @@
   },
   "types": "dist/index.d.ts",
   "dependencies": {
+    "@coolcolduk/typescript-util": "^4.1.1",
+    "@coolcolduk/util": "^4.1.1",
     "express": "^5.0.0",
     "firebase-admin": "^13.4.0"
   },
