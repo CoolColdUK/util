@@ -1,2 +1,2 @@
-export * from './mapFirestoreDocArrayToObjectTypeArray';
+export * from './mapFirestoreDocsToObjectTypeArray';
 export * from './mapFirestoreDocToObjectType';

@@ -10,7 +10,7 @@ import {mapFirestoreDocToObjectType} from './mapFirestoreDocToObjectType';
  * @param firestoreObject
  * @returns
  */
-export function mapFirestoreDocArrayToObjectTypeArray<T>(
+export function mapFirestoreDocsToObjectTypeArray<T>(
   firestoreObjectArray?: QuerySnapshot<T, FirebaseFirestore.DocumentData> | null,
 ): WithId<T>[] {
   if (!firestoreObjectArray) return [];
