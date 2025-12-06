@@ -31,7 +31,7 @@
     "packages/*"
   ],
   "dependencies": {
-    "@coolcolduk/prettier-config": "^3.0.0"
+    "@coolcolduk/prettier-config": "^4.1.0"
   },
   "devDependencies": {
     "lerna": "^8.2.3"
