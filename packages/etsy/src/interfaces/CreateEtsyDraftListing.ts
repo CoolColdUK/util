@@ -10,38 +10,37 @@ import {EtsyListing} from './EtsyListing';
 /**
  * The data required to create a draft listing.
  */
-export interface CreateEtsyDraftListingRequest
-  extends Pick<
-    EtsyListing,
-    | 'quantity'
-    | 'title'
-    | 'description'
-    | 'who_made'
-    | 'when_made'
-    | 'taxonomy_id'
-    | 'shipping_profile_id'
-    | 'return_policy_id'
-    | 'materials'
-    | 'shop_section_id'
-    | 'processing_min'
-    | 'processing_max'
-    | 'tags'
-    | 'style'
-    | 'item_weight'
-    | 'item_length'
-    | 'item_width'
-    | 'item_height'
-    | 'item_weight_unit'
-    | 'item_dimensions_unit'
-    | 'is_supply'
-    | 'is_customizable'
-    | 'is_personalizable'
-    | 'personalization_is_required'
-    | 'personalization_char_count_max'
-    | 'personalization_instructions'
-    | 'should_auto_renew'
-    | 'is_taxable'
-  > {
+export interface CreateEtsyDraftListingRequest extends Pick<
+  EtsyListing,
+  | 'quantity'
+  | 'title'
+  | 'description'
+  | 'who_made'
+  | 'when_made'
+  | 'taxonomy_id'
+  | 'shipping_profile_id'
+  | 'return_policy_id'
+  | 'materials'
+  | 'shop_section_id'
+  | 'processing_min'
+  | 'processing_max'
+  | 'tags'
+  | 'style'
+  | 'item_weight'
+  | 'item_length'
+  | 'item_width'
+  | 'item_height'
+  | 'item_weight_unit'
+  | 'item_dimensions_unit'
+  | 'is_supply'
+  | 'is_customizable'
+  | 'is_personalizable'
+  | 'personalization_is_required'
+  | 'personalization_char_count_max'
+  | 'personalization_instructions'
+  | 'should_auto_renew'
+  | 'is_taxable'
+> {
   type: EtsyListing['listing_type'];
 
   price: number;

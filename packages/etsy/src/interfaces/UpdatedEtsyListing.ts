@@ -11,39 +11,38 @@ import {EtsyListing} from './EtsyListing';
 /**
  * Interface representing an update request for an Etsy listing.
  */
-export interface UpdateEtsyListingRequest
-  extends NullableBy<
-    Pick<
-      EtsyListing,
-      | 'title'
-      | 'description'
-      | 'materials'
-      | 'should_auto_renew'
-      | 'shipping_profile_id'
-      | 'return_policy_id'
-      | 'shop_section_id'
-      | 'item_weight'
-      | 'item_length'
-      | 'item_width'
-      | 'item_height'
-      | 'item_weight_unit'
-      | 'item_dimensions_unit'
-      | 'is_taxable'
-      | 'taxonomy_id'
-      | 'tags'
-      | 'who_made'
-      | 'when_made'
-      | 'featured_rank'
-      | 'is_personalizable'
-      | 'personalization_is_required'
-      | 'personalization_char_count_max'
-      | 'personalization_instructions'
-      | 'state'
-      | 'is_supply'
-      | 'listing_type'
-    >,
-    'featured_rank'
-  > {
+export interface UpdateEtsyListingRequest extends NullableBy<
+  Pick<
+    EtsyListing,
+    | 'title'
+    | 'description'
+    | 'materials'
+    | 'should_auto_renew'
+    | 'shipping_profile_id'
+    | 'return_policy_id'
+    | 'shop_section_id'
+    | 'item_weight'
+    | 'item_length'
+    | 'item_width'
+    | 'item_height'
+    | 'item_weight_unit'
+    | 'item_dimensions_unit'
+    | 'is_taxable'
+    | 'taxonomy_id'
+    | 'tags'
+    | 'who_made'
+    | 'when_made'
+    | 'featured_rank'
+    | 'is_personalizable'
+    | 'personalization_is_required'
+    | 'personalization_char_count_max'
+    | 'personalization_instructions'
+    | 'state'
+    | 'is_supply'
+    | 'listing_type'
+  >,
+  'featured_rank'
+> {
   /**
    * An array of numeric image IDs associated with the listing (up to 10 images).
    */
@@ -90,8 +89,10 @@ export const zUpdateEtsyListingRequestSchema = z.object({
   production_partner_ids: z.array(z.number().int()).nullable().optional(),
 }) satisfies ZodType<UpdateEtsyListingRequest>;
 
-export interface UpdatedEtsyListing
-  extends Omit<EtsyListing, 'user' | 'shop' | 'translations' | 'inventory' | 'production_partners'> {
+export interface UpdatedEtsyListing extends Omit<
+  EtsyListing,
+  'user' | 'shop' | 'translations' | 'inventory' | 'production_partners'
+> {
   /**
    * The timestamp of when the listing was last updated, in ISO 8601 format.
    */
