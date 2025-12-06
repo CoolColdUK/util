@@ -14,6 +14,7 @@
     "build:package": "tsc",
     "check": "tsc --noEmit",
     "clean:dist": "rm -rf dist && rm -rf tsconfig.tsbuildinfo",
+    "clean:module": "rm -rf node_modules",
     "lint": "eslint ./src/**/*.{ts,tsx}",
     "lint:fix": "eslint --fix ./src/**/*.{ts,tsx}",
     "pack": "npm pack --pack-destination=../",

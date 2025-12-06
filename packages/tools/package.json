@@ -18,6 +18,7 @@
     "build:package": "echo skip",
     "check": "tsc --noEmit",
     "clean:dist": "rm -rf dist && rm -rf tsconfig.tsbuildinfo",
+    "clean:module": "rm -rf node_modules",
     "info": "ts-node ./src/info.ts",
     "lint": "eslint --fix ./src/**/*.{ts,tsx}",
     "pack": "npm pack --pack-destination=../",
