@@ -11,10 +11,7 @@ export function groupArrayByKey<T extends Record<string, any>>(array: T[], key: 
   return array.reduce<Record<string, T[]>>((acc, item) => {
     const value = get(item, key as string) as any;
     if (!value) return acc;
-    if (!acc[value]) {
-      acc[value] = [];
-    }
-    acc[value].push(item);
+    acc[value] = [...(acc[value] || []), item];
     return acc;
   }, {});
 }
