@@ -19,7 +19,7 @@
     "check": "tsc --noEmit",
     "clean:dist": "rm -rf dist && rm -rf tsconfig.tsbuildinfo",
     "info": "ts-node ./src/info.ts",
-    "lint": "eslint --resolve-plugins-relative-to . --fix ./src/**/*.{ts,tsx}",
+    "lint": "eslint --fix ./src/**/*.{ts,tsx}",
     "pack": "npm pack --pack-destination=../",
     "test": "echo not tested",
     "test:int": "echo not tested",
