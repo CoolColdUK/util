@@ -11,6 +11,7 @@ export * from './mapArrayToObject';
 export * from './mapObjectKeys';
 export * from './mapObjectToArray';
 export * from './mergeReplaceArray';
+export * from './omit';
 export * from './parseObjectValueFloat';
 export * from './parseObjectValueInt';
 export * from './pick';
