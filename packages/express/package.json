@@ -26,14 +26,14 @@
     "@coolcolduk/typescript-util": "^4.1.1",
     "@coolcolduk/util": "^4.1.1",
     "cors": "^2.8.5",
-    "express": "^4.21.2"
+    "express": "^5.0.0"
   },
   "devDependencies": {
     "@coolcolduk/eslint-config": "^4.1.0",
     "@coolcolduk/jest-config": "^4.1.0",
     "@coolcolduk/ts-config": "^4.1.0",
     "@types/cors": "^2.8.17",
-    "@types/express": "^4.17.21"
+    "@types/express": "^5.0.0"
   },
   "jest": {
     "preset": "@coolcolduk/jest-config",
