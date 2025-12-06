@@ -27,7 +27,7 @@ export const zUploadEtsyListingVideoRequest = z
   .object({
     video_id: z.number().int().min(1, {message: 'video_id must be an integer >= 1'}).optional(), // Integer >= 1, optional
     video: z.instanceof(File, {message: 'video must be a File object'}).optional(), // File object, optional (relaxed to File only for simplicity)
-    name: z.string({required_error: 'name is required'}).nonempty({message: 'name must not be empty'}).optional(),
+    name: z.string().min(1, {message: 'name must not be empty'}).optional(),
   })
   .refine((data) => data.video_id !== undefined || (data.video instanceof File && data.name !== undefined), {
     message: 'Must provide either video_id or both video and name',

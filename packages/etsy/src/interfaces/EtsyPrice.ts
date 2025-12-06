@@ -1,5 +1,5 @@
 import {IsoCurrencyCode} from '@coolcolduk/enum';
-import {nativeEnum, number, object, ZodType} from 'zod';
+import {z, ZodType} from 'zod';
 
 /**
  * Represents the price of a product or listing on Etsy.
@@ -22,8 +22,8 @@ export interface EtsyPrice {
   currency_code: IsoCurrencyCode;
 }
 
-export const zEtsyPrice = object({
-  amount: number().int(),
-  divisor: number().min(0).int(),
-  currency_code: nativeEnum(IsoCurrencyCode),
+export const zEtsyPrice = z.object({
+  amount: z.number().int(),
+  divisor: z.number().min(0).int(),
+  currency_code: z.nativeEnum(IsoCurrencyCode),
 }) satisfies ZodType<EtsyPrice>;

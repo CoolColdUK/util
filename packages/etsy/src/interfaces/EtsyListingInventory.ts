@@ -62,7 +62,7 @@ export interface UpdateEtsyListingInventoryRequest {
 }
 
 export const zUpdateEtsyListingInventoryRequest = z.object({
-  products: z.array(zEtsyProductRequest).nonempty({message: 'products array must not be empty'}),
+  products: z.array(zEtsyProductRequest).min(1, {message: 'products array must not be empty'}),
   price_on_property: z.array(z.number().int().min(1)).optional(),
   quantity_on_property: z.array(z.number().int().min(1)).optional(),
   sku_on_property: z.array(z.number().int().min(1)).optional(),

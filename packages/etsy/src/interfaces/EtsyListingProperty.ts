@@ -31,8 +31,8 @@ export const zUpdateEtsyListingPropertyRequestSchema = z
   .object({
     value_ids: z
       .array(z.number().int().min(1, {message: 'Each value_id must be an integer >= 1'}))
-      .nonempty({message: 'value_ids array must not be empty'}), // Required
-    values: z.array(z.string()).nonempty({message: 'values array must not be empty'}), // Required
+      .min(1, {message: 'value_ids array must not be empty'}), // Required
+    values: z.array(z.string()).min(1, {message: 'values array must not be empty'}), // Required
     scale_id: z.number().int().min(1, {message: 'scale_id must be an integer >= 1'}).optional(), // Optional
   })
   .strip()

@@ -1,4 +1,4 @@
-import {boolean, number, object, ZodType} from 'zod';
+import {z, ZodType} from 'zod';
 import {EtsyPrice, zEtsyPrice} from './EtsyPrice';
 
 /**
@@ -31,11 +31,11 @@ export interface EtsyProductOffering {
   price: EtsyPrice;
 }
 
-export const zEtsyProductOffering = object({
-  offering_id: number().int().min(1),
-  quantity: number().int().min(0),
-  is_enabled: boolean(),
-  is_deleted: boolean(),
+export const zEtsyProductOffering = z.object({
+  offering_id: z.number().int().min(1),
+  quantity: z.number().int().min(0),
+  is_enabled: z.boolean(),
+  is_deleted: z.boolean(),
   price: zEtsyPrice,
 }) satisfies ZodType<EtsyProductOffering>;
 
@@ -48,4 +48,4 @@ export const zEtsyProductOfferingRequest = zEtsyProductOffering
     quantity: true,
     is_enabled: true,
   })
-  .merge(object({price: number().min(0)})) satisfies ZodType<EtsyProductOfferingRequest>;
+  .merge(z.object({price: z.number().min(0)})) satisfies ZodType<EtsyProductOfferingRequest>;
