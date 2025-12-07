@@ -1,3 +1,4 @@
+import {sleepMs} from '../sleep';
 import {generateTestEach} from '../testHelper/generateTestEach';
 import {mapPromiseLimit} from './mapPromiseLimit';
 
@@ -16,7 +17,7 @@ describe('mapPromiseLimit', () => {
       items: [1, 2, 3, 4, 5],
       concurrency: 1,
       mapper: async (item: number) => {
-        await new Promise((resolve) => setTimeout(resolve, 10));
+        await sleepMs(10);
         return item * 2;
       },
       expected: [2, 4, 6, 8, 10],
@@ -27,7 +28,7 @@ describe('mapPromiseLimit', () => {
       items: [1, 2, 3, 4, 5],
       concurrency: 2,
       mapper: async (item: number) => {
-        await new Promise((resolve) => setTimeout(resolve, 10));
+        await sleepMs(10);
         return item * 2;
       },
       expected: [2, 4, 6, 8, 10],
@@ -38,7 +39,7 @@ describe('mapPromiseLimit', () => {
       items: [1, 2, 3],
       concurrency: 3,
       mapper: async (item: number) => {
-        await new Promise((resolve) => setTimeout(resolve, 10));
+        await sleepMs(10);
         return item * 2;
       },
       expected: [2, 4, 6],
@@ -49,7 +50,7 @@ describe('mapPromiseLimit', () => {
       items: [1, 2, 3],
       concurrency: 5,
       mapper: async (item: number) => {
-        await new Promise((resolve) => setTimeout(resolve, 10));
+        await sleepMs(10);
         return item * 2;
       },
       expected: [2, 4, 6],
@@ -60,7 +61,7 @@ describe('mapPromiseLimit', () => {
       items: [],
       concurrency: 3,
       mapper: async (item: number) => {
-        await new Promise((resolve) => setTimeout(resolve, 10));
+        await sleepMs(10);
         return item * 2;
       },
       expected: [],
@@ -71,7 +72,7 @@ describe('mapPromiseLimit', () => {
       items: [3, 1, 4, 1, 5],
       concurrency: 2,
       mapper: async (item: number, index: number) => {
-        await new Promise((resolve) => setTimeout(resolve, Math.random() * 50));
+        await sleepMs(Math.random() * 50);
         return item + index;
       },
       expected: [3, 2, 6, 4, 9], // [3+0, 1+1, 4+2, 1+3, 5+4]
@@ -82,7 +83,7 @@ describe('mapPromiseLimit', () => {
       items: [10, 20, 30],
       concurrency: 2,
       mapper: async (item: number, index: number) => {
-        await new Promise((resolve) => setTimeout(resolve, 10));
+        await sleepMs(10);
         return item + index;
       },
       expected: [10, 21, 32], // [10+0, 20+1, 30+2]
@@ -101,7 +102,7 @@ describe('mapPromiseLimit', () => {
       items: [1, 2, 3],
       concurrency: 0,
       mapper: async (item: number) => {
-        await new Promise((resolve) => setTimeout(resolve, 10));
+        await sleepMs(10);
         return item * 2;
       },
       expected: [2, 4, 6],
@@ -112,7 +113,7 @@ describe('mapPromiseLimit', () => {
       items: [1, 2, 3],
       concurrency: -1,
       mapper: async (item: number) => {
-        await new Promise((resolve) => setTimeout(resolve, 10));
+        await sleepMs(10);
         return item * 2;
       },
       expected: [2, 4, 6],
@@ -123,7 +124,7 @@ describe('mapPromiseLimit', () => {
       items: [42],
       concurrency: 3,
       mapper: async (item: number) => {
-        await new Promise((resolve) => setTimeout(resolve, 10));
+        await sleepMs(10);
         return item * 2;
       },
       expected: [84],
@@ -134,7 +135,7 @@ describe('mapPromiseLimit', () => {
       items: Array.from({length: 10}, (_, i) => i + 1),
       concurrency: 2,
       mapper: async (item: number) => {
-        await new Promise((resolve) => setTimeout(resolve, 5));
+        await sleepMs(5);
         return item * 2;
       },
       expected: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20],
@@ -145,7 +146,7 @@ describe('mapPromiseLimit', () => {
       items: Array.from({length: 10}, (_, i) => i + 1),
       concurrency: 10,
       mapper: async (item: number) => {
-        await new Promise((resolve) => setTimeout(resolve, 20));
+        await sleepMs(20);
         return item * 2;
       },
       expected: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20],
@@ -156,7 +157,7 @@ describe('mapPromiseLimit', () => {
       items: Array.from({length: 10}, (_, i) => i + 1),
       concurrency: 5,
       mapper: async (item: number) => {
-        await new Promise((resolve) => setTimeout(resolve, 20));
+        await sleepMs(20);
         return item * 2;
       },
       expected: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20],
@@ -167,7 +168,7 @@ describe('mapPromiseLimit', () => {
       items: [1, 2, 3],
       concurrency: 2,
       mapper: async (item: number) => {
-        await new Promise((resolve) => setTimeout(resolve, 10));
+        await sleepMs(10);
         if (item === 2) {
           throw new Error('Test error');
         }
@@ -181,7 +182,7 @@ describe('mapPromiseLimit', () => {
       items: [1, 2, 3],
       concurrency: 2,
       mapper: async (item: number) => {
-        await new Promise((resolve) => setTimeout(resolve, 10));
+        await sleepMs(10);
         if (item === 1) {
           throw new Error('First item error');
         }
@@ -195,7 +196,7 @@ describe('mapPromiseLimit', () => {
       items: [1, 2, 3],
       concurrency: 2,
       mapper: async (item: number) => {
-        await new Promise((resolve) => setTimeout(resolve, 10));
+        await sleepMs(10);
         if (item === 3) {
           throw new Error('Last item error');
         }
@@ -210,9 +211,9 @@ describe('mapPromiseLimit', () => {
       concurrency: 3,
       mapper: async (item: number, index: number) => {
         // Simulate complex async operation
-        await new Promise((resolve) => setTimeout(resolve, 20));
+        await sleepMs(20);
         const doubled = item * 2;
-        await new Promise((resolve) => setTimeout(resolve, 10));
+        await sleepMs(10);
         return doubled + index;
       },
       expected: [2, 5, 8, 11, 14], // [1*2+0, 2*2+1, 3*2+2, 4*2+3, 5*2+4]
@@ -225,7 +226,7 @@ describe('mapPromiseLimit', () => {
       mapper: async (item: number) => {
         // Items with even values take longer
         const delay = item % 2 === 0 ? 50 : 10;
-        await new Promise((resolve) => setTimeout(resolve, delay));
+        await sleepMs(delay);
         return item * 2;
       },
       expected: [2, 4, 6, 8, 10],

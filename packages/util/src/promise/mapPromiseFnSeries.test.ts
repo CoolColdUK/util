@@ -1,4 +1,5 @@
 // eslint-disable-file no-promise-executor-return
+import {sleepMs} from '../sleep/sleepMs';
 import {mapPromiseFnSeries} from './mapPromiseFnSeries';
 
 describe('mapPromiseFnSeries function', () => {
@@ -23,8 +24,7 @@ describe('mapPromiseFnSeries function', () => {
   it('should correctly handle asynchronous functions', async () => {
     const arr = [1, 2, 3, 4, 5];
     const fn = async (data: number) => {
-      // eslint-disable-next-line
-      await new Promise((resolve) => setTimeout(() => resolve(0), 100));
+      await sleepMs(100);
       return data * 2;
     };
 

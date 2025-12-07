@@ -1,3 +1,4 @@
+import {sleepMs} from '../sleep/sleepMs';
 import {mapPromiseSeries} from './mapPromiseSeries';
 
 describe('mapPromiseSeries function', () => {
@@ -24,14 +25,7 @@ describe('mapPromiseSeries function', () => {
   });
 
   it('should correctly handle asynchronous functions', async () => {
-    const arr = [
-      // eslint-disable-next-line
-      () => new Promise<number>((resolve) => setTimeout(() => resolve(1), 100)),
-      // eslint-disable-next-line
-      () => new Promise<number>((resolve) => setTimeout(() => resolve(2), 50)),
-      // eslint-disable-next-line
-      () => new Promise<number>((resolve) => setTimeout(() => resolve(3), 150)),
-    ];
+    const arr = [() => sleepMs(100).then(() => 1), () => sleepMs(50).then(() => 2), () => sleepMs(150).then(() => 3)];
 
     const result = await mapPromiseSeries(arr);
 
