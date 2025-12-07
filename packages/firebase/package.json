@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@coolcolduk/firebase",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "description": "firebase utils",
   "license": "MIT",
   "type": "module",
@@ -32,8 +32,8 @@
   },
   "types": "dist/index.d.ts",
   "dependencies": {
-    "@coolcolduk/typescript-util": "^5.0.0",
-    "@coolcolduk/util": "^5.0.0",
+    "@coolcolduk/typescript-util": "^6.0.0",
+    "@coolcolduk/util": "^6.0.0",
     "express": "^5.0.0",
     "firebase-admin": "^13.4.0"
   },
