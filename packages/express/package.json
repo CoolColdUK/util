@@ -7,19 +7,19 @@
   "type": "module",
   "exports": {
     ".": {
-      "types": "./dist/esm/index.d.ts",
-      "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js",
-      "default": "./dist/esm/index.js"
+      "types": "./dist/esm/index.d.mts",
+      "import": "./dist/esm/index.mjs",
+      "require": "./dist/cjs/index.cjs",
+      "default": "./dist/esm/index.mjs"
     }
   },
-  "main": "./dist/cjs/index.js",
+  "main": "./dist/cjs/index.cjs",
   "files": [
     "dist",
     "src"
   ],
   "scripts": {
-    "build:main": "tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json",
+    "build:main": "tsdown",
     "build:package": "echo skip",
     "check": "tsc --noEmit",
     "clean:dist": "rm -rf dist && rm -rf tsconfig.tsbuildinfo",
@@ -31,7 +31,7 @@
     "test:int": "jest --testMatch **/*.spec.ts",
     "test:unit": "jest --testMatch **/*.test.ts"
   },
-  "types": "./dist/esm/index.d.ts",
+  "types": "./dist/esm/index.d.mts",
   "dependencies": {
     "@coolcolduk/typescript-util": "^6.1.0",
     "@coolcolduk/util": "^6.1.0",
@@ -43,7 +43,8 @@
     "@coolcolduk/jest-config": "^5.1.0",
     "@coolcolduk/ts-config": "^5.1.0",
     "@types/cors": "^2.8.17",
-    "@types/express": "^5.0.0"
+    "@types/express": "^5.0.0",
+    "tsdown": "^0.17.0"
   },
   "jest": {
     "preset": "@coolcolduk/jest-config",
