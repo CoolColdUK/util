@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@coolcolduk/gql",
-  "version": "4.1.1",
+  "version": "5.0.0",
   "description": "various gql server related stuff",
   "license": "MIT",
   "main": "dist/index.js",
@@ -26,7 +26,7 @@
   "dependencies": {
     "@apollo/server": "^5.0.0",
     "@as-integrations/express5": "^1.0.0",
-    "@coolcolduk/enum": "^4.1.1",
+    "@coolcolduk/enum": "^5.0.0",
     "cors": "^2.8.5",
     "express": "^5.0.0",
     "graphql": "^16.11.0",

@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@coolcolduk/util",
-  "version": "4.1.1",
+  "version": "5.0.0",
   "description": "all utils combined",
   "license": "MIT",
   "main": "dist/index.js",
@@ -24,7 +24,7 @@
   },
   "types": "dist/index.d.ts",
   "dependencies": {
-    "@coolcolduk/typescript-util": "^4.1.1"
+    "@coolcolduk/typescript-util": "^5.0.0"
   },
   "devDependencies": {
     "@coolcolduk/eslint-config": "^4.2.0",
