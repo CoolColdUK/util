@@ -1,4 +1,2 @@
 
 npx lint-staged
-
-npm i
