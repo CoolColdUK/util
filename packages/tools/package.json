@@ -6,16 +6,16 @@
   "type": "module",
   "main": "src/index.ts",
   "bin": {
-    "toJs": "./dist/switchJs.js",
-    "toJsPackages": "./dist/switchJsPackages.js",
-    "toTs": "./dist/switchTs.js",
-    "toTsPackages": "./dist/switchTsPackages.js"
+    "toJs": "./dist/esm/switchJs.js",
+    "toJsPackages": "./dist/esm/switchJsPackages.js",
+    "toTs": "./dist/esm/switchTs.js",
+    "toTsPackages": "./dist/esm/switchTsPackages.js"
   },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build:main": "tsc",
+    "build:main": "tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json",
     "build:package": "echo skip",
     "check": "tsc --noEmit",
     "clean:dist": "rm -rf dist && rm -rf tsconfig.tsbuildinfo",
