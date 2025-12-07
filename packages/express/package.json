@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@coolcolduk/express",
-  "version": "6.1.0",
+  "version": "6.2.0",
   "description": "various express related stuff",
   "license": "MIT",
   "type": "module",
@@ -33,8 +33,8 @@
   },
   "types": "./dist/esm/index.d.mts",
   "dependencies": {
-    "@coolcolduk/typescript-util": "^6.1.0",
-    "@coolcolduk/util": "^6.1.0",
+    "@coolcolduk/typescript-util": "^6.2.0",
+    "@coolcolduk/util": "^6.2.0",
     "cors": "^2.8.5",
     "express": "^5.0.0"
   },
