@@ -4,6 +4,14 @@
   "version": "5.0.0",
   "description": "gql client related stuff",
   "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
   "main": "dist/index.js",
   "files": [
     "dist",
@@ -29,9 +37,9 @@
     "@coolcolduk/util": "^5.0.0"
   },
   "devDependencies": {
-    "@coolcolduk/eslint-config": "^4.2.0",
-    "@coolcolduk/jest-config": "^4.2.0",
-    "@coolcolduk/ts-config": "^4.2.0",
+    "@coolcolduk/eslint-config": "^5.0.0",
+    "@coolcolduk/jest-config": "^5.0.0",
+    "@coolcolduk/ts-config": "^5.0.0",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0"
   },

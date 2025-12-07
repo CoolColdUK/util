@@ -1,7 +1,11 @@
 #!/usr/bin/env node
-import {resolve} from 'path';
+import {resolve, dirname} from 'path';
+import {fileURLToPath} from 'url';
 import fs from 'fs';
 import childProcess from 'child_process';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 async function main() {
   const output = resolve(__dirname, '../../packages/web/public/info.json');

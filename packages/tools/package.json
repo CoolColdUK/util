@@ -3,6 +3,7 @@
   "name": "@coolcolduk/bin",
   "version": "5.0.0",
   "license": "ISC",
+  "type": "module",
   "main": "src/index.ts",
   "bin": {
     "toJs": "./dist/switchJs.js",
@@ -32,7 +33,7 @@
     "prettier-package-json": "^2.8.0"
   },
   "devDependencies": {
-    "@coolcolduk/eslint-config": "^4.2.0",
-    "@coolcolduk/ts-config": "^4.2.0"
+    "@coolcolduk/eslint-config": "^5.0.0",
+    "@coolcolduk/ts-config": "^5.0.0"
   }
 }

@@ -4,6 +4,14 @@
   "version": "5.0.0",
   "description": "utils that require crypto package",
   "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
   "main": "dist/index.js",
   "files": [
     "dist",
@@ -27,9 +35,9 @@
     "@coolcolduk/typescript-util": "^5.0.0"
   },
   "devDependencies": {
-    "@coolcolduk/eslint-config": "^4.2.0",
-    "@coolcolduk/jest-config": "^4.2.0",
-    "@coolcolduk/ts-config": "^4.2.0"
+    "@coolcolduk/eslint-config": "^5.0.0",
+    "@coolcolduk/jest-config": "^5.0.0",
+    "@coolcolduk/ts-config": "^5.0.0"
   },
   "jest": {
     "preset": "@coolcolduk/jest-config",

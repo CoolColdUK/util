@@ -2,7 +2,10 @@
   "extends": "@coolcolduk/ts-config",
   "compilerOptions": {
     "rootDir": "src",
-    "outDir": "dist"
+    "outDir": "dist",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "target": "ES2022"
   },
   "include": ["src/**/*"]
 }
