@@ -8,7 +8,7 @@ export function safeParseInt(value: string): number | undefined {
     const rtn = parseInt(value, 10);
     if (Number.isNaN(rtn)) return undefined;
     return rtn;
-  } catch (e) {
+  } catch {
     // it shouldn't happen but just in case
     return undefined;
   }

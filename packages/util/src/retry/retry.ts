@@ -16,14 +16,12 @@ export async function retry<Return>(fn: (index: number) => Return | Promise<Retu
 
   for (let i = 0; i < numberOfTries; i += 1) {
     try {
-      // eslint-disable-next-line no-await-in-loop
       return await fn(i);
     } catch (e) {
       if (i === numberOfTries - 1) throw e;
       // can decide to retry or not
       if (shouldRetry && !shouldRetry(e)) throw e;
 
-      // eslint-disable-next-line no-await-in-loop
       if (delay) await delay();
     }
   }

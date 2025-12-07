@@ -8,7 +8,7 @@ export function safeParseFloat(value: string): number | undefined {
     const rtn = parseFloat(value);
     if (Number.isNaN(rtn)) return undefined;
     return rtn;
-  } catch (e) {
+  } catch {
     // it shouldn't happen but just in case
     return undefined;
   }

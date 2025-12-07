@@ -11,7 +11,7 @@ export async function getFirebaseAuthUser<R extends DecodedIdToken = DecodedIdTo
   if (!token) return undefined;
   try {
     return (await firebaseAuth.verifyIdToken(token)) as R;
-  } catch (_error) {
+  } catch {
     return undefined;
   }
 }
