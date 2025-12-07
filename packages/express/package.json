@@ -39,9 +39,9 @@
     "express": "^5.0.0"
   },
   "devDependencies": {
-    "@coolcolduk/eslint-config": "^5.0.0",
-    "@coolcolduk/jest-config": "^5.0.0",
-    "@coolcolduk/ts-config": "^5.0.0",
+    "@coolcolduk/eslint-config": "^5.1.0",
+    "@coolcolduk/jest-config": "^5.1.0",
+    "@coolcolduk/ts-config": "^5.1.0",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0"
   },
