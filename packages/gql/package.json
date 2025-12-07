@@ -36,9 +36,9 @@
     "type-graphql": "^2.0.0-rc.2"
   },
   "devDependencies": {
-    "@coolcolduk/eslint-config": "^4.1.0",
-    "@coolcolduk/jest-config": "^4.1.0",
-    "@coolcolduk/ts-config": "^4.1.0",
+    "@coolcolduk/eslint-config": "^4.2.0",
+    "@coolcolduk/jest-config": "^4.2.0",
+    "@coolcolduk/ts-config": "^4.2.0",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0"
   },

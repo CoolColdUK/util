@@ -24,9 +24,9 @@
   },
   "types": "dist/index.d.ts",
   "devDependencies": {
-    "@coolcolduk/eslint-config": "^4.1.0",
-    "@coolcolduk/jest-config": "^4.1.0",
-    "@coolcolduk/ts-config": "^4.1.0"
+    "@coolcolduk/eslint-config": "^4.2.0",
+    "@coolcolduk/jest-config": "^4.2.0",
+    "@coolcolduk/ts-config": "^4.2.0"
   },
   "jest": {
     "preset": "@coolcolduk/jest-config",

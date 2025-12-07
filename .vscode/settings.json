@@ -19,7 +19,11 @@
   "eslint.workingDirectories": [
     // "packages/sleep",
     // "packages/util",
-  ]
+  ],
+  "versionlens.registry": "https://registry.npmjs.org",
+  "versionlens.scopedRegistries": {
+    "@coolcolduk": "https://npm.pkg.github.com"
+  }
   // "eslint.format.enable": true,
   // "editor.codeActionsOnSave": {
   //   "source.fixAll.eslint": true

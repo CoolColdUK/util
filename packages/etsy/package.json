@@ -37,9 +37,9 @@
     "zod": "^4.0.0"
   },
   "devDependencies": {
-    "@coolcolduk/eslint-config": "^4.1.0",
-    "@coolcolduk/jest-config": "^4.1.0",
-    "@coolcolduk/ts-config": "^4.1.0",
+    "@coolcolduk/eslint-config": "^4.2.0",
+    "@coolcolduk/jest-config": "^4.2.0",
+    "@coolcolduk/ts-config": "^4.2.0",
     "@types/express": "^5.0.0",
     "@types/lodash": "^4.17.20"
   },

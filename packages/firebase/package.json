@@ -30,9 +30,9 @@
     "firebase-admin": "^13.4.0"
   },
   "devDependencies": {
-    "@coolcolduk/eslint-config": "^4.1.0",
-    "@coolcolduk/jest-config": "^4.1.0",
-    "@coolcolduk/ts-config": "^4.1.0",
+    "@coolcolduk/eslint-config": "^4.2.0",
+    "@coolcolduk/jest-config": "^4.2.0",
+    "@coolcolduk/ts-config": "^4.2.0",
     "@types/express": "^5.0.0"
   },
   "jest": {
