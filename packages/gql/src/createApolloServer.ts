@@ -1,15 +1,18 @@
 import {ApolloServer, ApolloServerPlugin, BaseContext, ContextFunction} from '@apollo/server';
-import {expressMiddleware, ExpressContextFunctionArgument} from '@as-integrations/express5';
+import {ExpressContextFunctionArgument, expressMiddleware} from '@as-integrations/express5';
 import {Logger} from '@coolcolduk/enum';
 import cors, {CorsOptions} from 'cors';
 import express, {Handler} from 'express';
 import {GraphQLDirective, GraphQLFormattedError} from 'graphql';
 import {buildSchema, NonEmptyArray} from 'type-graphql';
-import {BuildContextOptions, ValidateSettings} from 'type-graphql/build/typings/schema/build-context';
+
+type BuildSchemaOptions = Parameters<typeof buildSchema>[0];
+type AuthChecker = NonNullable<BuildSchemaOptions['authChecker']>;
+type ValidateSettings = BuildSchemaOptions['validate'];
 
 export interface CreateApolloServerOptions<TContext extends BaseContext> {
   cors?: CorsOptions;
-  authChecker?: BuildContextOptions['authChecker'];
+  authChecker?: AuthChecker;
   directives?: GraphQLDirective[];
   // errorHandler?: ErrorRequestHandler;
   middleware?: Handler[];
