@@ -1,4 +1,4 @@
-import {Maybe} from '@coolcolduk/typescript-util';
+import {throwIfNull} from '@coolcolduk/util';
 import {DocumentReference} from 'firebase-admin/firestore';
 import {WithId} from '../../type/WithId';
 import {firestoreGet} from './firestoreGet';
@@ -14,7 +14,7 @@ import {firestoreGet} from './firestoreGet';
 export async function firestoreUpsert<T extends object>(
   doc: DocumentReference<T>,
   data: Partial<T>,
-): Promise<Maybe<WithId<T>>> {
+): Promise<WithId<T>> {
   await doc.set({...data}, {merge: false});
-  return firestoreGet(doc);
+  return throwIfNull(await firestoreGet(doc), 'Document not found');
 }
