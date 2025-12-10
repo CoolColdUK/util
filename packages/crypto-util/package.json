@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@coolcolduk/crypto-util",
-  "version": "6.2.2",
+  "version": "6.2.3",
   "description": "utils that require crypto package",
   "license": "MIT",
   "type": "module",
@@ -33,7 +33,7 @@
   },
   "types": "./dist/esm/index.d.mts",
   "dependencies": {
-    "@coolcolduk/typescript-util": "^6.2.2"
+    "@coolcolduk/typescript-util": "^6.2.3"
   },
   "devDependencies": {
     "@coolcolduk/eslint-config": "^5.1.0",
