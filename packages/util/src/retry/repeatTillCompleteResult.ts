@@ -7,7 +7,6 @@ import {repeatTillComplete} from './repeatTillComplete';
  * @param isComplete
  * @param shouldRetry
  * @param delayMs
- * @deprecated will move to coolcolduk/util
  * @returns
  */
 export async function repeatTillCompleteResult<T>(

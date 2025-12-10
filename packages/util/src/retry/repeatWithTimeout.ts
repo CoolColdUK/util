@@ -14,7 +14,6 @@ export interface RepeatWithTimeoutOptions<T> {
  * Repeats a function until it returns a result or the timeout is reached
  * @param fn - The function to repeat. if result undersired, it should return undefined
  * @param options - The options for the repeat with timeout
- * @deprecated will move to coolcolduk/util
  * @returns The result of the function
  */
 export async function repeatWithTimeout<T>(
