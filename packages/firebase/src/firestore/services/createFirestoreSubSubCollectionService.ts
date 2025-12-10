@@ -220,7 +220,7 @@ export function createFirestoreSubSubCollectionService<FirestoreType extends obj
       parentCollectionDocId: string,
       id: string,
       data: UpdateData<FirestoreType>,
-    ): Promise<Maybe<WithId<FirestoreType>>> {
+    ): Promise<WithId<FirestoreType>> {
       return firestoreUpdate(
         FirestoreSubSubCollectionService.getDoc(grandCollectionDocId, parentCollectionDocId, id),
         data,
@@ -242,7 +242,7 @@ export function createFirestoreSubSubCollectionService<FirestoreType extends obj
       parentCollectionDocId: string,
       id: string,
       data: Partial<FirestoreType>,
-    ): Promise<Maybe<WithId<FirestoreType>>> {
+    ): Promise<WithId<FirestoreType>> {
       return firestoreUpsert(
         FirestoreSubSubCollectionService.getDoc(grandCollectionDocId, parentCollectionDocId, id),
         data,

@@ -145,7 +145,7 @@ export function createFirestoreService<FirebaseType extends object>(
      * @param data - The data to update the document with.
      * @return The updated document.
      */
-    static upsert(id: string, data: Partial<FirebaseType>): Promise<Maybe<WithId<FirebaseType>>> {
+    static upsert(id: string, data: Partial<FirebaseType>): Promise<WithId<FirebaseType>> {
       return firestoreUpsert(FirestoreService.getDoc(id), data);
     }
 

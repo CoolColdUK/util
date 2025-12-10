@@ -119,7 +119,7 @@ export function createFirestoreSubCollectionDocumentService<FirestoreType extend
      * @param data - The data to update the document with.
      * @return The updated document.
      */
-    static update(collectionDocId: string, data: UpdateData<FirestoreType>): Promise<Maybe<WithId<FirestoreType>>> {
+    static update(collectionDocId: string, data: UpdateData<FirestoreType>): Promise<WithId<FirestoreType>> {
       return firestoreUpdate(FirestoreSubCollectionDocumentService.getDoc(collectionDocId), data);
     }
 
@@ -132,7 +132,7 @@ export function createFirestoreSubCollectionDocumentService<FirestoreType extend
      * @param data - The data to update the document with.
      * @return The updated document.
      */
-    static upsert(collectionDocId: string, data: Partial<FirestoreType>): Promise<Maybe<WithId<FirestoreType>>> {
+    static upsert(collectionDocId: string, data: Partial<FirestoreType>): Promise<WithId<FirestoreType>> {
       return firestoreUpsert(FirestoreSubCollectionDocumentService.getDoc(collectionDocId), data);
     }
 

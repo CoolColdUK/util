@@ -9,7 +9,7 @@ import {WithId} from '../../type/WithId';
  * @param docReference - The document reference to get the document from
  * @return The document with the id
  */
-export async function createFirestoreDocOptionalId<T>(
+export async function createFirestoreDocOptionalId<T extends object>(
   collectionReference: CollectionReference<T>,
   data: T,
   docId?: string,
