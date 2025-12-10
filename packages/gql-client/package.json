@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@coolcolduk/gql-client",
-  "version": "6.2.1",
+  "version": "6.2.2",
   "description": "gql client related stuff",
   "license": "MIT",
   "type": "module",
@@ -34,8 +34,8 @@
   "types": "./dist/esm/index.d.mts",
   "dependencies": {
     "@apollo/client": "^4.0.0",
-    "@coolcolduk/enum": "^6.2.1",
-    "@coolcolduk/util": "^6.2.1"
+    "@coolcolduk/enum": "^6.2.2",
+    "@coolcolduk/util": "^6.2.2"
   },
   "devDependencies": {
     "@coolcolduk/eslint-config": "^5.1.0",
