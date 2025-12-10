@@ -28,7 +28,7 @@ import {CreateFirestoreOption} from './CreateFirestoreOption';
  * @param options - Optional configuration including converter
  * @return A class with static methods to get the collection, get a document, and create a document.
  */
-export default function createFirestoreSubSubCollectionService<FirestoreType extends object>(
+export function createFirestoreSubSubCollectionService<FirestoreType extends object>(
   firestoreApp: Firestore,
   grandCollectionName: string,
   parentCollectionName: string,

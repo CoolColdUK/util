@@ -27,7 +27,7 @@ import {CreateFirestoreOption} from './CreateFirestoreOption';
  * @param options - Optional configuration including converter
  * @returns
  */
-export default function createFirestoreService<FirebaseType extends object>(
+export function createFirestoreService<FirebaseType extends object>(
   firestoreApp: Firestore,
   collectionName: string,
   createFirestoreOption?: CreateFirestoreOption<FirebaseType>,
