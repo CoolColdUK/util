@@ -8,8 +8,14 @@ import {transformObjectValue} from './transformObjectValue';
  */
 export function buildObjectValueAppliedFn<ReturnType, InputType>(
   valueFn: (value: any) => any,
+  shouldApply?: (value: any) => boolean,
 ): (data: InputType) => ReturnType {
   return function applyToAllValues(data: any): ReturnType {
+    // this is to cater for when the valueFn to apply to an object
+    if (shouldApply && shouldApply(data)) {
+      return valueFn(data);
+    }
+
     // apply value function to all items in array
     if (Array.isArray(data)) {
       return data.map((item) => applyToAllValues(item)) as ReturnType;
