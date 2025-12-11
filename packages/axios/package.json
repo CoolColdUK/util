@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@coolcolduk/axios",
-  "version": "6.2.3",
+  "version": "6.2.4",
   "description": "axios helper function",
   "license": "MIT",
   "type": "module",
@@ -33,9 +33,9 @@
   },
   "types": "./dist/esm/index.d.mts",
   "dependencies": {
-    "@coolcolduk/enum": "^6.2.3",
-    "@coolcolduk/typescript-util": "^6.2.3",
-    "@coolcolduk/util": "^6.2.3",
+    "@coolcolduk/enum": "^6.2.4",
+    "@coolcolduk/typescript-util": "^6.2.4",
+    "@coolcolduk/util": "^6.2.4",
     "axios": "^1.7.9"
   },
   "devDependencies": {
