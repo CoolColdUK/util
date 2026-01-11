@@ -13,6 +13,7 @@ const OAUTH_REDIRECT = '/oauth/redirect';
 const OAUTH_CALLBACK = '/oauth/callback';
 
 const ETSY_API_KEY = process.env['ETSY_API_KEY'] || '';
+const ETSY_API_SECRET = process.env['ETSY_API_SECRET'] || '';
 
 const key = 'ergheioghoe333rijgeirgj43wt3w';
 const app = express();
@@ -23,7 +24,7 @@ app.get('/', (_req, res) => {
   res.send(`<a href="${OAUTH_REDIRECT}">login</a>`);
 });
 
-app.get('/ping', createEndpointPing(ETSY_API_KEY));
+app.get('/ping', createEndpointPing(ETSY_API_KEY, ETSY_API_SECRET));
 
 app.get(OAUTH_REDIRECT, (req, res) => {
   const data = buildPkce(key);

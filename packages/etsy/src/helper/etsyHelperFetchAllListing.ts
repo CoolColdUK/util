@@ -11,6 +11,7 @@ export interface EtsyHelperFetchAllListingParams extends Omit<GetEtsyListingsByS
 /**
  * Fetch all listings from Etsy for a given shop. Loops until all listings are fetched.
  * @param apiKey - Etsy API key
+ * @param apiSecret - Etsy API secret
  * @param accessToken - Etsy access token
  * @param shopId - Etsy shop ID
  * @param params - Parameters for the Etsy API request
@@ -18,6 +19,7 @@ export interface EtsyHelperFetchAllListingParams extends Omit<GetEtsyListingsByS
  */
 export async function etsyHelperFetchAllListing(
   apiKey: string,
+  apiSecret: string,
   accessToken: string,
   shopId: number,
   params: EtsyHelperFetchAllListingParams,
@@ -25,7 +27,7 @@ export async function etsyHelperFetchAllListing(
   const pageSize = 100;
   return repeatTillComplete<EtsyList<EtsyListing>>(
     async (prev) => {
-      const result = await getEtsyListingsByShop(apiKey, accessToken, shopId, {
+      const result = await getEtsyListingsByShop(apiKey, apiSecret, accessToken, shopId, {
         limit: pageSize,
         offset: prev ? prev.results.length : 0,
         includes: [EtsyParamIncludesEnum.IMAGES, EtsyParamIncludesEnum.VIDEOS],

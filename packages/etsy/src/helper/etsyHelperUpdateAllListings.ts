@@ -7,6 +7,7 @@ import {updateEtsyListing} from '../request/listing/updateEtsyListing';
 /**
  * Update multiple listings for a given shop.
  * @param apiKey - Etsy API key
+ * @param apiSecret - Etsy API secret
  * @param accessToken - Etsy access token
  * @param shopId - Etsy shop ID
  * @param listings - Listings to update
@@ -14,13 +15,14 @@ import {updateEtsyListing} from '../request/listing/updateEtsyListing';
  */
 export async function etsyHelperUpdateAllListings(
   apiKey: string,
+  apiSecret: string,
   accessToken: string,
   shopId: number,
   listings: UpdateEtsyListingRequestWithId[],
 ): Promise<UpdatedEtsyListing[]> {
   const listingData = listings.map((l) => ({id: l.listing_id, data: omit(l, 'listing_id')}));
   const result = await mapPromiseFnSeries(listingData, (listing) =>
-    updateEtsyListing(apiKey, accessToken, shopId, listing.id, listing.data),
+    updateEtsyListing(apiKey, apiSecret, accessToken, shopId, listing.id, listing.data),
   );
   return result.map((r) => r.data);
 }

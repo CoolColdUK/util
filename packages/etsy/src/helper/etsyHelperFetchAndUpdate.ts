@@ -11,6 +11,7 @@ import {etsyHelperUpdateAllListings} from './etsyHelperUpdateAllListings';
 /**
  * Fetch and update multiple listings for a given shop.
  * @param apiKey - Etsy API key
+ * @param apiSecret - Etsy API secret
  * @param accessToken - Etsy access token
  * @param shopId - Etsy shop ID
  * @param listingIds - Etsy listing IDs
@@ -20,6 +21,7 @@ import {etsyHelperUpdateAllListings} from './etsyHelperUpdateAllListings';
  */
 export async function etsyHelperFetchAndUpdate(
   apiKey: string,
+  apiSecret: string,
   accessToken: string,
   shopId: number,
   updateData: MaybeArray<UpdateEtsyListingRequestWithId> = [],
@@ -30,7 +32,9 @@ export async function etsyHelperFetchAndUpdate(
   const listingIdsArray = updateDataArray.map((d) => d.listing_id);
 
   // fetch existing listings
-  const existingListings = await etsyHelperFetchAllListingsById(apiKey, accessToken, listingIdsArray, {includes});
+  const existingListings = await etsyHelperFetchAllListingsById(apiKey, apiSecret, accessToken, listingIdsArray, {
+    includes,
+  });
 
   // check if all listings are fetched
   if (listingIdsArray.length !== existingListings.results.length) {
@@ -61,5 +65,5 @@ export async function etsyHelperFetchAndUpdate(
     }),
   );
 
-  return etsyHelperUpdateAllListings(apiKey, accessToken, shopId, newListingData);
+  return etsyHelperUpdateAllListings(apiKey, apiSecret, accessToken, shopId, newListingData);
 }

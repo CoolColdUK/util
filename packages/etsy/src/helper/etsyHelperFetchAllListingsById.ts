@@ -12,6 +12,7 @@ export interface EtsyHelperFetchAllListingsByIdParams {
 /**
  * Fetch all listings from Etsy for a given listing IDs. Loops until all listings are fetched.
  * @param apiKey - Etsy API key
+ * @param apiSecret - Etsy API secret
  * @param accessToken - Etsy access token
  * @param listingIds - Etsy listing IDs
  * @param params - Parameters for the Etsy API request
@@ -19,6 +20,7 @@ export interface EtsyHelperFetchAllListingsByIdParams {
  */
 export async function etsyHelperFetchAllListingsById(
   apiKey: string,
+  apiSecret: string,
   accessToken: string,
   listingIds: number[],
   params: EtsyHelperFetchAllListingsByIdParams,
@@ -28,6 +30,7 @@ export async function etsyHelperFetchAllListingsById(
     async (prev) => {
       const result = await getEtsyListingsByListingIds(
         apiKey,
+        apiSecret,
         accessToken,
         listingIds.slice(prev?.results.length || 0, (prev?.results.length || 0) + pageSize),
         params.includes,
