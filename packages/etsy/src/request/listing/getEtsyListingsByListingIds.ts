@@ -6,6 +6,7 @@ import {getEtsyAxios} from '../../util/getEtsyAxios';
  * Fetches multiple Etsy listings by their listing IDs.
  * @see https://developers.etsy.com/documentation/reference#operation/getListingsByListingIds
  * @param apiKey - The API key.
+ * @param secret - The API secret.
  * @param accessToken - The OAuth2 access token.
  * @param listingIds - An array of listing IDs to retrieve (max 100).
  * @param includes - Optional includes for additional data (e.g., "Images", "Shop").
@@ -13,6 +14,7 @@ import {getEtsyAxios} from '../../util/getEtsyAxios';
  */
 export function getEtsyListingsByListingIds(
   apiKey: string,
+  secret: string,
   accessToken: string,
   listingIds: number[],
   includes: EtsyParamIncludesEnum[] = [],
@@ -32,5 +34,5 @@ export function getEtsyListingsByListingIds(
     params.append('includes', includes.join(','));
   }
 
-  return getEtsyAxios(apiKey, accessToken, {params}).get<EtsyList<EtsyListing>>(`/application/listings/batch`);
+  return getEtsyAxios(apiKey, secret, accessToken, {params}).get<EtsyList<EtsyListing>>(`/application/listings/batch`);
 }

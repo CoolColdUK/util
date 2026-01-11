@@ -6,6 +6,7 @@ import {getEtsyAxios} from '../../util/getEtsyAxios';
  * Updates the inventory for a listing identified by a listing ID.
  * @see https://developers.etsy.com/documentation/reference/#operation/updateListingInventory
  * @param apiKey - The API key.
+ * @param secret - The API secret.
  * @param accessToken - The OAuth2 access token.
  * @param listingId - The ID of the listing to update (required, integer >= 1).
  * @param updateData - The data to update the listing inventory with.
@@ -13,11 +14,12 @@ import {getEtsyAxios} from '../../util/getEtsyAxios';
  */
 export async function updateEtsyListingInventory(
   apiKey: string,
+  secret: string,
   accessToken: string,
   listingId: number,
   updateData: UpdateEtsyListingInventoryRequest,
 ): EtsyResponse<EtsyListingInventory> {
-  return getEtsyAxios(apiKey, accessToken).put<EtsyListingInventory>(
+  return getEtsyAxios(apiKey, secret, accessToken).put<EtsyListingInventory>(
     `/application/listings/${listingId}/inventory`,
     updateData,
   );

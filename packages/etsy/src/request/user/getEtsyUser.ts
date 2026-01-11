@@ -7,10 +7,16 @@ import {getEtsyAxios} from '../../util/getEtsyAxios';
  * @see https://developers.etsy.com/documentation/reference#operation/getUser
  * @requires scope email_r
  * @param apiKey
+ * @param secret
  * @param accessToken
  * @param userId
  * @returns
  */
-export function getEtsyUser(apiKey: string, accessToken: string, userId: string): EtsyResponse<EtsyUser> {
-  return getEtsyAxios(apiKey, accessToken).get<EtsyUser>(`/application/users/${userId}`);
+export function getEtsyUser(
+  apiKey: string,
+  secret: string,
+  accessToken: string,
+  userId: string,
+): EtsyResponse<EtsyUser> {
+  return getEtsyAxios(apiKey, secret, accessToken).get<EtsyUser>(`/application/users/${userId}`);
 }

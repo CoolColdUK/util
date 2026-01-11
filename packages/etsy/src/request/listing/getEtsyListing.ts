@@ -8,6 +8,7 @@ import {getEtsyAxios} from '../../util/getEtsyAxios';
  * Fetches the details of a specific listing.
  * @see https://developers.etsy.com/documentation/reference#operation/getListing
  * @param apiKey - The API key.
+ * @param secret - The API secret.
  * @param accessToken - The OAuth2 access token.
  * @param listingId - The ID of the listing to retrieve.
  * @param includes - Optional includes for additional data (e.g., "Images", "Shop").
@@ -16,6 +17,7 @@ import {getEtsyAxios} from '../../util/getEtsyAxios';
  */
 export function getEtsyListing(
   apiKey: string,
+  secret: string,
   accessToken: string,
   listingId: number,
   includes: EtsyParamIncludesEnum[] = [],
@@ -29,5 +31,5 @@ export function getEtsyListing(
     params.append('language', language);
   }
 
-  return getEtsyAxios(apiKey, accessToken, {params}).get<EtsyListing>(`/application/listings/${listingId}`);
+  return getEtsyAxios(apiKey, secret, accessToken, {params}).get<EtsyListing>(`/application/listings/${listingId}`);
 }

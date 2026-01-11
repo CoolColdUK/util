@@ -25,6 +25,7 @@ export interface GetEtsyListingsByShopReceiptParams {
  * @see https://developers.etsy.com/documentation/reference/#operation/getListingsByShopReceipt
  * @requires scope transactions_r
  * @param apiKey - The API key for Etsy API authentication.
+ * @param secret - The API secret.
  * @param accessToken - The OAuth2 access token for authorization.
  * @param shopId - The unique numeric ID of the shop.
  * @param receiptId - The numeric ID of the receipt associated with this transaction.
@@ -33,6 +34,7 @@ export interface GetEtsyListingsByShopReceiptParams {
  */
 export function getEtsyListingsByShopReceipt(
   apiKey: string,
+  secret: string,
   accessToken: string,
   shopId: number,
   receiptId: number,
@@ -49,7 +51,7 @@ export function getEtsyListingsByShopReceipt(
   // if (getListingParams?.limit) params.append('limit', getListingParams.limit.toString());
   // if (getListingParams?.offset) params.append('offset', getListingParams.offset.toString());
 
-  return getEtsyAxios(apiKey, accessToken, {params}).get<EtsyList<EtsyListing>>(
+  return getEtsyAxios(apiKey, secret, accessToken, {params}).get<EtsyList<EtsyListing>>(
     `/application/shops/${shopId}/receipts/${receiptId}/listings`,
   );
 }

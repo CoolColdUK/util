@@ -8,6 +8,7 @@ import {getEtsyAxios} from '../../util/getEtsyAxios';
  * Uploads an image to an existing Etsy listing.
  * @see https://developers.etsy.com/documentation/reference/#operation/uploadListingImage
  * @param apiKey - The API key.
+ * @param secret - The API secret.
  * @param accessToken - The OAuth2 access token.
  * @param shopId - The ID of the shop.
  * @param listingId - The ID of the listing to upload the image to.
@@ -16,6 +17,7 @@ import {getEtsyAxios} from '../../util/getEtsyAxios';
  */
 export function uploadEtsyListingImage(
   apiKey: string,
+  secret: string,
   accessToken: string,
   shopId: number,
   listingId: number,
@@ -25,7 +27,7 @@ export function uploadEtsyListingImage(
   const formData = buildFormData(data);
 
   // Make the API request
-  return getEtsyAxios(apiKey, accessToken, {
+  return getEtsyAxios(apiKey, secret, accessToken, {
     contentType: MimeType.MULTIPART_FORM_DATA,
   }).post<UploadEtsyListingImageResponse>(`/application/shops/${shopId}/listings/${listingId}/images`, formData);
 }

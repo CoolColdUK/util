@@ -9,6 +9,7 @@ import {getEtsyAxios} from '../../util/getEtsyAxios';
  * Uploads a video to an existing Etsy listing.
  * @see https://developers.etsy.com/documentation/reference/#operation/uploadListingVideo
  * @param apiKey - The API key.
+ * @param secret - The API secret.
  * @param accessToken - The OAuth2 access token.
  * @param shopId - The ID of the shop.
  * @param listingId - The ID of the listing to upload the video to.
@@ -17,6 +18,7 @@ import {getEtsyAxios} from '../../util/getEtsyAxios';
  */
 export function uploadEtsyListingVideo(
   apiKey: string,
+  secret: string,
   accessToken: string,
   shopId: number,
   listingId: number,
@@ -26,7 +28,7 @@ export function uploadEtsyListingVideo(
   const formData = buildFormData(data);
 
   // Make the API request
-  return getEtsyAxios(apiKey, accessToken, {contentType: MimeType.MULTIPART_FORM_DATA}).post<EtsyListingVideo>(
+  return getEtsyAxios(apiKey, secret, accessToken, {contentType: MimeType.MULTIPART_FORM_DATA}).post<EtsyListingVideo>(
     `/application/shops/${shopId}/listings/${listingId}/videos`,
     formData,
   );

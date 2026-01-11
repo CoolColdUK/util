@@ -9,8 +9,9 @@ export interface PingEtsyResponse {
  * Check to confirm connectivity to the Etsy API with an application
  * @see https://developers.etsy.com/documentation/reference#operation/ping
  * @param apiKey
+ * @param secret
  * @returns
  */
-export function pingEtsy(apiKey: string): EtsyResponse<PingEtsyResponse> {
-  return getEtsyAxios(apiKey).get<PingEtsyResponse>('/application/openapi-ping');
+export function pingEtsy(apiKey: string, secret: string): EtsyResponse<PingEtsyResponse> {
+  return getEtsyAxios(apiKey, secret).get<PingEtsyResponse>('/application/openapi-ping');
 }

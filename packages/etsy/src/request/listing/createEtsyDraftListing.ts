@@ -8,6 +8,7 @@ import {getEtsyAxios} from '../../util/getEtsyAxios';
  * @see https://developers.etsy.com/documentation/reference#operation/createDraftListing
  * @requires scope listings_w
  * @param apiKey - The API key.
+ * @param secret - The API secret.
  * @param accessToken - The OAuth2 access token for authorization.
  * @param shopId - The unique positive non-zero numeric ID for an Etsy Shop.
  * @param data - The data required to create a draft listing.
@@ -15,11 +16,12 @@ import {getEtsyAxios} from '../../util/getEtsyAxios';
  */
 export function createEtsyDraftListing(
   apiKey: string,
+  secret: string,
   accessToken: string,
   shopId: number,
   data: CreateEtsyDraftListingRequest,
 ): EtsyResponse<CreateEtsyDraftListingResponse> {
-  return getEtsyAxios(apiKey, accessToken).post<CreateEtsyDraftListingResponse>(
+  return getEtsyAxios(apiKey, secret, accessToken).post<CreateEtsyDraftListingResponse>(
     `/application/shops/${shopId}/listings`,
     filterObject(data as Record<string, any>, (_key, v) => !!v),
   );

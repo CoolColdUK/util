@@ -24,6 +24,7 @@ export interface UpdateEtsyShopRequest {
  * @see https://developers.etsy.com/documentation/reference#operation/updateShop
  * @requires scope shops_r, shops_w
  * @param apiKey - The API key
+ * @param secret - The API secret
  * @param accessToken - The OAuth2 access token for authorization.
  * @param shopId - The ID of the shop to update.
  * @param data - The fields to update in the shop.
@@ -31,9 +32,10 @@ export interface UpdateEtsyShopRequest {
  */
 export function updateShop(
   apiKey: string,
+  secret: string,
   accessToken: string,
   shopId: number,
   data: UpdateEtsyShopRequest,
 ): EtsyResponse<EtsyShop> {
-  return getEtsyAxios(apiKey, accessToken).put<EtsyShop>(`/application/shops/${shopId}`, data);
+  return getEtsyAxios(apiKey, secret, accessToken).put<EtsyShop>(`/application/shops/${shopId}`, data);
 }

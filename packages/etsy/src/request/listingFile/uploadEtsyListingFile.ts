@@ -9,6 +9,7 @@ import {getEtsyAxios} from '../../util/getEtsyAxios';
  * Uploads a file to an existing Etsy listing.
  * @see https://developers.etsy.com/documentation/reference/#operation/uploadListingFile
  * @param apiKey - The API key.
+ * @param secret - The API secret.
  * @param accessToken - The OAuth2 access token.
  * @param shopId - The ID of the shop.
  * @param listingId - The ID of the listing to upload the file to.
@@ -17,6 +18,7 @@ import {getEtsyAxios} from '../../util/getEtsyAxios';
  */
 export function uploadEtsyListingFile(
   apiKey: string,
+  secret: string,
   accessToken: string,
   shopId: number,
   listingId: number,
@@ -29,7 +31,7 @@ export function uploadEtsyListingFile(
   });
 
   // Make the API request
-  return getEtsyAxios(apiKey, accessToken, {
+  return getEtsyAxios(apiKey, secret, accessToken, {
     contentType: MimeType.MULTIPART_FORM_DATA,
   }).post<UploadEtsyListingFileResponse>(`/application/shops/${shopId}/listings/${listingId}/files`, formData);
 }

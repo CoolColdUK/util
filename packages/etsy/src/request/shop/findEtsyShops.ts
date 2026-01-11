@@ -6,6 +6,7 @@ import {getEtsyAxios} from '../../util/getEtsyAxios';
  * Fetches a list of Etsy shops based on the provided parameters.
  * @see https://developers.etsy.com/documentation/reference#operation/findShops
  * @param apiKey - The API key
+ * @param secret - The API secret
  * @param shopName - The shop's name string (required).
  * @param limit - The maximum number of results to return (default: 25).
  * @param offset - The number of records to skip before selecting the first result (default: 0).
@@ -13,6 +14,7 @@ import {getEtsyAxios} from '../../util/getEtsyAxios';
  */
 export function findEtsyShops(
   apiKey: string,
+  secret: string,
   shopName: string,
   limit: number = 25,
   offset: number = 0,
@@ -23,5 +25,5 @@ export function findEtsyShops(
     offset: offset.toString(),
   });
 
-  return getEtsyAxios(apiKey, undefined, {params}).get<EtsyList<EtsyShop>>(`/application/shops`);
+  return getEtsyAxios(apiKey, secret, undefined, {params}).get<EtsyList<EtsyShop>>(`/application/shops`);
 }

@@ -26,10 +26,12 @@ export interface GetEtsyListingsByShopParams {
  * @param shopId - The unique numeric ID for an Etsy shop.
  * @param params - Optional query parameters for filtering and pagination.
  * @param apiKey - Your Etsy API key for authorization.
+ * @param secret - The API secret.
  * @returns A promise resolving to the Etsy listings response.
  */
 export function getEtsyListingsByShop(
   apiKey: string,
+  secret: string,
   accessToken: string,
   shopId: number,
   params: GetEtsyListingsByShopParams = {},
@@ -46,7 +48,7 @@ export function getEtsyListingsByShop(
   // Merge default params with user-provided params
   const queryParams = transformObjectValue({...defaultParams, ...params}, (v) => String(v));
 
-  return getEtsyAxios(apiKey, accessToken, {params: new URLSearchParams(queryParams)}).get<EtsyList<EtsyListing>>(
-    `/application/shops/${shopId}/listings`,
-  );
+  return getEtsyAxios(apiKey, secret, accessToken, {params: new URLSearchParams(queryParams)}).get<
+    EtsyList<EtsyListing>
+  >(`/application/shops/${shopId}/listings`);
 }

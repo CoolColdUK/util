@@ -5,6 +5,7 @@ import {getEtsyAxios} from '../../util/getEtsyAxios';
  * Deletes a property for a Listing.
  * @see https://developers.etsy.com/documentation/reference/#operation/deleteListingProperty
  * @param apiKey - The API key.
+ * @param secret - The API secret.
  * @param accessToken - The OAuth2 access token.
  * @param shopId - The ID of the shop.
  * @param listingId - The ID of the listing associated with the property.
@@ -13,12 +14,13 @@ import {getEtsyAxios} from '../../util/getEtsyAxios';
  */
 export async function deleteEtsyListingProperty(
   apiKey: string,
+  secret: string,
   accessToken: string,
   shopId: number,
   listingId: number,
   propertyId: number,
 ): EtsyResponse<void> {
-  return getEtsyAxios(apiKey, accessToken).delete<void>(
+  return getEtsyAxios(apiKey, secret, accessToken).delete<void>(
     `/application/shops/${shopId}/listings/${listingId}/properties/${propertyId}`,
   );
 }

@@ -6,6 +6,7 @@ import {getEtsyAxios} from '../../util/getEtsyAxios';
  * Retrieves a video associated with an Etsy listing.
  * @see https://developers.etsy.com/documentation/reference/#operation/getListingVideos
  * @param apiKey - The API key.
+ * @param secret - The API secret.
  * @param accessToken - The OAuth2 access token.
  * @param listingId - The numeric ID of the listing to retrieve videos for (required, integer >= 1).
  * @param videoId - The numeric ID of the video to retrieve (required, integer >= 1).
@@ -14,6 +15,7 @@ import {getEtsyAxios} from '../../util/getEtsyAxios';
  */
 export function getEtsyListingVideo(
   apiKey: string,
+  secret: string,
   accessToken: string,
   listingId: number,
   videoId: number,
@@ -28,7 +30,7 @@ export function getEtsyListingVideo(
   }
 
   // Make the API request without query parameters
-  return getEtsyAxios(apiKey, accessToken).get<EtsyListingVideo>(
+  return getEtsyAxios(apiKey, secret, accessToken).get<EtsyListingVideo>(
     `/application/listings/${listingId}/videos/${videoId}`,
   );
 }

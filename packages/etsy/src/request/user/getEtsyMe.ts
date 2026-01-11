@@ -13,9 +13,10 @@ export interface GetEtsyMeResponse {
  * @see https://developers.etsy.com/documentation/reference#operation/getMe
  * @requires scope shops_r
  * @param apiKey
+ * @param secret
  * @param accessToken
  * @returns
  */
-export function getEtsyMe(apiKey: string, accessToken: string): EtsyResponse<GetEtsyMeResponse> {
-  return getEtsyAxios(apiKey, accessToken).get<GetEtsyMeResponse>(`/application/users/me`);
+export function getEtsyMe(apiKey: string, secret: string, accessToken: string): EtsyResponse<GetEtsyMeResponse> {
+  return getEtsyAxios(apiKey, secret, accessToken).get<GetEtsyMeResponse>(`/application/users/me`);
 }

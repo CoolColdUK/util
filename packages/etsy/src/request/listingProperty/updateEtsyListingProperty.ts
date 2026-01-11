@@ -8,6 +8,7 @@ import {getEtsyAxios} from '../../util/getEtsyAxios';
  * @see https://developers.etsy.com/documentation/reference/#operation/updateListingProperty
  * @requires scope listing_w
  * @param apiKey - The API key.
+ * @param secret - The API secret.
  * @param accessToken - The OAuth2 access token.
  * @param shopId - The ID of the shop.
  * @param listingId - The ID of the listing to update.
@@ -17,13 +18,14 @@ import {getEtsyAxios} from '../../util/getEtsyAxios';
  */
 export async function updateEtsyListingProperty(
   apiKey: string,
+  secret: string,
   accessToken: string,
   shopId: number,
   listingId: number,
   propertyId: number,
   updateData: UpdateEtsyListingPropertyRequest,
 ): EtsyResponse<EtsyListingProperty> {
-  return getEtsyAxios(apiKey, accessToken, {
+  return getEtsyAxios(apiKey, secret, accessToken, {
     contentType: MimeType.APPLICATION_FORM_URLENCODED,
   }).put<EtsyListingProperty>(
     `/application/shops/${shopId}/listings/${listingId}/properties/${propertyId}`,
