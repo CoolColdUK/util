@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@coolcolduk/uuid",
-  "version": "6.2.4",
+  "version": "7.0.0",
   "description": "uuid helper function",
   "license": "MIT",
   "type": "module",
