@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@coolcolduk/enum",
-  "version": "7.0.0",
+  "version": "7.0.1",
   "description": "various enum and types",
   "license": "MIT",
   "type": "module",
