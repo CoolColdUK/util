@@ -250,6 +250,16 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo ${{ steps.crypto-util.outputs.id }}
 
+      - uses: CoolColdUK/npm-publish@v3.1.1
+        id: uuid
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          package: './packages/uuid'
+          registry: 'https://npm.pkg.github.com'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: echo ${{ steps.uuid.outputs.id }}
+
       # - uses: CoolColdUK/github-script@v7
       #   if: github.event_name != 'workflow_dispatch'
       #   with:
