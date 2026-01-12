@@ -1,7 +1,10 @@
 import {createUuid} from './createUuid';
 
 /**
- * Create a unique identifier for the object without hyphen
+ * Create a unique identifier
+ * - remove all hyphens
+ * - truncate to specified length
+ * @param length - default 32 characters
  * @returns
  */
 export function createUuidString(length: number = 32): string {
