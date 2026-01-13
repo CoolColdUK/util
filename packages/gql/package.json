@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@coolcolduk/gql",
-  "version": "7.0.1",
+  "version": "7.1.0",
   "description": "various gql server related stuff",
   "license": "MIT",
   "type": "module",
@@ -35,7 +35,7 @@
   "dependencies": {
     "@apollo/server": "^5.0.0",
     "@as-integrations/express5": "^1.0.0",
-    "@coolcolduk/enum": "^7.0.1",
+    "@coolcolduk/enum": "^7.1.0",
     "cors": "^2.8.5",
     "express": "^5.0.0",
     "graphql": "^16.11.0",

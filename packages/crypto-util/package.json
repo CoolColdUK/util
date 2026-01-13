@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@coolcolduk/crypto-util",
-  "version": "7.0.1",
+  "version": "7.1.0",
   "description": "utils that require crypto package",
   "license": "MIT",
   "type": "module",
@@ -32,7 +32,6 @@
     "test:unit": "jest --testMatch **/*.test.ts"
   },
   "types": "./dist/esm/index.d.mts",
-  "dependencies": {},
   "devDependencies": {
     "@coolcolduk/eslint-config": "^5.1.0",
     "@coolcolduk/jest-config": "^5.1.0",

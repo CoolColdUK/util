@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@coolcolduk/axios",
-  "version": "7.0.1",
+  "version": "7.1.0",
   "description": "axios helper function",
   "license": "MIT",
   "type": "module",
@@ -33,8 +33,8 @@
   },
   "types": "./dist/esm/index.d.mts",
   "dependencies": {
-    "@coolcolduk/enum": "^7.0.1",
-    "@coolcolduk/util": "^7.0.1",
+    "@coolcolduk/enum": "^7.1.0",
+    "@coolcolduk/util": "^7.1.0",
     "axios": "^1.7.9"
   },
   "devDependencies": {
