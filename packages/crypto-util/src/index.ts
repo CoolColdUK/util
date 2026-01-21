@@ -7,3 +7,5 @@ export * from './createKey';
 // export * from './encodeBase64URL';
 export * from './encryptDecrypt';
 export * from './extractPkce';
+export * from './sha256';
+export * from './sha256Encoded';

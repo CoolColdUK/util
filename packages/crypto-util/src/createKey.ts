@@ -1,4 +1,4 @@
-import {createHash} from 'crypto';
+import {sha256Encoded} from './sha256Encoded';
 
 /**
  * Create a sha256 hash of a given key and return it as a base64 string of specified length.
@@ -6,5 +6,5 @@ import {createHash} from 'crypto';
  * @returns
  */
 export function createKey(key: string, length: number = 32): string {
-  return createHash('sha256').update(String(key)).digest('base64').substring(0, length);
+  return sha256Encoded(String(key), 'base64').substring(0, length);
 }
