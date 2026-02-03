@@ -12,7 +12,7 @@ export interface RepeatWithTimeoutOptions<T> {
 
 /**
  * Repeats a function until it returns a result or the timeout is reached
- * @param fn - The function to repeat. if result undersired, it should return undefined
+ * @param fn - The function to repeat. If result is undesired, it should return undefined
  * @param options - The options for the repeat with timeout
  * @returns The result of the function
  */

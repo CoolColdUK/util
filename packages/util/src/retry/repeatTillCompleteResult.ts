@@ -2,12 +2,12 @@ import {MaybePromise} from '@coolcolduk/typescript-util';
 import {repeatTillComplete} from './repeatTillComplete';
 
 /**
- *
- * @param fetchFunction - The function to repeat. if result undersired, it should return undefined
- * @param isComplete
- * @param shouldRetry
- * @param delayMs
- * @returns
+ * Repeatedly call fetchFunction until isComplete(data) is true, collecting all results.
+ * @param fetchFunction - Provides the next value. Return undefined for undesired result.
+ * @param isComplete - When true, iteration stops.
+ * @param shouldRetry - When false, iteration stops even if not complete.
+ * @param delayMs - Delay between attempts (default 1000).
+ * @returns Array of all collected results.
  */
 export async function repeatTillCompleteResult<T>(
   fetchFunction: (prev?: T) => MaybePromise<T>,

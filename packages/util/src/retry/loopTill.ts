@@ -7,7 +7,7 @@ import {MaybePromise} from '@coolcolduk/typescript-util';
  * @returns The result
  */
 export async function loopTill<T>(
-  fn: (current: T[], count: number) => MaybePromise<Promise<T[]>>,
+  fn: (current: T[], count: number) => MaybePromise<T[]>,
   shouldContinue: (result: T[], count: number) => MaybePromise<boolean>,
 ): Promise<T[]> {
   let result: T[] = [];
