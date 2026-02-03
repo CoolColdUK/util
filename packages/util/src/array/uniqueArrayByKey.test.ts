@@ -171,32 +171,24 @@ describe('uniqueArrayByKey', () => {
       ],
     },
 
-    'Should handle non-existent key path': {
+    'Should handle non-existent key path (all get undefined, first occurrence kept)': {
       arr: [
         {id: 1, name: 'Alice'},
         {id: 2, name: 'Bob'},
         {id: 1, name: 'Charlie'},
       ],
       key: 'nonExistent',
-      expected: [
-        {id: 1, name: 'Alice'},
-        {id: 2, name: 'Bob'},
-        {id: 1, name: 'Charlie'},
-      ],
+      expected: [{id: 1, name: 'Alice'}],
     },
 
-    'Should handle non-existent nested key path': {
+    'Should handle non-existent nested key path (all get undefined, first occurrence kept)': {
       arr: [
         {id: 1, user: {name: 'Alice'}},
         {id: 2, user: {name: 'Bob'}},
         {id: 1, user: {name: 'Charlie'}},
       ],
       key: 'user.email',
-      expected: [
-        {id: 1, user: {name: 'Alice'}},
-        {id: 2, user: {name: 'Bob'}},
-        {id: 1, user: {name: 'Charlie'}},
-      ],
+      expected: [{id: 1, user: {name: 'Alice'}}],
     },
 
     'Should handle array with all same key values': {

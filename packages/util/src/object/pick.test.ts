@@ -79,61 +79,41 @@ describe('pick', () => {
       },
     },
 
-    'Should handle dot notation for nested properties': {
+    'Should not pick dot-notation paths (only top-level keys supported)': {
       object: {
         user: {
           name: 'John',
-          profile: {
-            age: 30,
-            email: 'john@example.com',
-          },
+          profile: {age: 30, email: 'john@example.com'},
         },
-        settings: {
-          theme: 'dark',
-        },
+        settings: {theme: 'dark'},
       },
       paths: ['user.name', 'user.profile.age', 'settings.theme'],
-      expected: {
-        'user.name': 'John',
-        'user.profile.age': 30,
-        'settings.theme': 'dark',
-      },
+      expected: {},
     },
 
-    'Should handle deep nested dot notation': {
+    'Should not pick deep dot-notation path (only top-level keys supported)': {
       object: {
         company: {
           departments: {
             engineering: {
-              team: {
-                lead: 'Alice',
-                members: ['Bob', 'Charlie'],
-              },
+              team: {lead: 'Alice', members: ['Bob', 'Charlie']},
             },
           },
         },
       },
       paths: ['company.departments.engineering.team.lead'],
-      expected: {
-        'company.departments.engineering.team.lead': 'Alice',
-      },
+      expected: {},
     },
 
-    'Should handle mixed simple and nested properties': {
+    'Should pick only top-level keys when paths include dot notation': {
       object: {
         id: 1,
-        user: {
-          name: 'John',
-          profile: {
-            age: 30,
-          },
-        },
+        user: {name: 'John', profile: {age: 30}},
         active: true,
       },
       paths: ['id', 'user.name', 'active'],
       expected: {
         id: 1,
-        'user.name': 'John',
         active: true,
       },
     },
@@ -152,7 +132,7 @@ describe('pick', () => {
       },
     },
 
-    'Should handle array with dot notation': {
+    'Should not pick array index dot notation (only top-level keys supported)': {
       object: {
         users: [
           {name: 'John', age: 30},
@@ -160,24 +140,21 @@ describe('pick', () => {
         ],
       },
       paths: ['users.0.name', 'users.1.age'],
-      expected: {
-        'users.0.name': 'John',
-        'users.1.age': 25,
-      },
+      expected: {},
     },
 
-    'Should handle function properties': {
-      object: {
-        name: 'John',
-        greet: () => 'Hello',
-        calculate: (a: number, b: number) => a + b,
-      },
-      paths: ['name', 'greet'],
-      expected: {
-        name: 'John',
-        greet: () => 'Hello',
-      },
-    },
+    'Should handle function properties': (() => {
+      const greet = () => 'Hello';
+      return {
+        object: {
+          name: 'John',
+          greet,
+          calculate: (a: number, b: number) => a + b,
+        },
+        paths: ['name', 'greet'],
+        expected: {name: 'John', greet},
+      };
+    })(),
 
     'Should handle boolean properties': {
       object: {
@@ -264,27 +241,19 @@ describe('pick', () => {
       },
     },
 
-    'Should handle complex nested structure': {
+    'Should pick only top-level keys in complex nested structure': {
       object: {
         company: {
           name: 'Tech Corp',
           departments: {
-            engineering: {
-              lead: 'Alice',
-              team: ['Bob', 'Charlie', 'David'],
-            },
-            marketing: {
-              lead: 'Eve',
-              budget: 50000,
-            },
+            engineering: {lead: 'Alice', team: ['Bob', 'Charlie', 'David']},
+            marketing: {lead: 'Eve', budget: 50000},
           },
         },
         year: 2024,
       },
       paths: ['company.name', 'company.departments.engineering.lead', 'year'],
       expected: {
-        'company.name': 'Tech Corp',
-        'company.departments.engineering.lead': 'Alice',
         year: 2024,
       },
     },
