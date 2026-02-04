@@ -88,6 +88,13 @@ jobs:
           git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/$GITHUB_REPOSITORY
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # Cache npm; key includes lock file hash so we only save when dependencies change.
+      # GitHub evicts caches not accessed in 7 days.
+      - name: Cache npm
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: npm-release-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
       - name: Install
         run: npm i
         env:
