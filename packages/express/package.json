@@ -35,18 +35,15 @@
   "dependencies": {
     "@coolcolduk/typescript-util": "^7.2.0",
     "@coolcolduk/util": "^7.2.0",
-    "cors": "^2.8.5"
-  },
-  "peerDependencies": {
-    "express": "^5.0.0"
+    "@types/cors": "^2",
+    "@types/express": "^5",
+    "cors": "^2",
+    "express": "^5"
   },
   "devDependencies": {
     "@coolcolduk/eslint-config": "^5.1.0",
     "@coolcolduk/jest-config": "^5.1.0",
     "@coolcolduk/ts-config": "^5.1.0",
-    "@types/cors": "^2.8.17",
-    "@types/express": "^5.0.0",
-    "express": "^5.0.0",
     "tsdown": "^0.20.1"
   },
   "jest": {

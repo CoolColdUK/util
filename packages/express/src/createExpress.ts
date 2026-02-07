@@ -1,6 +1,6 @@
 import {castArray} from '@coolcolduk/util';
 import cors, {CorsOptions} from 'cors';
-import express, {ErrorRequestHandler, Handler} from 'express';
+import express, {ErrorRequestHandler, Express, Handler} from 'express';
 import {ExpressMethod} from './enum/ExpressMethod';
 
 export interface CreateExpressData {
@@ -14,7 +14,7 @@ export interface CreateExpressOptions {
   middleware?: Handler[];
 }
 
-export function createExpress(route: Record<string, CreateExpressData>, options?: CreateExpressOptions) {
+export function createExpress(route: Record<string, CreateExpressData>, options?: CreateExpressOptions): Express {
   const app = express();
 
   if (options?.cors) app.use(cors(options.cors));

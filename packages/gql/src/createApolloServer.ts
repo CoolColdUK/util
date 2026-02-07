@@ -2,7 +2,7 @@ import {ApolloServer, ApolloServerPlugin, BaseContext, ContextFunction} from '@a
 import {ExpressContextFunctionArgument, expressMiddleware} from '@as-integrations/express5';
 import {Logger} from '@coolcolduk/enum';
 import cors, {CorsOptions} from 'cors';
-import express, {Handler} from 'express';
+import express, {Express, Handler} from 'express';
 import {GraphQLDirective, GraphQLFormattedError} from 'graphql';
 import {buildSchema, NonEmptyArray} from 'type-graphql';
 
@@ -27,7 +27,7 @@ export interface CreateApolloServerOptions<TContext extends BaseContext> {
 export async function createApolloServer<TContext extends BaseContext>(
   resolvers: NonEmptyArray<Function>,
   options: CreateApolloServerOptions<TContext> = {},
-) {
+): Promise<Express> {
   const {
     cors: corsOptions,
     authChecker,
@@ -64,12 +64,10 @@ export async function createApolloServer<TContext extends BaseContext>(
   if (middleware) app.use(middleware);
 
   const middlewareHandler = context
-    ? expressMiddleware(server as unknown as ApolloServer<BaseContext>, {
-        context: context as unknown as ContextFunction<[ExpressContextFunctionArgument], BaseContext>,
-      })
+    ? expressMiddleware(server, {context})
     : expressMiddleware(server as unknown as ApolloServer<BaseContext>);
 
-  app.use('/', cors(corsOptions), middlewareHandler as unknown as express.Handler);
+  app.use('/', cors(corsOptions), middlewareHandler);
 
   return app;
 }
