@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@coolcolduk/util",
-  "version": "7.2.0",
+  "version": "7.3.0",
   "description": "all utils combined",
   "license": "MIT",
   "type": "module",
@@ -33,7 +33,7 @@
   },
   "types": "./dist/esm/index.d.mts",
   "dependencies": {
-    "@coolcolduk/typescript-util": "^7.2.0"
+    "@coolcolduk/typescript-util": "^7.3.0"
   },
   "devDependencies": {
     "@coolcolduk/eslint-config": "^5.1.0",
