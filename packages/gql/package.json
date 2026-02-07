@@ -33,20 +33,25 @@
   },
   "types": "./dist/esm/index.d.mts",
   "dependencies": {
-    "@apollo/server": "^5.0.0",
-    "@as-integrations/express5": "^1.0.0",
     "@coolcolduk/enum": "^7.2.0",
     "cors": "^2.8.5",
-    "express": "^5.0.0",
     "graphql": "^16.11.0",
     "type-graphql": "^2.0.0-rc.2"
   },
+  "peerDependencies": {
+    "@apollo/server": "^5.0.0",
+    "@as-integrations/express5": "^1.0.0",
+    "express": "^5.0.0"
+  },
   "devDependencies": {
+    "@apollo/server": "^5.0.0",
+    "@as-integrations/express5": "^1.0.0",
     "@coolcolduk/eslint-config": "^5.1.0",
     "@coolcolduk/jest-config": "^5.1.0",
     "@coolcolduk/ts-config": "^5.1.0",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
+    "express": "^5.0.0",
     "tsdown": "^0.20.1"
   },
   "jest": {

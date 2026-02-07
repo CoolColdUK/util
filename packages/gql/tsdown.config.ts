@@ -8,7 +8,6 @@ export default defineConfig([
     sourcemap: true,
     clean: false,
     outDir: 'dist/esm',
-    inlineOnly: false,
   },
   {
     entry: ['src/index.ts'],
@@ -17,7 +16,6 @@ export default defineConfig([
     sourcemap: true,
     clean: false,
     outDir: 'dist/cjs',
-    inlineOnly: false,
     outExtensions() {
       return {
         js: '.cjs',
