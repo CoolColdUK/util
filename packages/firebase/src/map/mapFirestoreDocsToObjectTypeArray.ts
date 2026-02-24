@@ -1,6 +1,6 @@
+import {WithId} from '@coolcolduk/typescript-util';
 import {filterArrayNull} from '@coolcolduk/util';
 import {QuerySnapshot} from 'firebase-admin/firestore';
-import {WithId} from '../type/WithId';
 import {mapFirestoreDocToObjectType} from './mapFirestoreDocToObjectType';
 
 /**

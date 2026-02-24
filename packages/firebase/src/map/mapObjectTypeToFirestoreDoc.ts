@@ -1,5 +1,5 @@
+import {WithId} from '@coolcolduk/typescript-util';
 import {omit} from '@coolcolduk/util';
-import {WithId} from '../type/WithId';
 
 /**
  * Map an object type to a firestore document (remove id)

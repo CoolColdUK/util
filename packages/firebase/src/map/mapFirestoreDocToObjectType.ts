@@ -1,6 +1,5 @@
-import {Maybe} from '@coolcolduk/typescript-util';
+import {Maybe, WithId} from '@coolcolduk/typescript-util';
 import {DocumentSnapshot, QueryDocumentSnapshot} from 'firebase-admin/firestore';
-import {WithId} from '../type/WithId';
 
 /**
  * Get the object type from the firestore object

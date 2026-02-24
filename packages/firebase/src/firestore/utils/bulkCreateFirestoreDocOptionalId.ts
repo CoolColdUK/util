@@ -1,4 +1,4 @@
-import {PartialBy} from '@coolcolduk/typescript-util';
+import {PartialBy, WithId} from '@coolcolduk/typescript-util';
 import {
   filterArrayDuplicates,
   filterArrayUndefined,
@@ -8,7 +8,6 @@ import {
   uniqueArrayByKey,
 } from '@coolcolduk/util';
 import {CollectionReference, Firestore} from 'firebase-admin/firestore';
-import {WithId} from '../../type/WithId';
 
 export type BulkCreateFirestoreDocOptionalIdOptions = {
   /**

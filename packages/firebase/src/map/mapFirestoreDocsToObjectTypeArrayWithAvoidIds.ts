@@ -1,7 +1,6 @@
-import {MaybeArray} from '@coolcolduk/typescript-util';
+import {MaybeArray, WithId} from '@coolcolduk/typescript-util';
 import {filterArrayNull, loopTill} from '@coolcolduk/util';
 import {QuerySnapshot} from 'firebase-admin/firestore';
-import {WithId} from '../type/WithId';
 import {mapFirestoreDocsToObjectTypeArray} from './mapFirestoreDocsToObjectTypeArray';
 import {mapFirestoreDocToObjectType} from './mapFirestoreDocToObjectType';
 

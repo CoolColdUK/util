@@ -1,7 +1,6 @@
-import {Maybe, MaybePromise} from '@coolcolduk/typescript-util';
+import {Maybe, MaybePromise, WithId} from '@coolcolduk/typescript-util';
 import {throwIfNull} from '@coolcolduk/util';
 import {CollectionReference, DocumentReference, Firestore, UpdateData} from 'firebase-admin/firestore';
-import {WithId} from '../../type/WithId';
 import {bulkGetFirestoreDocsById} from '../utils/bulkGetFirestoreDocsById';
 import {firestoreCreate} from '../utils/firestoreCreate';
 import {firestoreDelete} from '../utils/firestoreDelete';
