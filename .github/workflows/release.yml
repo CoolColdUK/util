@@ -208,6 +208,16 @@ jobs:
       - run: echo ${{ steps.firebase.outputs.id }}
 
       - uses: CoolColdUK/npm-publish@v3.1.1
+        id: firebase-util
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          package: './packages/firebase-util'
+          registry: 'https://npm.pkg.github.com'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: echo ${{ steps.firebase-util.outputs.id }}
+
+      - uses: CoolColdUK/npm-publish@v3.1.1
         id: google
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
