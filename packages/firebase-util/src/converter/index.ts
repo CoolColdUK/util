@@ -1,3 +1,3 @@
 export * from './firestoreTimestampToDateFromFirestore';
-export * from './mapFirestoreTimestampToDate';
 export * from './mapFirestoreTimestampToDateForObjectValue';
+export * from './mapTimestampToDate';

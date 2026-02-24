@@ -1,8 +1,8 @@
 {
   "private": false,
-  "name": "@coolcolduk/firebase",
+  "name": "@coolcolduk/firebase-util",
   "version": "8.0.0",
-  "description": "firebase utils",
+  "description": "Firestore timestamp and conversion utilities (no firebase-admin; safe for frontend)",
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -33,17 +33,12 @@
   },
   "types": "./dist/esm/index.d.mts",
   "dependencies": {
-    "@coolcolduk/firebase-util": "^8.0.0",
-    "@coolcolduk/typescript-util": "^8.0.0",
-    "@coolcolduk/util": "^8.0.0",
-    "express": "^5.0.0",
-    "firebase-admin": "^13.4.0"
+    "@coolcolduk/util": "^8.0.0"
   },
   "devDependencies": {
     "@coolcolduk/eslint-config": "^5.1.0",
     "@coolcolduk/jest-config": "^5.1.0",
     "@coolcolduk/ts-config": "^5.1.0",
-    "@types/express": "^5.0.0",
     "tsdown": "^0.20.3"
   },
   "jest": {
