@@ -12,11 +12,14 @@ import {mapFirestoreDocToObjectType} from './mapFirestoreDocToObjectType';
  * @param limit - The limit of the documents to return
  * @returns The object type array
  */
-export async function mapFirestoreDocsToObjectTypeArrayWithAvoidIds<T>(
-  firestoreObjectArray: QuerySnapshot<T, FirebaseFirestore.DocumentData> | null | undefined,
+export async function mapFirestoreDocsToObjectTypeArrayWithAvoidIds<
+  AppModelType = FirebaseFirestore.DocumentData,
+  DbModelType extends FirebaseFirestore.DocumentData = FirebaseFirestore.DocumentData,
+>(
+  firestoreObjectArray: QuerySnapshot<AppModelType, DbModelType> | null | undefined,
   avoidDocumentIds?: MaybeArray<string>,
   limit?: number,
-): Promise<WithId<T>[]> {
+): Promise<WithId<AppModelType>[]> {
   if (!firestoreObjectArray) return [];
   if (!avoidDocumentIds || avoidDocumentIds.length === 0) {
     return mapFirestoreDocsToObjectTypeArray(firestoreObjectArray);

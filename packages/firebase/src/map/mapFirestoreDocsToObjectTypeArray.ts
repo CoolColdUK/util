@@ -10,9 +10,10 @@ import {mapFirestoreDocToObjectType} from './mapFirestoreDocToObjectType';
  * @param firestoreObject
  * @returns
  */
-export function mapFirestoreDocsToObjectTypeArray<T>(
-  firestoreObjectArray?: QuerySnapshot<T, FirebaseFirestore.DocumentData> | null,
-): WithId<T>[] {
+export function mapFirestoreDocsToObjectTypeArray<
+  AppModelType = FirebaseFirestore.DocumentData,
+  DbModelType extends FirebaseFirestore.DocumentData = FirebaseFirestore.DocumentData,
+>(firestoreObjectArray?: QuerySnapshot<AppModelType, DbModelType> | null): WithId<AppModelType>[] {
   if (!firestoreObjectArray) return [];
   return filterArrayNull(firestoreObjectArray.docs.map((doc) => mapFirestoreDocToObjectType(doc)));
 }

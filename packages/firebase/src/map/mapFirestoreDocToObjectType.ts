@@ -9,12 +9,15 @@ import {WithId} from '../type/WithId';
  * @param firestoreObject
  * @returns
  */
-export function mapFirestoreDocToObjectType<T>(
+export function mapFirestoreDocToObjectType<
+  AppModelType = FirebaseFirestore.DocumentData,
+  DbModelType extends FirebaseFirestore.DocumentData = FirebaseFirestore.DocumentData,
+>(
   firestoreObject?:
-    | DocumentSnapshot<T, FirebaseFirestore.DocumentData>
-    | QueryDocumentSnapshot<T, FirebaseFirestore.DocumentData>
+    | DocumentSnapshot<AppModelType, DbModelType>
+    | QueryDocumentSnapshot<AppModelType, DbModelType>
     | null,
-): Maybe<WithId<T>> {
+): Maybe<WithId<AppModelType>> {
   if (!firestoreObject) return null;
   const {id} = firestoreObject;
   const data = firestoreObject.data();
