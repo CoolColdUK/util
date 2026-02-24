@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@coolcolduk/crypto-util",
-  "version": "7.3.0",
+  "version": "8.0.0",
   "description": "utils that require crypto package",
   "license": "MIT",
   "type": "module",
