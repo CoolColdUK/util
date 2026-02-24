@@ -1,6 +1,6 @@
+import {mapFirestoreDocsToObjectTypeArray} from '@coolcolduk/firebase-util';
 import {WithId} from '@coolcolduk/typescript-util';
 import {CollectionReference, DocumentData} from 'firebase-admin/firestore';
-import {mapFirestoreDocsToObjectTypeArray} from '../../map/mapFirestoreDocsToObjectTypeArray';
 import {firestoreFilterSnapshot} from './firestoreFilterSnapshot';
 import {QueryOptions} from './firestoreQuery';
 

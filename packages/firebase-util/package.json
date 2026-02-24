@@ -19,8 +19,8 @@
     "src"
   ],
   "scripts": {
-    "build:main": "tsdown",
-    "build:package": "echo skip",
+    "build:main": "echo skip",
+    "build:package": "tsdown",
     "check": "tsc --noEmit",
     "clean:dist": "rm -rf dist && rm -rf tsconfig.tsbuildinfo",
     "clean:module": "rm -rf node_modules",
@@ -33,6 +33,7 @@
   },
   "types": "./dist/esm/index.d.mts",
   "dependencies": {
+    "@coolcolduk/typescript-util": "^8.0.0",
     "@coolcolduk/util": "^8.0.0"
   },
   "devDependencies": {

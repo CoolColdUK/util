@@ -6,3 +6,19 @@
 export interface FirestoreSnapshotWithData<T = unknown> {
   data(): T;
 }
+
+/**
+ * Document snapshot with id and data. Compatible with DocumentSnapshot / QueryDocumentSnapshot.
+ */
+export interface FirestoreDocSnapshotWithIdAndData<T = unknown> {
+  id: string;
+  data(): T | undefined;
+}
+
+/**
+ * Query snapshot with docs array and size. Compatible with QuerySnapshot.
+ */
+export interface FirestoreQuerySnapshotLike<T = unknown> {
+  docs: FirestoreDocSnapshotWithIdAndData<T>[];
+  size: number;
+}

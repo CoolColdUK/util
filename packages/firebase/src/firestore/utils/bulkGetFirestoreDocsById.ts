@@ -1,7 +1,7 @@
+import {mapFirestoreDocsToObjectTypeArray} from '@coolcolduk/firebase-util';
 import {WithId} from '@coolcolduk/typescript-util';
 import {chunk, filterArrayNull} from '@coolcolduk/util';
 import {CollectionReference, DocumentData, FieldPath} from 'firebase-admin/firestore';
-import {mapFirestoreDocsToObjectTypeArray} from '../../map/mapFirestoreDocsToObjectTypeArray';
 
 /**
  * Bulk get documents by id
