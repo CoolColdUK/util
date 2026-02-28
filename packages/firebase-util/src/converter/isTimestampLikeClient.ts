@@ -5,5 +5,5 @@
  */
 export function isTimestampLikeClient(value: unknown): boolean {
   if (value == null || typeof value !== 'object') return false;
-  return '_seconds' in value && '_nanoseconds' in value;
+  return 'seconds' in value && 'nanoseconds' in value;
 }
