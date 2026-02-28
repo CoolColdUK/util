@@ -1,28 +1,16 @@
+import {hasTimestampToDateMethod} from './hasTimestampToDateMethod';
+import {isTimestampLikeAdmin} from './isTimestampLikeAdmin';
+import {isTimestampLikeClient} from './isTimestampLikeClient';
+import {TimestampAdmin} from './TimestampAdmin';
+import {TimestampClient} from './TimestampClient';
+
 export interface MapFirestoreTimestampToDateOptions {
-  /** skip handling raw Timestamp structure with _seconds and _nanoseconds */
-  skipHandleRawTimestamp?: boolean;
+  /** skip handling Timestamp like object for firebase-admin */
+  skipHandleTimestampLikeAdmin?: boolean;
+  /** skip handling Timestamp like object for firebase (client) */
+  skipHandleTimestampLikeClient?: boolean;
   /** skip handling any object with toDate method */
   skipHandleTimestampWithToDateMethod?: boolean;
-}
-
-function isRawTimestamp(value: unknown): value is {_seconds: number; _nanoseconds: number} {
-  return (
-    typeof value === 'object' &&
-    value !== null &&
-    '_seconds' in value &&
-    '_nanoseconds' in value &&
-    typeof (value as {_seconds: unknown})._seconds === 'number' &&
-    typeof (value as {_nanoseconds: unknown})._nanoseconds === 'number'
-  );
-}
-
-function hasToDateMethod(value: unknown): value is {toDate: () => Date} {
-  return (
-    typeof value === 'object' &&
-    value !== null &&
-    'toDate' in value &&
-    typeof (value as {toDate: unknown}).toDate === 'function'
-  );
 }
 
 /**
@@ -38,13 +26,19 @@ export function mapTimestampToDate<T>(
   timestamp: T | {toDate(): Date} | {_seconds: number; _nanoseconds: number},
   options: MapFirestoreTimestampToDateOptions = {},
 ): T | Date {
-  if (!options.skipHandleTimestampWithToDateMethod && hasToDateMethod(timestamp)) {
+  if (!options.skipHandleTimestampWithToDateMethod && hasTimestampToDateMethod(timestamp)) {
     return timestamp.toDate();
   }
 
-  if (!options.skipHandleRawTimestamp && isRawTimestamp(timestamp)) {
-    return new Date(timestamp._seconds * 1000 + timestamp._nanoseconds / 1e6);
+  if (!options.skipHandleTimestampLikeAdmin && isTimestampLikeAdmin(timestamp)) {
+    const ts = timestamp as TimestampAdmin;
+    return new Date(ts._seconds * 1000 + ts._nanoseconds / 1e6);
   }
 
-  return timestamp as T | Date;
+  if (!options.skipHandleTimestampLikeClient && isTimestampLikeClient(timestamp)) {
+    const ts = timestamp as TimestampClient;
+    return new Date(ts.seconds * 1000 + ts.nanoseconds / 1e6);
+  }
+
+  return timestamp as T;
 }
