@@ -37,7 +37,7 @@
     "@coolcolduk/typescript-util": "^9.1.1",
     "@coolcolduk/util": "^9.1.1",
     "express": "^5.0.0",
-    "firebase-admin": "^13.4.0"
+    "firebase-admin": "^13.7.0"
   },
   "devDependencies": {
     "@coolcolduk/eslint-config": "^5.1.0",
