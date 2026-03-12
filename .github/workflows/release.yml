@@ -74,13 +74,12 @@ jobs:
       packages: write
     steps:
       - name: Checkout
-        uses: CoolColdUK/checkout@v4
+        uses: actions/checkout@v6.0.2
       - name: Setup Node
-        uses: CoolColdUK/setup-node@v4
+        uses: actions/setup-node@v6.3.0
         with:
-          node-version: 20
+          node-version: 24
           registry-url: 'https://npm.pkg.github.com'
-          always-auth: true
       - name: Git Identity
         run: |
           git config --global user.name 'github-actions[bot]'
@@ -91,7 +90,7 @@ jobs:
       # Cache npm; key includes lock file hash so we only save when dependencies change.
       # GitHub evicts caches not accessed in 7 days.
       - name: Cache npm
-        uses: actions/cache@v4
+        uses: actions/cache@v5.0.3
         with:
           path: ~/.npm
           key: npm-release-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
@@ -124,7 +123,7 @@ jobs:
       #     # NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Create Git Tag
-        uses: CoolColdUK/git-tag-action@v3
+        uses: pkgdeps/git-tag-action@v3.0.0
         with:
           version: ${{ env.PACKAGE_VERSION }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -133,7 +132,7 @@ jobs:
           git_tag_prefix: 'v'
       - name: Create Release
         id: create_release
-        uses: CoolColdUK/action-gh-release@v2
+        uses: softprops/action-gh-release@v2.5.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -147,7 +146,7 @@ jobs:
           files: |
             ./packages/*.tgz
 
-      - uses: CoolColdUK/npm-publish@v3.1.1
+      - uses: JS-DevTools/npm-publish@v4.1.5
         id: axios
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -157,7 +156,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo ${{ steps.axios.outputs.id }}
 
-      - uses: CoolColdUK/npm-publish@v3.1.1
+      - uses: JS-DevTools/npm-publish@v4.1.5
         id: crypto-util
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -167,7 +166,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo ${{ steps.crypto-util.outputs.id }}
 
-      - uses: CoolColdUK/npm-publish@v3.1.1
+      - uses: JS-DevTools/npm-publish@v4.1.5
         id: enum
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -177,7 +176,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo ${{ steps.enum.outputs.id }}
 
-      - uses: CoolColdUK/npm-publish@v3.1.1
+      - uses: JS-DevTools/npm-publish@v4.1.5
         id: etsy
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -187,7 +186,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo ${{ steps.etsy.outputs.id }}
 
-      - uses: CoolColdUK/npm-publish@v3.1.1
+      - uses: JS-DevTools/npm-publish@v4.1.5
         id: express
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -197,7 +196,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo ${{ steps.express.outputs.id }}
 
-      - uses: CoolColdUK/npm-publish@v3.1.1
+      - uses: JS-DevTools/npm-publish@v4.1.5
         id: firebase
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -207,7 +206,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo ${{ steps.firebase.outputs.id }}
 
-      - uses: CoolColdUK/npm-publish@v3.1.1
+      - uses: JS-DevTools/npm-publish@v4.1.5
         id: firebase-util
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -217,7 +216,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo ${{ steps.firebase-util.outputs.id }}
 
-      - uses: CoolColdUK/npm-publish@v3.1.1
+      - uses: JS-DevTools/npm-publish@v4.1.5
         id: google
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -227,7 +226,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo ${{ steps.google.outputs.id }}
 
-      - uses: CoolColdUK/npm-publish@v3.1.1
+      - uses: JS-DevTools/npm-publish@v4.1.5
         id: gql
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -237,7 +236,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo ${{ steps.gql.outputs.id }}
 
-      - uses: CoolColdUK/npm-publish@v3.1.1
+      - uses: JS-DevTools/npm-publish@v4.1.5
         id: gql-client
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -247,7 +246,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo ${{ steps.gql-client.outputs.id }}
 
-      - uses: CoolColdUK/npm-publish@v3.1.1
+      - uses: JS-DevTools/npm-publish@v4.1.5
         id: tools
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -257,7 +256,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo ${{ steps.tools.outputs.id }}
 
-      - uses: CoolColdUK/npm-publish@v3.1.1
+      - uses: JS-DevTools/npm-publish@v4.1.5
         id: typescript-util
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -267,7 +266,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo ${{ steps.typescript-util.outputs.id }}
 
-      - uses: CoolColdUK/npm-publish@v3.1.1
+      - uses: JS-DevTools/npm-publish@v4.1.5
         id: util
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -277,7 +276,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: echo ${{ steps.util.outputs.id }}
 
-      - uses: CoolColdUK/npm-publish@v3.1.1
+      - uses: JS-DevTools/npm-publish@v4.1.5
         id: uuid
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
