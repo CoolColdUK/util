@@ -95,7 +95,7 @@ jobs:
           path: ~/.npm
           key: npm-release-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
       - name: Install
-        run: npm i
+        run: npm ci
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Build
