@@ -9,6 +9,7 @@ export * from './EtsyProduct';
 export * from './EtsyProductionPartner';
 export * from './EtsyProductOffering';
 export * from './EtsyProductPropertyValue';
+export * from './EtsyError';
 export * from './EtsyResponse';
 export * from './EtsyShippingProfile';
 export * from './EtsyShippingProfileDestination';

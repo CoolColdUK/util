@@ -8,7 +8,11 @@ import {EtsyListingWhoMadeEnum} from '../enum/EtsyListingWhoMadeEnum';
 import {EtsyListing} from './EtsyListing';
 
 /**
- * The data required to create a draft listing.
+ * Request body for creating a draft listing.
+ * Aligns with createDraftListing: POST /application/shops/{shop_id}/listings.
+ * @see https://developers.etsy.com/documentation/reference/#operation/createDraftListing
+ *
+ * API expects "type" (not "listing_type") and price as a float.
  */
 export interface CreateEtsyDraftListingRequest extends Pick<
   EtsyListing,
@@ -41,22 +45,25 @@ export interface CreateEtsyDraftListingRequest extends Pick<
   | 'should_auto_renew'
   | 'is_taxable'
 > {
+  /** Listing type: physical, download, or both. API field name is "type" for POST. */
   type: EtsyListing['listing_type'];
 
+  /** Price as a float (e.g. 10.50). Sent as-is to API. */
   price: number;
+
   /**
    * Array of unique IDs of production partners.
    */
   production_partner_ids?: Maybe<number[]>;
 
   /**
-   * Array of numeric image IDs of the images in a listing.
+   * Array of numeric image IDs of the images in a listing (max 10).
    */
   image_ids?: Maybe<number[]>;
 }
 
 /**
- * Zod schema for validating an UpdateEtsyListingRequest.
+ * Zod schema for validating CreateEtsyDraftListingRequest.
  */
 export const zCreateEtsyDraftListingRequestSchema = z.object({
   title: z.string().min(1),
@@ -98,7 +105,8 @@ export const zCreateEtsyDraftListingRequestSchema = z.object({
 }) satisfies ZodType<CreateEtsyDraftListingRequest>;
 
 /**
- * Defines the response schema for a draft listing created on Etsy.
+ * Response body for createDraftListing: a single listing object (draft).
+ * @see https://developers.etsy.com/documentation/reference/#operation/createDraftListing
  */
 export type CreateEtsyDraftListingResponse = Omit<
   EtsyListing,
