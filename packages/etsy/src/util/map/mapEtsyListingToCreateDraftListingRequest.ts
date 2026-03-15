@@ -23,6 +23,7 @@ export function mapEtsyListingToCreateDraftListingRequest(
       'taxonomy_id',
       'shipping_profile_id',
       'return_policy_id',
+      'readiness_state_id',
       'materials',
       'shop_section_id',
       'processing_min',

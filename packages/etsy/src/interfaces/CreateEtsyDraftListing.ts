@@ -13,6 +13,7 @@ import {EtsyListing} from './EtsyListing';
  * @see https://developers.etsy.com/documentation/reference/#operation/createDraftListing
  *
  * API expects "type" (not "listing_type") and price as a float.
+ * readiness_state_id is required for physical listings (from shop Processing Profile).
  */
 export interface CreateEtsyDraftListingRequest extends Pick<
   EtsyListing,
@@ -50,6 +51,12 @@ export interface CreateEtsyDraftListingRequest extends Pick<
 
   /** Price as a float (e.g. 10.50). Sent as-is to API. */
   price: number;
+
+  /**
+   * Numeric ID of the processing/readiness state (from shop's Processing Profile).
+   * Required for physical listings; omit for digital.
+   */
+  readiness_state_id?: Maybe<number>;
 
   /**
    * Array of unique IDs of production partners.
@@ -93,6 +100,7 @@ export const zCreateEtsyDraftListingRequestSchema = z.object({
   // state: z.literal(EtsyListingStateEnum.DRAFT),
   is_supply: z.boolean(),
   type: z.nativeEnum(EtsyListingTypeEnum),
+  readiness_state_id: z.number().int().positive().nullable().optional(),
   image_ids: z.array(z.number().int()).max(10).optional(),
   production_partner_ids: z.array(z.number().int()).nullable().optional(),
 

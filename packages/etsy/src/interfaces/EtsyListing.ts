@@ -16,7 +16,9 @@ import {EtsyTranslation} from './EtsyTranslation';
 import {EtsyUser} from './EtsyUser';
 
 /**
- * Represents an Etsy product listing.
+ * Etsy product listing (Shop Listing schema).
+ * Returned by getListing: GET /application/listings/{listing_id}.
+ * @see https://developers.etsy.com/documentation/reference/#operation/getListing
  */
 export interface EtsyListing {
   /**
@@ -159,6 +161,12 @@ export interface EtsyListing {
    * Maybe if not applicable.
    */
   return_policy_id: Maybe<number>;
+
+  /**
+   * The numeric ID of the processing/readiness state (Processing Profile). Physical listings only.
+   * Maybe if not applicable.
+   */
+  readiness_state_id: Maybe<number>;
 
   /**
    * The minimum number of days required to process this listing.
