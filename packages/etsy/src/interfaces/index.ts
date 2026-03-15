@@ -11,6 +11,8 @@ export * from './EtsyProductOffering';
 export * from './EtsyProductPropertyValue';
 export * from './EtsyError';
 export * from './EtsyResponse';
+export * from './EtsyShippingCarrier';
+export * from './EtsyShippingCarrierMailClass';
 export * from './EtsyShippingProfile';
 export * from './EtsyShippingProfileDestination';
 export * from './EtsyShippingProfileUpgrade ';

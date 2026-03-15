@@ -1,5 +1,6 @@
 export * from './listing';
 export * from './listingFile';
+export * from './listingShipping';
 export * from './listingImage';
 export * from './listingInventory';
 export * from './listingProperty';
