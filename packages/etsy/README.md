@@ -8,10 +8,15 @@ Etsy API client: OAuth, shops, listings, inventory, images, videos, helpers.
 - **Exports:** getEtsyListing, createEtsyDraftListing, uploadEtsyListingImage, interfaces, enums, helpers, ETSY_API_ENDPOINT.
 - **Use when:** Etsy seller integration; needs app credentials and callback URL in Etsy Developer.
 - **Dependencies:** axios, express, zod, lodash, @coolcolduk/axios, @coolcolduk/crypto-util, @coolcolduk/enum, @coolcolduk/util, @coolcolduk/typescript-util.
+- **API reference (OpenAPI):** For authoritative request/response schemas, parameters, and typings, use the official Etsy OpenAPI v3 spec: https://www.etsy.com/openapi/generated/oas/3.0.0.json
 
 ## OAuth callback
 
 Register: https://www.etsy.com/uk/developers/edit/<app_id>/callbacks
+
+## API reference (OpenAPI)
+
+Authoritative request/response schemas, parameters, and typings: [Etsy OpenAPI v3 spec (JSON)](https://www.etsy.com/openapi/generated/oas/3.0.0.json). Use this when validating or extending interfaces (e.g. createDraftListing, getListing, ShopListing, readiness_state_id).
 
 ## API (main functions)
 
