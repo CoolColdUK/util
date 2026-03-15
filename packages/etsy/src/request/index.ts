@@ -8,4 +8,5 @@ export * from './listingVideo';
 export * from './login';
 export * from './other';
 export * from './shop';
+export * from './shopReadiness';
 export * from './user';
