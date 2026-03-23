@@ -5,3 +5,5 @@ export * from './jsonParseSafe';
 export * from './mapEnglishToCapAllWord';
 export * from './mapEnglishToCapFirstWord';
 export * from './mapScreamingSnakeCaseToEnglish';
+export * from './parseStringToTags';
+export * from './parseTagsToString';
