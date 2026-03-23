@@ -22,3 +22,11 @@ export interface FirestoreQuerySnapshotLike<T = unknown> {
   docs: FirestoreDocSnapshotWithIdAndData<T>[];
   size: number;
 }
+
+/**
+ * This is from firestore
+ */
+export interface DocumentData {
+  /** A mapping between a field and its value. */
+  [field: string]: any;
+}
