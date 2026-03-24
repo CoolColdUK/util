@@ -1,3 +1,4 @@
+import {EnumType} from '@coolcolduk/typescript-util';
 import {throwIfUndefined} from '../trythrow/throwIfUndefined';
 import {mapStringToEnumValue} from './mapStringToEnumValue';
 
@@ -7,7 +8,7 @@ import {mapStringToEnumValue} from './mapStringToEnumValue';
  * @param value value of enum
  * @returns undefined if string does not belong to enum, otherwise return enum
  */
-export function mapStringToEnumValueValidated<T extends {[key: number | string]: string | number}>(
+export function mapStringToEnumValueValidated<T extends EnumType>(
   enumObject: T,
   value: string | number,
   errorMessage?: string,
