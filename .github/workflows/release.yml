@@ -123,7 +123,7 @@ jobs:
       #     # NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Create Git Tag
-        uses: pkgdeps/git-tag-action@v3.0.0
+        uses: pkgdeps/git-tag-action@v3.0.1
         with:
           version: ${{ env.PACKAGE_VERSION }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -132,7 +132,7 @@ jobs:
           git_tag_prefix: 'v'
       - name: Create Release
         id: create_release
-        uses: softprops/action-gh-release@v2.5.0
+        uses: softprops/action-gh-release@v2.6.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
