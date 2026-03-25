@@ -1,5 +1,10 @@
 import {Base64Object} from './Base64Object';
 
+/**
+ * Convert File object to Base64Object
+ * @param file File object to convert to Base64Object
+ * @returns Base64Object
+ */
 export function fileToBase64Object(file: File): Promise<Base64Object> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();

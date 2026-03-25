@@ -1,3 +1,8 @@
+/**
+ * Convert base64 string to File object
+ * @param base64String base64 string to convert to File
+ * @returns File object
+ */
 export function base64ToFile(base64String: string): File {
   const splitBar = base64String.split('|');
 

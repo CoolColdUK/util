@@ -1,5 +1,10 @@
 import {Base64Object} from './Base64Object';
 
+/**
+ * Convert Base64Object to File object
+ * @param base64Object Base64Object to convert to File object
+ * @returns File object
+ */
 export function base64ObjectToFile(base64Object: Base64Object): File {
   // If the base64 string includes the data URL prefix, extract just the base64 data
   const base64Data = base64Object.data.includes('base64,') ? base64Object.data.split('base64,')[1] : base64Object.data;
