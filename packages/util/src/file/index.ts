@@ -3,6 +3,7 @@ export * from './base64ObjectToFile';
 export * from './base64ToFile';
 export * from './extractFileExtension';
 export * from './extractFileExtensionFromFile';
+export * from './extractFileNameFromFile';
 export * from './extractFilenameWithoutExtension';
 export * from './fileToBase64';
 export * from './fileToBase64Object';
