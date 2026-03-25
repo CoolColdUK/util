@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@coolcolduk/firebase",
-  "version": "9.6.0",
+  "version": "9.7.0",
   "description": "firebase utils",
   "license": "MIT",
   "type": "module",
@@ -33,9 +33,9 @@
   },
   "types": "./dist/esm/index.d.mts",
   "dependencies": {
-    "@coolcolduk/firebase-util": "^9.6.0",
-    "@coolcolduk/typescript-util": "^9.6.0",
-    "@coolcolduk/util": "^9.6.0",
+    "@coolcolduk/firebase-util": "^9.7.0",
+    "@coolcolduk/typescript-util": "^9.7.0",
+    "@coolcolduk/util": "^9.7.0",
     "express": "^5.0.0",
     "firebase-admin": "^13.7.0"
   },
