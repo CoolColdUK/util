@@ -4,6 +4,7 @@ export * from './delay';
 export * from './enum';
 export * from './error';
 export * from './file';
+export * from './function';
 export * from './number';
 export * from './object';
 export * from './promise';
