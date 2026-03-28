@@ -1,4 +1,4 @@
-import type {FieldPath} from './FieldPath';
+import type {FieldPath} from '../FieldPath';
 import {FilterOp} from './FilterOp';
 
 /**

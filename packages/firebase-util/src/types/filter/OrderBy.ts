@@ -1,4 +1,4 @@
-import {FieldPath} from './FieldPath';
+import {FieldPath} from '../FieldPath';
 import {OrderByDirection} from './OrderByDirection';
 
 export interface OrderBy {
