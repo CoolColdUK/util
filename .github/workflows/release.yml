@@ -1,23 +1,10 @@
-# This workflow often runs following steps when a PR is merged to main branch.
-# 1. jobs.check checks if we need to release
-# 2. jobs.release publish packages
-#
-# Note: Force publish
-# You can publish packages manually by running workflow dispatch
-# This workflow dispatch skip jobs.check process
-# 1. dispatch "release" workflow
-# 2. Open Release Page
-# 3. Generate Release Note
+# Manual release only: Actions → Release → Run workflow.
+# Pick major / minor / patch, then pack, tag, GitHub Release, publish to ghcr npm.
 name: Release
-run-name: '${{inputs.version }} - ${{ inputs.description }}'
+run-name: '${{ inputs.version }} - ${{ inputs.description }}'
 
 on:
-  pull_request:
-    branches:
-      - develop
-      - master
-    types: [closed]
-  workflow_dispatch: # force release
+  workflow_dispatch:
     inputs:
       version:
         description: 'bump release version'
@@ -101,13 +88,13 @@ jobs:
       - name: Build
         run: npm run ci:build
       - name: bump patch
-        if: inputs.version=='patch'
+        if: inputs.version == 'patch'
         run: npm run release:patch
       - name: bump minor
-        if: inputs.version=='minor'
+        if: inputs.version == 'minor'
         run: npm run release:minor
       - name: bump major
-        if: inputs.version=='major'
+        if: inputs.version == 'major'
         run: npm run release:major
       - name: Pack
         run: npm run pack
@@ -137,12 +124,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: v${{ env.PACKAGE_VERSION }}
-          # Copy Pull Request's tile and body to Release Note
-          # release_name: ${{ github.event.pull_request.title }}
-          body: ${{ github.event.pull_request.body }}
+          body: ${{ inputs.description }}
           draft: false
           prerelease: false
-          generate_release_notes: ${{ !github.event.pull_request.body }}
+          generate_release_notes: true
           files: |
             ./packages/*.tgz
 
