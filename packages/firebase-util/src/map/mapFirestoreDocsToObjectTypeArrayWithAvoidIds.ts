@@ -1,6 +1,6 @@
 import {MaybeArray, WithId} from '@coolcolduk/typescript-util';
 import {filterArrayNull, loopTill} from '@coolcolduk/util';
-import type {FirestoreQuerySnapshotLike} from '../type';
+import {FirestoreQuerySnapshotLike} from '../types/snapshot/FirestoreQuerySnapshotLike';
 import {mapFirestoreDocToObjectType} from './mapFirestoreDocToObjectType';
 import {mapFirestoreDocsToObjectTypeArray} from './mapFirestoreDocsToObjectTypeArray';
 

@@ -1,4 +1,4 @@
-import type {FirestoreSnapshotWithData} from '../type';
+import {FirestoreSnapshotWithData} from '../types/snapshot/FirestoreSnapshotWithData';
 import {mapFirestoreTimestampToDateForObjectValue} from './mapFirestoreTimestampToDateForObjectValue';
 
 /**

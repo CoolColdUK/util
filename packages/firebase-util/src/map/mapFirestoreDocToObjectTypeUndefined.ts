@@ -1,5 +1,5 @@
 import {May, WithId} from '@coolcolduk/typescript-util';
-import {FirestoreDocSnapshotWithIdAndData} from '../type';
+import {FirestoreDocSnapshotWithIdAndData} from '../types/snapshot/FirestoreDocSnapshotWithIdAndData';
 
 /**
  * Map a Firestore document snapshot to an object with id.
