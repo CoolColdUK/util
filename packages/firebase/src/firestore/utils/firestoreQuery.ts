@@ -1,6 +1,5 @@
+import {Filter, OrderBy} from '@coolcolduk/firebase-util';
 import {CollectionReference, DocumentData, Query} from 'firebase-admin/firestore';
-import {Filter} from '../../type/Filter';
-import {OrderBy} from '../../type/OrderBy';
 
 export interface QueryOptions {
   limit?: number;
