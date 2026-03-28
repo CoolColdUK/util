@@ -50,8 +50,8 @@
     "@coolcolduk/jest-config": "^5.1.0",
     "@coolcolduk/ts-config": "^5.1.0",
     "@types/express": "^5.0.0",
-    "@types/lodash": "^4.17.20",
-    "tsdown": "^0.21.2"
+    "@types/lodash": "^4.17.24",
+    "tsdown": "^0.21.6"
   },
   "jest": {
     "preset": "@coolcolduk/jest-config",

@@ -40,7 +40,7 @@
     "@coolcolduk/eslint-config": "^5.1.0",
     "@coolcolduk/jest-config": "^5.1.0",
     "@coolcolduk/ts-config": "^5.1.0",
-    "tsdown": "^0.21.2"
+    "tsdown": "^0.21.6"
   },
   "jest": {
     "preset": "@coolcolduk/jest-config",
