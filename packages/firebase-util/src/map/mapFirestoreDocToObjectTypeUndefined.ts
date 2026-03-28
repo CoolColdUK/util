@@ -6,7 +6,7 @@ import {FirestoreDocSnapshotWithIdAndData} from '../types/snapshot/FirestoreDocS
  * Return undefined if the data is undefined.
  */
 export function mapFirestoreDocToObjectTypeUndefined<T = Record<string, unknown>>(
-  firestoreObject?: FirestoreDocSnapshotWithIdAndData<T> | null | undefined,
+  firestoreObject?: FirestoreDocSnapshotWithIdAndData<T> | undefined,
 ): May<WithId<T>> {
   if (!firestoreObject) return undefined;
   const {id} = firestoreObject;
