@@ -2,8 +2,11 @@ import {FieldPath} from './FieldPath';
 import {OrderByDirection} from './OrderByDirection';
 
 export interface OrderBy {
-  /** the field to order by. Does not accept FieldPath for now. */
+  /** the field to order by */
   field: string | FieldPath;
-  /** the direction to order by. */
-  direction: OrderByDirection;
+  /**
+   * The direction to order by.
+   * @default OrderByDirection.ASC
+   * */
+  direction?: OrderByDirection;
 }
