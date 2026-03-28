@@ -2,7 +2,7 @@
   "private": false,
   "name": "@coolcolduk/firebase-util",
   "version": "9.7.0",
-  "description": "Firestore timestamp and conversion utilities (no firebase-admin; safe for frontend)",
+  "description": "Various firebase utilities (does not include firebase itself, shared for frontend and backend)",
   "license": "MIT",
   "type": "module",
   "exports": {
