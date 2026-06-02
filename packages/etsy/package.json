@@ -51,7 +51,7 @@
     "@coolcolduk/ts-config": "^5.1.0",
     "@types/express": "^5.0.0",
     "@types/lodash": "^4.17.24",
-    "tsdown": "^0.21.6"
+    "tsdown": "^0.22.1"
   },
   "jest": {
     "preset": "@coolcolduk/jest-config",
