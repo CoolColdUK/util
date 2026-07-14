@@ -37,7 +37,8 @@
   },
   "devDependencies": {
     "lerna": "^9.0.7",
-    "prettier": "^3.9.5"
+    "prettier": "^3.9.5",
+    "typescript": "^6"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
