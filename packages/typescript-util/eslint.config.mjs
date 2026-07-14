@@ -6,6 +6,14 @@ const baseConfig = typeof eslintConfig === 'function' ? await eslintConfig() : e
 export default [
   ...baseConfig,
   {
+    files: ['**/*.ts'],
+    languageOptions: {
+      parserOptions: {
+        project: './tsconfig.eslint.json',
+      },
+    },
+  },
+  {
     rules: {
       'no-console': 'off',
     },
