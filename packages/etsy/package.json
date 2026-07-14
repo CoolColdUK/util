@@ -46,12 +46,12 @@
     "zod": "^4.0.0"
   },
   "devDependencies": {
-    "@coolcolduk/eslint-config": "^5.1.0",
-    "@coolcolduk/jest-config": "^5.1.0",
-    "@coolcolduk/ts-config": "^5.1.0",
+    "@coolcolduk/eslint-config": "^6",
+    "@coolcolduk/jest-config": "^6",
+    "@coolcolduk/ts-config": "^6",
     "@types/express": "^5.0.0",
     "@types/lodash": "^4.17.24",
-    "tsdown": "^0.22.1"
+    "tsdown": "^0.22.7"
   },
   "jest": {
     "preset": "@coolcolduk/jest-config",

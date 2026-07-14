@@ -36,10 +36,10 @@
     "@coolcolduk/typescript-util": "^10.3.0"
   },
   "devDependencies": {
-    "@coolcolduk/eslint-config": "^5.1.0",
-    "@coolcolduk/jest-config": "^5.1.0",
-    "@coolcolduk/ts-config": "^5.1.0",
-    "tsdown": "^0.22.1"
+    "@coolcolduk/eslint-config": "^6",
+    "@coolcolduk/jest-config": "^6",
+    "@coolcolduk/ts-config": "^6",
+    "tsdown": "^0.22.7"
   },
   "jest": {
     "preset": "@coolcolduk/jest-config",
