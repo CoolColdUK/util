@@ -36,6 +36,7 @@
     "@apollo/server": "^5.0.0",
     "@as-integrations/express5": "^1.0.0",
     "@coolcolduk/enum": "^10.3.0",
+    "@coolcolduk/typescript-util": "^10.3.0",
     "cors": "^2.8.5",
     "express": "^5.0.0",
     "graphql": "^16.11.0",

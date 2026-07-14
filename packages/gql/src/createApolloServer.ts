@@ -1,6 +1,6 @@
 import {ApolloServer, ApolloServerPlugin, BaseContext, ContextFunction} from '@apollo/server';
 import {ExpressContextFunctionArgument, expressMiddleware} from '@as-integrations/express5';
-import {Logger} from '@coolcolduk/enum';
+import {Logger} from '@coolcolduk/typescript-util';
 import cors, {CorsOptions} from 'cors';
 import express, {Express, Handler} from 'express';
 import {GraphQLDirective, GraphQLFormattedError} from 'graphql';

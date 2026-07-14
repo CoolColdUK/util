@@ -1,3 +1,4 @@
+import {GDriveResponse} from '../../types/GDriveResponse';
 import {getGDriveAxios} from '../../util/axios/getGDriveAxios';
 
 /**
@@ -6,7 +7,7 @@ import {getGDriveAxios} from '../../util/axios/getGDriveAxios';
  * @param fileId ID of the file to fetch
  * @returns Promise resolving to the Axios response with file content
  */
-export function getGDriveFile(apiKey: string, fileId: string) {
+export function getGDriveFile(apiKey: string, fileId: string): GDriveResponse<ArrayBuffer> {
   const downloadUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
 
   // Fetch the file from Google Drive

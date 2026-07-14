@@ -14,9 +14,12 @@ export async function fetchFileAsBuffer(url: string): Promise<{
   filename: string | undefined;
 }> {
   const response = await axios.get(url, {responseType: 'arraybuffer'});
+  const contentType = response.headers['content-type'];
+  const fallbackContentType = typeof contentType === 'string' ? contentType : undefined;
+
   return {
     buffer: Buffer.from(response.data),
-    type: extractMimeTypeFromHeader(response.headers) || response.headers['content-type'],
+    type: extractMimeTypeFromHeader(response.headers) || fallbackContentType,
     filename: extractFilenameFromHeader(response.headers),
   };
 }

@@ -1,1 +1,18 @@
-{"extends":"@coolcolduk/ts-config","compilerOptions":{"rootDir":"src","outDir":"dist","baseUrl":".","module":"ESNext","moduleResolution":"bundler","target":"ES2022"},"include":["src/**/*"],"exclude":["dist"]}
+{
+  "extends": "@coolcolduk/ts-config",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "target": "ES2022"
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "dist",
+    "**/*.test.ts",
+    "**/*.spec.ts"
+  ]
+}
